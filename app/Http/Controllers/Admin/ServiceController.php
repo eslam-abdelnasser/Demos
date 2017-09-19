@@ -42,24 +42,46 @@ class ServiceController extends Controller
     {
         //
         $languages = Language::where('status','=','1')->get();
-
         foreach ($languages as $language){
 
             $rules = [
-                'name_'.$language->label => 'required|max:255',
+                'title_'.$language->label => 'required|max:255',
                 'description_'.$language->label => 'required'
             ];
         }
 
         $this->validate($request,$rules);
+        $this->validate($request,array(
+            'icon' => 'required',
+            'image_url' => 'required',
+            'homepage_status' => 'required',
+            'status' => 'required'
+        ));
 
 
         $service = new Service();
+        $service->icon = $request->icon;
+        $service->home_page_status = $request->homepage_status;
+        $service->status = $request->status;
+        $service->image_url = $request->image_url;
+        $service->save();
 
+        foreach ($languages as $language){
+            $serviceDescription = new ServiceDescription();
+            $serviceDescription->lang_id = $language->id;
+            $serviceDescription->service_id = $service->id;
 
-        $serviceDescription = new ServiceDescription();
+            $title = 'title_'.$language->label;
+            $meta_title = 'meta_title_'.$language->label;
+            $description = 'description_'.$language->label;
+            $meta_description = 'meta_description_'.$language->label;
+            $serviceDescription->title = $request->get($title);
+            $serviceDescription->description = $request->get($description);
+            $serviceDescription->meta_title = $request->get($meta_title);
+            $serviceDescription->meta_description = $request->get($meta_description);
 
-
+            $serviceDescription->save();
+        }
     }
 
     /**
