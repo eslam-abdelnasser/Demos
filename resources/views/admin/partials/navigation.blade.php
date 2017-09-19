@@ -146,6 +146,47 @@
                 </ul>
             </li>
 
+            <li class="heading">
+                <h3 class="uppercase">Services</h3>
+            </li>
+
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Servicesr</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start">
+                        <a href="{{route('services.index')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Services</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start">
+                        <a href="{{route('services.create')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Create service</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+
+
+
+
+
+                </ul>
+            </li>
+
+
+
+
+
+
 
 
         </ul>

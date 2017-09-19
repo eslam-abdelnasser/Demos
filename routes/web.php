@@ -36,6 +36,8 @@ Route::group([
     Route::resource('/admins','Admin\AdminController');
     Route::resource('/roles','Admin\RoleController');
     Route::resource('/languages','Admin\LanguagesController');
+    Route::resource('/services','Admin\ServiceController');
+
     Route::get('/permissions', 'Admin\PermissionController@index')->name('permission.index');
     Route::get('/permissions/{permission_id}', 'Admin\PermissionController@edit')->name('permission.edit');
     Route::post('/permissions/{permission_id}', 'Admin\PermissionController@update')->name('permission.update');
