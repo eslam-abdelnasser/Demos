@@ -4,6 +4,7 @@
 
 {{-- start css --}}
 @section('css')
+    {{--<link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet" type="text/css" />--}}
 
 @endsection
 {{-- end css --}}
@@ -117,11 +118,23 @@
                             <div class="form-group">
                                 <label>Service Image</label>
                                 <div class="input-group margin-top-10">
-                                <span class="input-group-addon">
-                                        <i class="fa fa-image"></i>
-                                  </span>
-                                    <input type="text" class="form-control" name="image_url">
-                                </div>
+                                    <div class="col-md-12">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                <img name="image_url" id="image_url" src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
+                                            </div>
+                                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+                                            </div>
+                                            <div>
+                                                <span class="btn default btn-file">
+                                                <span class="fileinput-new"> Select image </span>
+                                                                <span class="fileinput-exists"> Change </span>
+                                                <input type="file" name="image_url" id="image_url"> </span>
+                                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Service Home Page Status</label>
@@ -160,6 +173,7 @@
 
 @endsection
 
+{{--<script src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript"></script>--}}
 
 {{-- Start javascript --}}
 @section('js')

@@ -17,6 +17,8 @@ class ServiceController extends Controller
     public function index()
     {
         //
+        $services = Service::all();
+        return view('admin.services.index')->with('services',$services);
     }
 
     /**
@@ -42,28 +44,30 @@ class ServiceController extends Controller
     {
         //
         $languages = Language::where('status','=','1')->get();
-        foreach ($languages as $language){
-
-            $rules = [
-                'title_'.$language->label => 'required|max:255',
-                'description_'.$language->label => 'required'
-            ];
-        }
-
-        $this->validate($request,$rules);
-        $this->validate($request,array(
+        $rules = [
             'icon' => 'required',
-            'image_url' => 'required',
+            'image_url' => 'required|mimes:jpg,jpeg,png,dmp',
             'homepage_status' => 'required',
             'status' => 'required'
-        ));
+        ];
+        foreach ($languages as  $language){
 
+            $rules['title_'.$language->label] = 'required|max:255';
+            $rules['description_'.$language->label] = 'required';
+            $rules['meta_title_'.$language->label] = 'required|max:255';
+            $rules['meta_description_'.$language->label] = 'required|max:255';
+            $rule['slug_'.$language->label] = 'required';
+        }
+
+
+        $this->validate($request,$rules);
 
         $service = new Service();
         $service->icon = $request->icon;
         $service->home_page_status = $request->homepage_status;
         $service->status = $request->status;
-        $service->image_url = $request->image_url;
+
+        $service->image_url = time().$request->image_url;
         $service->save();
 
         foreach ($languages as $language){
@@ -71,17 +75,15 @@ class ServiceController extends Controller
             $serviceDescription->lang_id = $language->id;
             $serviceDescription->service_id = $service->id;
 
-            $title = 'title_'.$language->label;
-            $meta_title = 'meta_title_'.$language->label;
-            $description = 'description_'.$language->label;
-            $meta_description = 'meta_description_'.$language->label;
-            $serviceDescription->title = $request->get($title);
-            $serviceDescription->description = $request->get($description);
-            $serviceDescription->meta_title = $request->get($meta_title);
-            $serviceDescription->meta_description = $request->get($meta_description);
-
-            $serviceDescription->save();
+            $serviceDescription->title = $request->get('title_'.$language->label);
+            $serviceDescription->description = $request->get('meta_title_'.$language->label);
+            $serviceDescription->meta_title = $request->get('description_'.$language->label);
+            $serviceDescription->meta_description = $request->get('meta_description_'.$language->label);
+            $serviceDescription->slug = "Slug Here";
+          $serviceDescription->save();
         }
+
+        return redirect()->back();
     }
 
     /**
