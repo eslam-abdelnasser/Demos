@@ -59,7 +59,7 @@ class ServiceController extends Controller
 
         $serviceDescription = new ServiceDescription();
 
-        
+
     }
 
     /**

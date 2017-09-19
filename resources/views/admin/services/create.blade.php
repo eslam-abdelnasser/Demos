@@ -75,8 +75,8 @@
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-envelope"></i>
                                                         </span>
-                                                <input type="text" name="email" id="email" class="form-control input-circle-right" placeholder="Email Address"> </div>
-                                        </div>
+                                                            <textarea class="my-editor"></textarea>
+                                            </div>
                                         <div class="form-group">
                                             <label>Password</label>
                                             <div class="input-group">
