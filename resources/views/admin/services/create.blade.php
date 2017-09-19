@@ -29,7 +29,8 @@
 @section('content')
 
     <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+
+        <div class="col-md-10 col-md-offset-1">
         <div class="portlet box blue">
             <div class="portlet-title">
                 <div class="caption">
@@ -43,12 +44,13 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-3">
                         <ul class="nav nav-tabs tabs-left">
+
+
                             @foreach($languages as $language)
                             <li class="{{$loop->iteration == 1 ? 'active' : ''}}">
                                 <a href="#{{$language->name}}" data-toggle="tab"> {{$language->name}} </a>
                             </li>
                             @endforeach
-
 
                         </ul>
                     </div>
@@ -117,8 +119,8 @@
                                 </div>
                             </div>
                             @endforeach
-
                         </div>
+
                         <div class="form-actions">
                             <button type="submit" class="btn blue">Submit</button>
                             <button type="button" class="btn default">Cancel</button>
