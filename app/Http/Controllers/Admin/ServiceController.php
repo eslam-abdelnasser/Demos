@@ -41,16 +41,21 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         //
+        $rules = [];
+        $rules['status'] = 'required' ;
         $languages = Language::where('status','=','1')->get();
 
-        foreach ($languages as $language){
+        foreach ($languages as  $language){
 
-            $rules = [
-                'name_'.$language->label => 'required|max:255',
-                'description_'.$language->label => 'required'
-            ];
+            $rules['name_'.$language->label] = 'required|max:255';
+            $rules['description_'.$language->label] = 'required';
+            $rules['meta_title_'.$language->label] = 'required|max:255';
+            $rules['meta_description_'.$language->label] = 'required|max:255';
+
         }
 
+
+        dd($rules);
         $this->validate($request,$rules);
 
 
