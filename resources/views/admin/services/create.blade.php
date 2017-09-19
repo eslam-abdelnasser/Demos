@@ -71,47 +71,11 @@
                                                         </span>
                                                 <input type="text" name="name_{{$language->label}}" id="name" class="form-control input-circle-right" placeholder="Name"> </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-envelope"></i>
-                                                        </span>
-                                                            <textarea class="my-editor"></textarea>
-                                            </div>
-                                        <div class="form-group">
-                                            <label>Password</label>
-                                            <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-lock"></i>
-                                                        </span>
-                                                <input type="password" name="password" id="password" class="form-control input-circle-right" placeholder="Confirm Password"> </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Confirm Password</label>
-                                            <div class="input-group">
-                                                            <span class="input-group-addon input-circle-left">
-                                                                <i class="fa fa-lock"></i>
-                                                            </span>
-                                                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-circle-right" placeholder="Confirm Password"> </div>
 
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Phone</label>
-                                            <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-phone"></i>
-                                                        </span>
-                                                <input type="text" name="phone" id="phone" class="form-control input-circle-right" placeholder="Phone"> </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Job Title</label>
-                                            <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-briefcase"></i>
-                                                        </span>
-                                                <input type="text" name="job_title" id="job_title" class="form-control input-circle-right" placeholder="Job Title"> </div>
-                                        </div>
+
+
+
+
 
 
                                     </div>
