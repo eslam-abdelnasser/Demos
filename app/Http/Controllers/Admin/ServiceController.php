@@ -41,8 +41,10 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         //
-        $rules = [];
-        $rules['status'] = 'required' ;
+        $rules = [
+            'hamada' => 'hyyyyy'
+        ];
+
         $languages = Language::where('status','=','1')->get();
 
         foreach ($languages as  $language){
