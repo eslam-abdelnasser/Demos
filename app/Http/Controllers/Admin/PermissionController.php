@@ -21,7 +21,7 @@ class PermissionController extends Controller
 
     public function index(){
 //        dd($this->find_system_route());
-        $string = 'admins.index';
+//        $string = 'admins.index';
         $permissions = Permission::paginate('10');
 
         if(isset($permissions) && count($permissions)){

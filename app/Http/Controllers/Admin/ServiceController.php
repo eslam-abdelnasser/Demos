@@ -17,6 +17,8 @@ class ServiceController extends Controller
     public function index()
     {
         //
+        $services = Service::all();
+        return view('admin.services.index')->with('services',$services);
     }
 
     /**
@@ -41,32 +43,50 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         //
-        $rules = [
-            'hamada' => 'hyyyyy'
-        ];
+
+
 
         $languages = Language::where('status','=','1')->get();
-
+        $rules = [
+            'icon' => 'required',
+            'image_url' => 'required|mimes:jpg,jpeg,png,dmp',
+            'homepage_status' => 'required',
+            'status' => 'required'
+        ];
         foreach ($languages as  $language){
 
-            $rules['name_'.$language->label] = 'required|max:255';
+            $rules['title_'.$language->label] = 'required|max:255';
             $rules['description_'.$language->label] = 'required';
             $rules['meta_title_'.$language->label] = 'required|max:255';
             $rules['meta_description_'.$language->label] = 'required|max:255';
-
+            $rule['slug_'.$language->label] = 'required';
         }
 
 
-        dd($rules);
         $this->validate($request,$rules);
 
-
         $service = new Service();
+        $service->icon = $request->icon;
+        $service->home_page_status = $request->homepage_status;
+        $service->status = $request->status;
 
+        $service->image_url = time().$request->image_url;
+        $service->save();
 
-        $serviceDescription = new ServiceDescription();
+        foreach ($languages as $language){
+            $serviceDescription = new ServiceDescription();
+            $serviceDescription->lang_id = $language->id;
+            $serviceDescription->service_id = $service->id;
 
+            $serviceDescription->title = $request->get('title_'.$language->label);
+            $serviceDescription->description = $request->get('meta_title_'.$language->label);
+            $serviceDescription->meta_title = $request->get('description_'.$language->label);
+            $serviceDescription->meta_description = $request->get('meta_description_'.$language->label);
+            $serviceDescription->slug = "Slug Here";
+          $serviceDescription->save();
+        }
 
+        return redirect()->back();
     }
 
     /**
