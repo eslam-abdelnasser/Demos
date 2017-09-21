@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\ServiceDescription;
+use App\Models\Blog;
+use App\Models\BlogDescription;
+use App\Models\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Language ;
-use App\Models\Service ;
-class ServiceController extends Controller
+use Symfony\Component\VarDumper\Tests\Fixtures\NotLoadableClass;
+
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +19,8 @@ class ServiceController extends Controller
     public function index()
     {
         //
-        $services = Service::all();
-        return view('admin.services.index')->with('services',$services);
+        $blogs = Blog::paginate('10');
+        return view('admin.blogs.index')->with('blogs',$blogs);
     }
 
     /**
@@ -30,8 +32,8 @@ class ServiceController extends Controller
     {
         //
         $languages = Language::where('status','=','1')->get();
+        return view('admin.blogs.create')->with('languages',$languages);
 
-        return view('admin.services.create')->withLanguages($languages);
     }
 
     /**
@@ -45,13 +47,12 @@ class ServiceController extends Controller
         //
         $languages = Language::where('status','=','1')->get();
         $rules = [
-            'icon' => 'required',
-            'image_url' => 'required|mimes:jpg,jpeg,png,dmp',
+//            'image_url' => 'required|mimes:jpg,jpeg,png,dmp',
             'homepage_status' => 'required',
             'status' => 'required'
         ];
         foreach ($languages as  $language){
-
+            $rules['auther_name_'.$language->label] = 'required';
             $rules['title_'.$language->label] = 'required|max:255';
             $rules['description_'.$language->label] = 'required';
             $rules['meta_title_'.$language->label] = 'required|max:255';
@@ -62,28 +63,28 @@ class ServiceController extends Controller
 
         $this->validate($request,$rules);
 
-        $service = new Service();
-        $service->icon = $request->icon;
-        $service->home_page_status = $request->homepage_status;
-        $service->status = $request->status;
-
-        $service->image_url = time().$request->image_url;
-        $service->save();
+        $blog = new Blog();
+        $blog->home_page_status = $request->homepage_status;
+        $blog->status = $request->status;
+        $blog->image_url = time().$request->image_url;
+        $blog->save();
 
         foreach ($languages as $language){
-            $serviceDescription = new ServiceDescription();
-            $serviceDescription->lang_id = $language->id;
-            $serviceDescription->service_id = $service->id;
+            $blogDescription = new BlogDescription();
+            $blogDescription->lang_id = $language->id;
+            $blogDescription->blog_id = $blog->id;
 
-            $serviceDescription->title = $request->get('title_'.$language->label);
-            $serviceDescription->description = $request->get('meta_title_'.$language->label);
-            $serviceDescription->meta_title = $request->get('description_'.$language->label);
-            $serviceDescription->meta_description = $request->get('meta_description_'.$language->label);
-            $serviceDescription->slug = "Slug Here";
-          $serviceDescription->save();
+            $blogDescription->auther_name = $request->get('auther_name_'.$language->label);
+            $blogDescription->title = $request->get('title_'.$language->label);
+            $blogDescription->description = $request->get('meta_title_'.$language->label);
+            $blogDescription->meta_title = $request->get('description_'.$language->label);
+            $blogDescription->meta_description = $request->get('meta_description_'.$language->label);
+            $blogDescription->slug = "Slug Here";
+            $blogDescription->save();
         }
 
         return redirect()->back();
+
     }
 
     /**
@@ -129,12 +130,12 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         //
-        $service = Service::find($id);
-        $servicedescriptions = ServiceDescription::where('service_id',$service->id);
-        foreach ($servicedescriptions as $servicedesc){
-            $servicedesc->delete();
+        $blog = Blog::find($id);
+        $blogdescriptions = BlogDescription::where('service_id',$blog->id);
+        foreach ($blogdescriptions as $blogdesc){
+            $blogdesc->delete();
         }
-        $service->delete();
+        $blog->delete();
         return redirect()->back();
     }
 }

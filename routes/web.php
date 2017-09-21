@@ -38,6 +38,8 @@ Route::group([
     Route::resource('/languages','Admin\LanguagesController');
     Route::resource('/services','Admin\ServiceController');
     Route::resource('/faqs','Admin\FaqController');
+    Route::resource('/blogs','Admin\BlogController');
+
 
     Route::get('/permissions', 'Admin\PermissionController@index')->name('permission.index');
     Route::get('/permissions/{permission_id}', 'Admin\PermissionController@edit')->name('permission.edit');
