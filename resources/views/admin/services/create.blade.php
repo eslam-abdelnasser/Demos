@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Languages')
+@section('title', 'Services')
 
 {{-- start css --}}
 @section('css')
@@ -12,7 +12,7 @@
 {{-- Start Breadcums --}}
 
 @section('home','Home')
-@section('page_title','Languages')
+@section('page_title','Services')
 
 
 {{-- End Breadcums--}}
@@ -20,9 +20,9 @@
 
 {{-- Start page title --}}
 
-@section('page_head','Languages')
+@section('page_head','Services')
 
-@section('page_description','Add Languages that should be in your website')
+@section('page_description','Add Services that should be in your website')
 
 {{-- end page title --}}
 
@@ -154,10 +154,10 @@
                                             <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
                                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
                                         <div>
-                                                                <span class="btn default btn-file">
-                                                                    <span class="fileinput-new"> Select image </span>
-                                                                    <span class="fileinput-exists"> Change </span>
-                                                                    <input type="file" name="image_url"> </span>
+                                            <span class="btn default btn-file">
+                                            <span class="fileinput-new"> Select image </span>
+                                            <span class="fileinput-exists"> Change </span>
+                                            <input type="file" name="image_url"> </span>
                                             <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
                                         </div>
                                     </div>

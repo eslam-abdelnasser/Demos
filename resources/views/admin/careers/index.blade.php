@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Services')
+@section('title', 'Careers')
 
 {{-- start css --}}
 @section('css')
@@ -20,7 +20,7 @@
 {{-- Start Breadcums --}}
 
 @section('home','Home')
-@section('page_title','Services')
+@section('page_title','Careers')
 
 
 {{-- End Breadcums--}}
@@ -28,9 +28,9 @@
 
 {{-- Start page title --}}
 
-@section('page_head','Services')
+@section('page_head','Careers')
 
-@section('page_description','All your website Services')
+@section('page_description','All your website Careers')
 
 {{-- end page title --}}
 
@@ -44,7 +44,7 @@
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="icon-settings font-dark"></i>
-                        <span class="caption-subject bold uppercase"> Services Table</span>
+                        <span class="caption-subject bold uppercase"> Career Table</span>
                     </div>
 
                 </div>
@@ -53,7 +53,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('services.create')}}'" class="btn sbold green"> Add New
+                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('careers.create')}}'" class="btn sbold green"> Add New
                                         <i class="fa fa-plus"></i>
                                     </button>
 
@@ -67,7 +67,7 @@
 
                         </div>
                     </div>
-                    {!! Form::open(['route' => ['services.destroy.all'] , 'method' => 'delete', 'id'=>'form-delete']) !!}
+                    {!! Form::open(['route' => ['careers.destroy.all'] , 'method' => 'delete', 'id'=>'form-delete']) !!}
                     <input type="hidden"  value="" name="items" id="items"/>
                     {!! Form::close() !!}
                     <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
@@ -80,8 +80,7 @@
                                 </label>
                             </th>
                             <th>#</th>
-                            <th class="text-center"> Service title </th>
-                            <th class="text-center"> Show on home page </th>
+                            <th class="text-center"> Career title </th>
                             <th class="text-center"> Status </th>
 
                             <th class="text-center"> Actions </th>
@@ -89,37 +88,33 @@
                         </thead>
                         <tbody>
 
-                        @foreach($services as $service)
-                        <tr class="odd gradeX">
-                            <td>
-                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                    <input type="checkbox" name="checkbox[]" class="checkboxes sub_chk" value="{{$service->id}}" data-id="{{$service->id}}" />
-                                    <span></span>
-                                </label>
-                            </td>
-                            <td>{{$loop->iteration}}</td>
-                            <td class="text-center">
-                                @foreach($service->description as $description)
+                        @foreach($careers as $career)
+                            <tr class="odd gradeX">
+                                <td>
+                                    <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                        <input type="checkbox" name="checkbox[]" class="checkboxes sub_chk" value="{{$career->id}}" data-id="{{$career->id}}" />
+                                        <span></span>
+                                    </label>
+                                </td>
+                                <td>{{$loop->iteration}}</td>
+                                <td class="text-center">
+                                    @foreach($career->description as $description)
 
-                                    <div><a href="#"> {{$description->title}} </a></div>
+                                        <div><a href="#"> {{$description->title}} </a></div>
 
-                                @endforeach
-                            </td>
-                            <td class="text-center vcenter">
-                                <span class="label label-sm label-{{$service->home_page_status == 0 ? 'danger' : 'success'}}"> {{$service->home_page_status == 0 ? 'inactive' : 'active'}} </span>
+                                    @endforeach
+                                </td>
+                                <td class="text-center">
+                                    <span class="label label-sm label-{{$career->status == 0 ? 'danger' : 'success'}}"> {{$career->status == 0 ? 'inactive' : 'active'}} </span>
+                                </td>
+                                <td class="text-center vcenter">
+                                    <a href="{{route('careers.edit',$career->id)}}" title="edit"><i class="fa fa-edit"></i></a>
+                                    {!! Form::open(['route' => ['careers.destroy',$career->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$career->id]) !!}
+                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$career->id}}" ).submit();' title="delete"><i class="fa fa-trash"></i></a>
+                                    {!! Form::close() !!}
+                                </td>
 
-                            </td>
-                            <td class="text-center">
-                                <span class="label label-sm label-{{$service->status == 0 ? 'danger' : 'success'}}"> {{$service->status == 0 ? 'inactive' : 'active'}} </span>
-                            </td>
-                            <td class="text-center vcenter">
-                               <a href="{{route('services.edit',$service->id)}}" title="edit"><i class="fa fa-edit"></i></a>
-                                {!! Form::open(['route' => ['services.destroy',$service->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$service->id]) !!}
-                               <a href="javascript:{}" onclick='document.getElementById("Form{{$service->id}}" ).submit();' title="delete"><i class="fa fa-trash"></i></a>
-                                {!! Form::close() !!}
-                            </td>
-
-                        </tr>
+                            </tr>
                         @endforeach
                         </tbody>
                     </table>

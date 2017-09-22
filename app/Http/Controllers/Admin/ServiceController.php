@@ -195,7 +195,7 @@ class ServiceController extends Controller
             }
 
         }
-        session()->flash('message','Service Added successfully');
+        session()->flash('message','Service Updated successfully');
         return redirect()->back();
     }
 

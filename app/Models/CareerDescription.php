@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class BlogDescription extends Model
+class CareerDescription extends Model
 {
     //
-    protected $table = 'blogs_description';
+    protected $table = 'career_descriptions';
 
 
     public function language(){
@@ -16,6 +16,6 @@ class BlogDescription extends Model
     }
 
     public function blog(){
-        return $this->belongsTO('App\Models\Blog','blog_id');
+        return $this->belongsTO('App\Models\Career','career_id');
     }
 }

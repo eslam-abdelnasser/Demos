@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Services')
+@section('title', 'Careers')
 
 {{-- start css --}}
 @section('css')
@@ -12,7 +12,7 @@
 {{-- Start Breadcums --}}
 
 @section('home','Home')
-@section('page_title','Services')
+@section('page_title','Careers')
 
 
 {{-- End Breadcums--}}
@@ -20,9 +20,9 @@
 
 {{-- Start page title --}}
 
-@section('page_head','Services')
+@section('page_head','Careers')
 
-@section('page_description','Edit Services that should be in your website')
+@section('page_description','Edit Careers that should be in your website')
 
 {{-- end page title --}}
 
@@ -35,7 +35,7 @@
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-gift"></i>Edit Service </div>
+                        <i class="fa fa-gift"></i>Edit Career </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"> </a>
                         <a href="#portlet-config" data-toggle="modal" class="config"> </a>
@@ -56,9 +56,9 @@
                             </ul>
                         </div>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                            {{Form::open(['route' => ['services.update',$service->id] , 'method' => 'put','files'=>true]) }}
+                            {{Form::open(['route' => ['careers.update',$career->id] , 'method' => 'put','files'=>true]) }}
                             <div class="tab-content">
-                                @foreach($service->description as $description)
+                                @foreach($career->description as $description)
 
                                     <div class="tab-pane {{$loop->iteration == 1 ? 'active' : ''}}" id="{{$description->language->name}}">
                                         <div class="portlet-body form">
@@ -117,53 +117,15 @@
                             </div>
 
                             <div class="portlet light ">
-                                <div class="form-group">
-                                    <label>Service Icone</label>
-                                    <div class="input-group margin-top-10">
-                                <span class="input-group-addon">
-                                        <i class="fa fa-image"></i>
-                                  </span>
-                                        <input type="text" class="form-control" name="icon" value="{{$service->icon}}">
-                                    </div>
-                                </div>
 
                                 <div class="form-group">
-                                    <label>Service Home Page Status</label>
-                                    <div class="input-group margin-top-10">
-                                        <select class="form-control input-medium" name="homepage_status">
-
-                                            <option value="1" {{$service->home_page_status == 1 ? 'selected' : ''}} >Display On Home Page</option>
-                                            <option value="0" {{$service->home_page_status == 0 ? 'selected' : ''}}>Not Display On Home Page</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Service Status</label>
+                                    <label>Career Status</label>
                                     <div class="input-group margin-top-10">
                                         <select class="form-control input-medium" name="status">
 
-                                            <option value="1" {{$service->status == 1 ? 'selected' : ''}} >Enable</option>
-                                            <option value="0" {{$service->status == 0 ? 'selected' : ''}} >Disable</option>
+                                            <option value="1" {{$career->status == 1 ? 'selected' : ''}} >Enable</option>
+                                            <option value="0" {{$career->status == 0 ? 'selected' : ''}} >Disable</option>
                                         </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3">Upload Image</label>
-                                    <div class="col-md-9">
-                                        <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                <img src="{{asset('uploads/services/'.$service->image_url)}}" alt="" /> </div>
-                                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
-                                            <div>
-                                                                <span class="btn default btn-file">
-                                                                    <span class="fileinput-new"> Select image </span>
-                                                                    <span class="fileinput-exists"> Change </span>
-                                                                    <input type="file" name="image_url"> </span>
-                                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-                                            </div>
-                                        </div>
-
                                     </div>
                                 </div>
 

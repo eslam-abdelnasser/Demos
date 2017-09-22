@@ -153,7 +153,7 @@
             <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
-                    <span class="title">Servicesr</span>
+                    <span class="title">Services</span>
                     <span class="selected"></span>
                     <span class="arrow"></span>
                 </a>
@@ -229,6 +229,59 @@
                     </li>
                 </ul>
             </li>
+
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Medical Equipment</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start">
+                        <a href="{{route('medical_equipments.index')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Medical Equipments</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start">
+                        <a href="{{route('medical_equipments.create')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Add Medical Equipment</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Careers</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start">
+                        <a href="{{route('careers.index')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Careers</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start">
+                        <a href="{{route('careers.create')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Create Career</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
 
 
 
