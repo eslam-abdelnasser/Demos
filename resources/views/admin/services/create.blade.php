@@ -4,7 +4,7 @@
 
 {{-- start css --}}
 @section('css')
-    {{--<link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet" type="text/css" />--}}
+    <link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet" type="text/css" />
 
 @endsection
 {{-- end css --}}
@@ -56,7 +56,7 @@
                         </ul>
                     </div>
                     <div class="col-md-9 col-sm-9 col-xs-9">
-                        {{Form::open(['route' => ['services.store'] , 'method' => 'post']) }}
+                        {{Form::open(['route' => ['services.store'] , 'method' => 'post','files'=>true]) }}
                         <div class="tab-content">
 
                             @foreach($languages as $language)
@@ -68,36 +68,45 @@
                                             <label>{{$language->name}} Title</label>
                                             <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-user"></i>
+                                                            <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                <input type="text" name="title_{{$language->label}}" id="title_{{$language->label}}" class="form-control input-circle-right" placeholder="Title"> </div>
+                                                <input type="text" name="title_{{$language->label}}" value="{{old('title_'.$language->label)}}" id="title_{{$language->label}}" class="form-control input-circle-right" placeholder="Title"> </div>
                                         </div>
                                         <div class="form-group">
-                                            <label>{{$language->name}} Meta Title</label>
+                                            <label>{{$language->name}} slug</label>
                                             <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-user"></i>
+                                                            <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                <input type="text" name="meta_title_{{$language->label}}" id="meta_title_{{$language->label}}" class="form-control input-circle-right" placeholder="Title"> </div>
+                                                <input type="text" name="slug_{{$language->label}}" value="{{old('slug_'.$language->label)}}" id="slug_{{$language->label}}" class="form-control input-circle-right" placeholder="Slug"> </div>
                                         </div>
                                         <div class="form-group">
                                             <label>{{$language->name}} Description</label>
                                             <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-user"></i>
-                                                        </span>
-                                                <textarea class="my-editor" name="description_{{$language->label}}" id="description_{{$language->label}}" placeholder="Description">
 
+                                                <textarea class="my-editor" name="description_{{$language->label}}" id="description_{{$language->label}}" placeholder="Description">
+                                                     {{old('description_'.$language->label)}}
                                                 </textarea>
                                             </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label>{{$language->name}} Meta title</label>
+                                            <div class="input-group">
+  <span class="input-group-addon input-circle-left">
+                                                            <i class="fa fa-align-justify"></i>
+                                                        </span>
+                                                <input type="text" name="meta_title_{{$language->label}}" value="{{old('meta_title_'.$language->label)}}" id="meta_title_{{$language->label}}" class="form-control input-circle-right" placeholder="Meta title"> </div>
+                                        </div>
+
                                         <div class="form-group">
                                             <label>{{$language->name}} Meta Description</label>
+
                                             <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-user"></i>
+<span class="input-group-addon input-circle-left">
+                                                            <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                <input type="text" name="meta_description_{{$language->label}}" id="meta_description_{{$language->label}}" class="form-control input-circle-right" placeholder="Title"> </div>
+                                                <input type="text" name="meta_description_{{$language->label}}" value="{{old('meta_description_'.$language->label)}}" id="meta_description_{{$language->label}}" class="form-control input-circle-right" placeholder="Meta description"> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +114,7 @@
                             @endforeach
                         </div>
 
-                        <div class="portlet light bordered">
+                        <div class="portlet light ">
                             <div class="form-group">
                                 <label>Service Icone</label>
                                 <div class="input-group margin-top-10">
@@ -115,34 +124,14 @@
                                     <input type="text" class="form-control" name="icon">
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>Service Image</label>
-                                <div class="input-group margin-top-10">
-                                    <div class="col-md-12">
-                                        <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                                <img name="image_url" id="image_url" src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" />
-                                            </div>
-                                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
-                                            </div>
-                                            <div>
-                                                <span class="btn default btn-file">
-                                                <span class="fileinput-new"> Select image </span>
-                                                                <span class="fileinput-exists"> Change </span>
-                                                <input type="file" name="image_url" id="image_url"> </span>
-                                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                 </div>
-                            </div>
+
                             <div class="form-group">
                                 <label>Service Home Page Status</label>
                                 <div class="input-group margin-top-10">
                                     <select class="form-control input-medium" name="homepage_status">
-                                        <option disabled> </option>
-                                        <option value="0" >Display On Home Page</option>
-                                        <option value="1" >Not Display On Home Page</option>
+
+                                        <option value="1" {{old('homepage_status') == 1 ? 'selected' : ''}} >Display On Home Page</option>
+                                        <option value="0" {{old('homepage_status') == 0 ? 'selected' : ''}}>Not Display On Home Page</option>
                                     </select>
                                 </div>
                             </div>
@@ -150,12 +139,32 @@
                                 <label>Service Status</label>
                                 <div class="input-group margin-top-10">
                                     <select class="form-control input-medium" name="status">
-                                        <option disabled> </option>
-                                        <option value="0" >Enable</option>
-                                        <option value="1" >Disable</option>
+
+                                        <option value="1" {{old('status') == 1 ? 'selected' : ''}} >Enable</option>
+                                        <option value="0" {{old('status') == 0 ? 'selected' : ''}} >Disable</option>
                                     </select>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Upload Image</label>
+                                <div class="col-md-9">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                            <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" /> </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                        <div>
+                                                                <span class="btn default btn-file">
+                                                                    <span class="fileinput-new"> Select image </span>
+                                                                    <span class="fileinput-exists"> Change </span>
+                                                                    <input type="file" name="image_url"> </span>
+                                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
                         </div>
                         <div class="form-actions">
                             <button type="submit" class="btn blue">Submit</button>
@@ -173,11 +182,20 @@
 
 @endsection
 
-{{--<script src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript"></script>--}}
 
 {{-- Start javascript --}}
 @section('js')
+    <script src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript"></script>
 
+    <script>
+    @foreach($languages as $language)
+      $("#title_{{$language->label}}").on('change', function (e) {
+
+        $("#slug_{{$language->label}}").val($("#title_{{$language->label}}").val());
+    });
+
+    @endforeach
+</script>
 @endsection
 
 {{-- end javascript --}}
