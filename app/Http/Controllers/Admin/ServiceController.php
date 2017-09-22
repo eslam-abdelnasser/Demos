@@ -221,5 +221,6 @@ class ServiceController extends Controller
         session()->flash('message','All  selected services deleted successfully');
         return redirect()->back();
 
+        
     }
 }
