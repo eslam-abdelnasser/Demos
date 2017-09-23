@@ -176,7 +176,6 @@ class ServiceController extends Controller
         $service->save();
 
 
-        $languages = Language::where('status','=','1')->get();
         foreach ($languages as $language){
             foreach($service->description  as $description){
 
@@ -221,6 +220,6 @@ class ServiceController extends Controller
         session()->flash('message','All  selected services deleted successfully');
         return redirect()->back();
 
-        
+
     }
 }

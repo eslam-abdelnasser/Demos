@@ -37,6 +37,9 @@ Route::group([
     Route::resource('/roles','Admin\RoleController');
     Route::resource('/languages','Admin\LanguagesController');
     Route::resource('/services','Admin\ServiceController');
+    Route::resource('/clinics','Admin\ClinicController');
+    Route::resource('/doctors','Admin\DoctorController');
+
     Route::resource('/faqs','Admin\FaqController');
     Route::delete('/services','Admin\ServiceController@destroyAll')->name('services.destroy.all');
     Route::resource('/blogs','Admin\BlogController');
