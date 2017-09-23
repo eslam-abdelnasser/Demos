@@ -42,7 +42,13 @@ Route::group([
 
     Route::resource('/faqs','Admin\FaqController');
     Route::delete('/services','Admin\ServiceController@destroyAll')->name('services.destroy.all');
+    Route::resource('/faqs','Admin\FaqController');
     Route::resource('/blogs','Admin\BlogController');
+    Route::delete('/blogs','Admin\BlogController@destroyAll')->name('blogs.destroy.all');
+    Route::resource('/medical_equipments','Admin\MedicalEquipmentController');
+    Route::delete('/medical_equipments','Admin\MedicalEquipmentController@destroyAll')->name('medical_equipments.destroy.all');
+    Route::resource('/careers','Admin\CareerController');
+    Route::delete('/careers','Admin\CareerController@destroyAll')->name('careers.destroy.all');
 
 
     Route::get('/permissions', 'Admin\PermissionController@index')->name('permission.index');

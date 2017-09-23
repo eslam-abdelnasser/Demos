@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Blogs')
+@section('title', 'Medical Equipment')
 
 {{-- start css --}}
 @section('css')
@@ -12,7 +12,7 @@
 {{-- Start Breadcums --}}
 
 @section('home','Home')
-@section('page_title','Blogs')
+@section('page_title','Medical Equipments')
 
 
 {{-- End Breadcums--}}
@@ -20,9 +20,9 @@
 
 {{-- Start page title --}}
 
-@section('page_head','Blogs')
+@section('page_head','Medical Equipments')
 
-@section('page_description','Add new Blogs that should be in your website')
+@section('page_description','Add New Medical Equipments that should be in your website')
 
 {{-- end page title --}}
 
@@ -35,7 +35,7 @@
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-gift"></i>Add Blog </div>
+                        <i class="fa fa-gift"></i>Add Medical Equipments </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"> </a>
                         <a href="#portlet-config" data-toggle="modal" class="config"> </a>
@@ -56,41 +56,31 @@
                             </ul>
                         </div>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                            {{Form::open(['route' => ['blogs.store'] , 'method' => 'post','files'=>true]) }}
+                            {{Form::open(['route' => ['medical_equipments.store'] , 'method' => 'post','files'=>true]) }}
                             <div class="tab-content">
 
                                 @foreach($languages as $language)
                                     <div class="tab-pane {{$loop->iteration == 1 ? 'active' : ''}}" id="{{$language->name}}">
                                         <div class="portlet-body form">
-
                                             <div class="form-body">
-                                                <div class="form-group">
-                                                    <label>Auther {{$language->name}} Name</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-align-justify"></i>
-                                                        </span>
-                                                        <input type="text" name="auther_name_{{$language->label}}" value="{{old('auther_name_'.$language->label)}}" id="auther_name_{{$language->label}}" class="form-control input-circle-right" placeholder="Auther Name">
-                                                    </div>
-                                                </div>
-
                                                 <div class="form-group">
                                                     <label>{{$language->name}} Title</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="title_{{$language->label}}" value="{{old('title_'.$language->label)}}" id="title_{{$language->label}}" class="form-control input-circle-right" placeholder="Blog Title">
-                                                    </div>
+                                                        <input type="text" name="title_{{$language->label}}" value="{{old('title_'.$language->label)}}" id="title_{{$language->label}}" class="form-control input-circle-right" placeholder="Title"> </div>
                                                 </div>
+
                                                 <div class="form-group">
-                                                    <label>{{$language->name}} Meta Title</label>
+                                                    <label>{{$language->name}} Meta title</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="meta_title_{{$language->label}}" value="{{old('meta_title_'.$language->label)}}" id="meta_title_{{$language->label}}" class="form-control input-circle-right" placeholder="Title"> </div>
+                                                        <input type="text" name="meta_title_{{$language->label}}" value="{{old('meta_title_'.$language->label)}}" id="meta_title_{{$language->label}}" class="form-control input-circle-right" placeholder="Meta title"> </div>
                                                 </div>
+
                                                 <div class="form-group">
                                                     <label>{{$language->name}} slug</label>
                                                     <div class="input-group">
@@ -99,24 +89,24 @@
                                                         </span>
                                                         <input type="text" name="slug_{{$language->label}}" value="{{old('slug_'.$language->label)}}" id="slug_{{$language->label}}" class="form-control input-circle-right" placeholder="Slug"> </div>
                                                 </div>
+
                                                 <div class="form-group">
                                                     <label>{{$language->name}} Description</label>
                                                     <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-align-justify"></i>
-                                                        </span>
-                                                        <textarea class="my-editor" name="description_{{$language->label}}" value="{{old('description_'.$language->label)}}" id="description_{{$language->label}}" placeholder="Description">
 
+                                                <textarea class="my-editor" name="description_{{$language->label}}" id="description_{{$language->label}}" placeholder="Description">
+                                                     {{old('description_'.$language->label)}}
                                                 </textarea>
                                                     </div>
                                                 </div>
+
                                                 <div class="form-group">
                                                     <label>{{$language->name}} Meta Description</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="meta_description_{{$language->label}}" value="{{old('meta_description_'.$language->label)}}" id="meta_description_{{$language->label}}" class="form-control input-circle-right" placeholder="Title"> </div>
+                                                        <input type="text" name="meta_description_{{$language->label}}" value="{{old('meta_description_'.$language->label)}}" id="meta_description_{{$language->label}}" class="form-control input-circle-right" placeholder="Meta description"> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -124,7 +114,29 @@
                                 @endforeach
                             </div>
 
-                            <div class="portlet light bordered">
+                            <div class="portlet light ">
+
+                                <div class="form-group">
+                                    <label>Medical Equipment Home Page Status</label>
+                                    <div class="input-group margin-top-10">
+                                        <select class="form-control input-medium" name="homepage_status">
+
+                                            <option value="1" {{old('homepage_status') == 1 ? 'selected' : ''}} >Display On Home Page</option>
+                                            <option value="0" {{old('homepage_status') == 0 ? 'selected' : ''}}>Not Display On Home Page</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Medical Equipment Status</label>
+                                    <div class="input-group margin-top-10">
+                                        <select class="form-control input-medium" name="status">
+
+                                            <option value="1" {{old('status') == 1 ? 'selected' : ''}} >Enable</option>
+                                            <option value="0" {{old('status') == 0 ? 'selected' : ''}} >Disable</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label class="control-label col-md-3">Upload Image</label>
                                     <div class="col-md-9">
@@ -143,26 +155,7 @@
 
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label>Blog Home Page Status</label>
-                                    <div class="input-group margin-top-10">
-                                        <select class="form-control input-medium" name="homepage_status">
-                                            <option disabled> </option>
-                                            <option value="0" {{old('blog') == 1 ? 'selected' : ''}}>Display On Home Page</option>
-                                            <option value="1" {{old('blog') == 1 ? 'selected' : ''}}>Not Display On Home Page</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Blog Status</label>
-                                    <div class="input-group margin-top-10">
-                                        <select class="form-control input-medium" name="status">
-                                            <option disabled> </option>
-                                            <option value="0" {{old('blog') == 1 ? 'selected' : ''}}>Enable</option>
-                                            <option value="1"{{old('blog') == 1 ? 'selected' : ''}} >Disable</option>
-                                        </select>
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="form-actions">
                                 <button type="submit" class="btn blue">Submit</button>
@@ -183,7 +176,6 @@
 
 {{-- Start javascript --}}
 @section('js')
-
     <script src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js')}}" type="text/javascript"></script>
 
     <script>

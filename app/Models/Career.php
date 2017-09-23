@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class Career extends Model
 {
     //
     public function description(){
 
-        return $this->hasMany('App\Models\BlogDescription','blog_id');
+        return $this->hasMany('App\Models\CareerDescription','career_id');
     }
 }
