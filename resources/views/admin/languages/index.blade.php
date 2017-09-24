@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'show languages')
+@section('title', trans('admin/languages/index.language'))
 
 {{-- start css --}}
 @section('css')
@@ -10,8 +10,8 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Show languages')
+@section('home',trans('admin/languages/index.home'))
+@section('page_title',trans('admin/languages/index.show_language'))
 
 
 {{-- End Breadcums--}}
@@ -19,9 +19,9 @@
 
 {{-- Start page title --}}
 
-@section('page_head','Languages')
+@section('page_head',trans('admin/languages/index.languages'))
 
-@section('page_description','Show all website languages')
+@section('page_description',trans('admin/languages/index.show_all_website_language'))
 
 {{-- end page title --}}
 
@@ -32,23 +32,23 @@
         <div class="col-xs-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Languages</h4>
+                    <h4 class="card-title">{{trans('admin/languages/index.languages')}}</h4>
                     <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
 
                 </div>
                 <div class="card-body collapse in">
                     <div class="card-block card-dashboard">
-                        <p class="card-text">View All languages <code>name</code> , <code>label</code> , <code class="highlighter-rouge">status</code>and  <code>Actions</code>.</p>
+                        <p class="card-text">{{trans('admin/languages/index.view_all_languages')}}<code>{{trans('admin/languages/index.name')}}</code> , <code>{{trans('admin/languages/index.label')}}</code> , <code class="highlighter-rouge">{{trans('admin/languages/index.status')}}</code>{{trans('admin/languages/index.and')}}  <code>{{trans('admin/languages/index.actions')}}</code>.</p>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Language Name</th>
-                                <th>Language label</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th>{{trans('admin/languages/index.language_name')}}</th>
+                                <th>{{trans('admin/languages/index.language_label')}}</th>
+                                <th>{{trans('admin/languages/index.status')}}</th>
+                                <th>{{trans('admin/languages/index.actions')}}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -64,9 +64,9 @@
 
                                         </td>
                                         <td>
-                                            <button type="button" class="btn mr-1 mb-1 btn-cyan btn-square btn-sm" onclick="Javascript:window.location.href ='{{route('languages.edit',['id'=> $language->id])}}';">Edit</button>
+                                            <button type="button" class="btn mr-1 mb-1 btn-cyan btn-square btn-sm" onclick="Javascript:window.location.href ='{{route('languages.edit',['id'=> $language->id])}}';">{{trans('admin/languages/index.edit')}}</button>
                                             {!! Form::open(['route'=>['languages.destroy',$language->id],'method'=>'DELETE','style'=>'display:inline-block','role'=>'form']) !!}
-                                            <button type="submit" class="btn mr-1 mb-1 btn-danger btn-square btn-sm">Delete</button>
+                                            <button type="submit" class="btn mr-1 mb-1 btn-danger btn-square btn-sm">{{trans('admin/languages/index.delete')}}</button>
                                             {!! Form::close() !!}
                                         </td>
                                     </tr>

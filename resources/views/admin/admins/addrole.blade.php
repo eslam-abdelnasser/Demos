@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Dashboard')
+@section('title', trans('admin/admins/index.admins'))
 
 {{-- start css --}}
 @section('css')
@@ -10,24 +10,15 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Dashboard')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/admins/index.admins'))
 
 
 {{-- End Breadcums--}}
 
 
-{{-- Start page title --}}
-
-@section('page_title','Dashboard')
-
-@section('description','Statistics, chart , and all users activities on your website')
-
-{{-- end page title --}}
-
-
 @section('content')
-    <h4 class="page-title">ADMIN Roles</h4>
+    <h4 class="page-title">{{trans('admin/admins/role.admin_role')}}</h4>
 
     {{Form::open(['route' => ['admin_role.store',$admin_id] , 'method' => 'post']) }}
     <div class="form-group">
@@ -45,8 +36,8 @@
             </div>
             @endforeach
             <div class="form-actions col-md-12">
-                <button type="submit" class="btn blue">Submit</button>
-                <button type="button" class="btn default">Cancel</button>
+                <button type="submit" class="btn blue">{{trans('admin/admins/role.save')}}</button>
+                <button type="button" class="btn default">{{trans('admin/admins/role.cancel')}}</button>
             </div>
         </div>
     </div>

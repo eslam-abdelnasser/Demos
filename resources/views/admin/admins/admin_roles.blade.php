@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Dashboard')
+@section('title', trans('admin/admins/index.admins'))
 
 {{-- start css --}}
 @section('css')
@@ -10,31 +10,23 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Dashboard')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/admins/index.admins'))
 
 
 {{-- End Breadcums--}}
 
 
-{{-- Start page title --}}
-
-@section('page_title','Dashboard')
-
-@section('description','Statistics, chart , and all users activities on your website')
-
-{{-- end page title --}}
-
 
 @section('content')
-    <h4 class="page-title">Roles</h4>
+    <h4 class="page-title">{{trans('admin/admins/role.role')}}</h4>
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN SAMPLE TABLE PORTLET-->
             <div class="portlet">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-bell-o"></i>Roles Table </div>
+                        <i class="fa fa-bell-o"></i>{{trans('admin/admins/role.role_table')}} </div>
 
                 </div>
                 <div class="portlet-body">
@@ -43,11 +35,11 @@
                             <thead>
                             <tr>
                                 <th class="hidden-xs">
-                                    <i class="fa fa-user"></i> Name
+                                    <i class="fa fa-user"></i> {{trans('admin/admins/role.name')}}
                                 </th>
-                                <th>Display name</th>
-                                <th>Description</th>
-                                <th>Action</th>
+                                <th>{{trans('admin/admins/role.display_name')}}</th>
+                                <th>{{trans('admin/admins/role.description')}}</th>
+                                <th>{{trans('admin/admins/role.action')}}</th>
 
                             </tr>
                             </thead>
@@ -67,7 +59,7 @@
                                     <td>
                                         {!! Form::open(['route' => ['role.destroyRelation',$admin->id, $role->id  ], 'method' => 'POST','style'=>'display: inline;']) !!}
                                         <button class="btn btn-outline btn-circle dark btn-sm black">
-                                            <i class="fa fa-trash-o"></i> Delete </button>
+                                            <i class="fa fa-trash-o"></i> {{trans('admin/admins/role.delete')}}</button>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>

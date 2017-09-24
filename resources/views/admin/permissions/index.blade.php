@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Dashboard')
+@section('title', trans('admin/admins/permission.permission'))
 
 {{-- start css --}}
 @section('css')
@@ -10,31 +10,21 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Dashboard')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/admins/permission.permission'))
 
 
 {{-- End Breadcums--}}
 
-
-{{-- Start page title --}}
-
-@section('page_title','Dashboard')
-
-@section('description','Statistics, chart , and all users activities on your website')
-
-{{-- end page title --}}
-
-
 @section('content')
-    <h4 class="page-title">Permission</h4>
+    <h4 class="page-title">{{trans('admin/admins/permission.permission')}}</h4>
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN SAMPLE TABLE PORTLET-->
             <div class="portlet">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-bell-o"></i>Permissions Table </div>
+                        <i class="fa fa-bell-o"></i>{{trans('admin/admins/permission.permission_table')}}</div>
 
                 </div>
                 <div class="portlet-body">
@@ -43,12 +33,11 @@
                             <thead>
                             <tr>
                                 <th class="hidden-xs">
-                                    <i class="fa fa-user"></i> Name
+                                    <i class="fa fa-user"></i> {{trans('admin/admins/role.name')}}
                                 </th>
-
-                                <th>Display name</th>
-                                <th>Description</th>
-                                <th>Actions</th>
+                                <th>{{trans('admin/admins/role.display_name')}}</th>
+                                <th>{{trans('admin/admins/role.description')}}</th>
+                                <th>{{trans('admin/admins/role.action')}}</th>
 
                             </tr>
                             </thead>
@@ -67,7 +56,7 @@
                                     </td>
                                     <td>
                                         <a href="{{route ('permission.edit',$permission->id)}}" class="btn btn-outline btn-circle btn-sm purple">
-                                            <i class="fa fa-edit"></i> Edit </a>
+                                            <i class="fa fa-edit"></i> {{trans('admin/admins/role.edit')}} </a>
                                     </td>
                                 </tr>
                             @endforeach
