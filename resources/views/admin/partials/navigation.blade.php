@@ -147,7 +147,7 @@
             </li>
 
             <li class="heading">
-                <h3 class="uppercase">Services</h3>
+                <h3 class="uppercase">Pages</h3>
             </li>
 
             <li class="nav-item start">
@@ -230,31 +230,6 @@
                 </ul>
             </li>
 
-            <li class="nav-item start">
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-home"></i>
-                    <span class="title">Medical Equipment</span>
-                    <span class="selected"></span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="nav-item start">
-                        <a href="{{route('medical_equipments.index')}}" class="nav-link ">
-                            <i class="icon-bar-chart"></i>
-                            <span class="title">Medical Equipments</span>
-                            <span class="selected"></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item start">
-                        <a href="{{route('medical_equipments.create')}}" class="nav-link ">
-                            <i class="icon-bar-chart"></i>
-                            <span class="title">Add Medical Equipment</span>
-                            <span class="selected"></span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
 
             <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
@@ -282,6 +257,119 @@
                 </ul>
             </li>
 
+
+
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Galleries</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start">
+                        <a href="{{route('galleries.index')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Galleries</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start">
+                        <a href="{{route('galleries.create')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Create Gallery</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="heading">
+                <h3 class="uppercase">Clinics</h3>
+            </li>
+
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Doctors</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start">
+                        <a href="{{route('doctors.index')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Show Doctors</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start">
+                        <a href="{{route('doctors.create')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Add doctor</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Clinics</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start">
+                        <a href="{{route('clinics.index')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Clinics</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start">
+                        <a href="{{route('clinics.create')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Create Clinic</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">Medical Equipment</span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start">
+                        <a href="{{route('medical_equipments.index')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Medical Equipments</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start">
+                        <a href="{{route('medical_equipments.create')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Add Medical Equipment</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
 
 
 
