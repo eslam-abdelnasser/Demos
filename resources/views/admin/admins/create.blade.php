@@ -100,17 +100,17 @@
                             <div class="form-group">
                                 <label>Phone</label>
                                 <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-phone"></i>
-                                                        </span>
+                                    <span class="input-group-addon input-circle-left">
+                                        <i class="fa fa-phone"></i>
+                                    </span>
                                     <input type="text" name="phone" id="phone" class="form-control input-circle-right" placeholder="Phone"> </div>
                             </div>
                             <div class="form-group">
                                 <label>Job Title</label>
                                 <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-briefcase"></i>
-                                                        </span>
+                                    <span class="input-group-addon input-circle-left">
+                                        <i class="fa fa-briefcase"></i>
+                                    </span>
                                     <input type="text" name="job_title" id="job_title" class="form-control input-circle-right" placeholder="Job Title"> </div>
                             </div>
 
