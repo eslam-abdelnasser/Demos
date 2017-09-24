@@ -245,4 +245,8 @@ class GalleryController extends Controller
 
 
     }
+
+    public function delete(){
+        Media::destroy()
+    }
 }

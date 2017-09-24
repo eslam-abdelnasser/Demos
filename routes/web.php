@@ -50,7 +50,7 @@ Route::group([
     Route::get('/Album/{id}/create','Admin\GalleryController@addMedia')->name('Album.create');
     Route::post('/Album/{id}/create','Admin\GalleryController@postMedia')->name('Album.store');
     Route::get('/Album/{id}/show','Admin\GalleryController@showAlbum')->name('Album.show');
-
+    Route::get('/Album/{id}/delete','Admin\GalleryController@delete')->name('Album.delete');
     Route::resource('/faqs','Admin\FaqController');
     Route::resource('/blogs','Admin\BlogController');
     Route::delete('/blogs','Admin\BlogController@destroyAll')->name('blogs.destroy.all');
