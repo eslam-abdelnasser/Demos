@@ -11,4 +11,8 @@ class Doctor extends Model
 
         return $this->hasMany('App\Models\DoctorDescription','doctor_id');
     }
+
+    public function clinic(){
+        return $this->belongsTo('App\Models\Clinic','clinic_id');
+    }
 }

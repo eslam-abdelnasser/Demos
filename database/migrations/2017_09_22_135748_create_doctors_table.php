@@ -15,6 +15,9 @@ class CreateDoctorsTable extends Migration
     {
         Schema::create('doctors', function (Blueprint $table) {
             $table->increments('id');
+            $table->enum('status',[0,1]);
+            $table->string('image_url')->nullable();
+            $table->integer('clinic_id')->index()->unsigned()->defualt(0);
             $table->timestamps();
         });
     }

@@ -15,6 +15,9 @@ class CreateClinicsTable extends Migration
     {
         Schema::create('clinics', function (Blueprint $table) {
             $table->increments('id');
+            $table->enum('status',[0,1]);
+            $table->string('image_url')->nullable();
+            $table->enum('home_page_status',[0,1])->nullable();
             $table->timestamps();
         });
     }
