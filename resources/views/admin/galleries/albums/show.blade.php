@@ -82,7 +82,7 @@
                     <div class="cbp-caption-activeWrap">
                         <div class="cbp-l-caption-alignCenter">
                             <div class="cbp-l-caption-body">
-                                <a href="../assets/global/plugins/cubeportfolio/ajax/project1.html" class="cbp-singlePage cbp-l-caption-buttonLeft btn red uppercase btn red uppercase" rel="nofollow">more info</a>
+                                <a href="{{route('Album.delete',encrypt($gallery->id))}}" class="btn red uppercase btn red uppercase" rel="nofollow">Delete</a>
                                 @if($gallery->type == '1')
                                 <a href="https://www.youtube.com/watch?v={{$gallery->video_url}}" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Dashboard<br>by Paul Flavius Nechita">view larger</a>
                                 @else

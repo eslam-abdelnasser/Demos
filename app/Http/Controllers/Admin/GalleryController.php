@@ -246,7 +246,12 @@ class GalleryController extends Controller
 
     }
 
-    public function delete(){
-        Media::destroy()
+    public function delete($id){
+
+//        dd(decrypt($id));
+
+        Media::destroy(decrypt($id));
+
+        return redirect()->back();
     }
 }
