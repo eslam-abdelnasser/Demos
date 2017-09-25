@@ -153,6 +153,33 @@
             <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
+                    <span class="title">Slider show </span>
+                    <span class="selected"></span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start">
+                        <a href="{{route('slider.index')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Sliders</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item start">
+                        <a href="{{route('slider.create')}}" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">Create slider</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="nav-item start">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
                     <span class="title">Services</span>
                     <span class="selected"></span>
                     <span class="arrow"></span>

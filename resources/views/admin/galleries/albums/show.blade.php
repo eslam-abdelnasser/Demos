@@ -92,8 +92,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cbp-l-grid-projects-title uppercase text-center uppercase text-center">Dashboard</div>
-                <div class="cbp-l-grid-projects-desc uppercase text-center uppercase text-center">Web Design / Graphic</div>
+
             </div>
             @endforeach
         </div>

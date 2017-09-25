@@ -40,13 +40,13 @@ Route::group([
     Route::resource('/clinics','Admin\ClinicController');
     Route::resource('/doctors','Admin\DoctorController');
     Route::resource('/galleries','Admin\GalleryController');
-
+    Route::resource('/slider' , 'Admin\SliderController');
     Route::resource('/faqs','Admin\FaqController');
     Route::delete('/services','Admin\ServiceController@destroyAll')->name('services.destroy.all');
     Route::delete('/clinics','Admin\ClinicController@destroyAll')->name('clinics.destroy.all');
     Route::delete('/doctors','Admin\DoctorController@destroyAll')->name('doctors.destroy.all');
     Route::delete('/galleries','Admin\GalleryController@destroyAll')->name('galleries.destroy.all');
-
+    Route::resource('/sliders' , 'Admin\SliderController');
     Route::get('/Album/{id}/create','Admin\GalleryController@addMedia')->name('Album.create');
     Route::post('/Album/{id}/create','Admin\GalleryController@postMedia')->name('Album.store');
     Route::get('/Album/{id}/show','Admin\GalleryController@showAlbum')->name('Album.show');
