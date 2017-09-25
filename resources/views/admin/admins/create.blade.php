@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Dashboard')
+@section('title', trans('admin/admins/index.admins'))
 
 {{-- start css --}}
 @section('css')
@@ -10,20 +10,12 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Dashboard')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/admins/index.admins'))
 
 
 {{-- End Breadcums--}}
 
-
-{{-- Start page title --}}
-
-@section('page_title','Dashboard')
-
-@section('description','Statistics, chart , and all users activities on your website')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -33,7 +25,7 @@
                 <div class="portlet-title">
                     <div class="caption font-red-sunglo">
                         <i class="icon-settings font-red-sunglo"></i>
-                        <span class="caption-subject bold uppercase"> Default Form</span>
+                        <span class="caption-subject bold uppercase"> {{trans('admin/admins/create.add_admin')}}</span>
                     </div>
                     <div class="actions">
                         <div class="btn-group">
@@ -65,60 +57,59 @@
                     {{Form::open(['route' => ['admins.store'] , 'method' => 'post']) }}
                     <div class="form-body">
                             <div class="form-group">
-                                <label>Name</label>
+                                <label>{{trans('admin/admins/create.name')}}</label>
                                 <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-user"></i>
                                                         </span>
-                                    <input type="text" name="name" id="name" class="form-control input-circle-right" placeholder="Name"> </div>
+                                    <input type="text" name="name" id="name" class="form-control input-circle-right" placeholder="{{trans('admin/admins/create.name')}}"> </div>
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
+                                <label>{{trans('admin/admins/create.email')}}</label>
                                 <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-envelope"></i>
                                                         </span>
-                                    <input type="text" name="email" id="email" class="form-control input-circle-right" placeholder="Email Address"> </div>
+                                    <input type="text" name="email" id="email" class="form-control input-circle-right" placeholder="{{trans('admin/admins/create.email')}}"> </div>
                             </div>
                             <div class="form-group">
-                                <label>Password</label>
+                                <label>{{trans('admin/admins/create.password')}}</label>
                                 <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-lock"></i>
                                                         </span>
-                                    <input type="password" name="password" id="password" class="form-control input-circle-right" placeholder="Confirm Password"> </div>
+                                    <input type="password" name="password" id="password" class="form-control input-circle-right" placeholder="{{trans('admin/admins/create.password')}}"> </div>
                             </div>
                             <div class="form-group">
-                                <label>Confirm Password</label>
+                                <label>{{trans('admin/admins/create.confirm_password')}}</label>
                                 <div class="input-group">
                                                             <span class="input-group-addon input-circle-left">
                                                                 <i class="fa fa-lock"></i>
                                                             </span>
-                                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-circle-right" placeholder="Confirm Password"> </div>
-
+                                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-circle-right" placeholder="{{trans('admin/admins/create.confirm_password')}}"> </div>
                             </div>
                             <div class="form-group">
-                                <label>Phone</label>
+                                <label>{{trans('admin/admins/create.phone')}}</label>
                                 <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-phone"></i>
-                                                        </span>
-                                    <input type="text" name="phone" id="phone" class="form-control input-circle-right" placeholder="Phone"> </div>
+                                    <span class="input-group-addon input-circle-left">
+                                        <i class="fa fa-phone"></i>
+                                    </span>
+                                    <input type="text" name="phone" id="phone" class="form-control input-circle-right" placeholder="{{trans('admin/admins/create.phone')}}"> </div>
                             </div>
                             <div class="form-group">
-                                <label>Job Title</label>
+                                <label>{{trans('admin/admins/create.job_title')}}</label>
                                 <div class="input-group">
-                                                        <span class="input-group-addon input-circle-left">
-                                                            <i class="fa fa-briefcase"></i>
-                                                        </span>
-                                    <input type="text" name="job_title" id="job_title" class="form-control input-circle-right" placeholder="Job Title"> </div>
+                                    <span class="input-group-addon input-circle-left">
+                                        <i class="fa fa-briefcase"></i>
+                                    </span>
+                                    <input type="text" name="job_title" id="job_title" class="form-control input-circle-right" placeholder="{{trans('admin/admins/create.job_title')}}"> </div>
                             </div>
 
 
                             </div>
                     <div class="form-actions">
-                        <button type="submit" class="btn blue">Submit</button>
-                        <button type="button" class="btn default">Cancel</button>
+                        <button type="submit" class="btn blue">{{trans('admin/admins/create.save')}}</button>
+                        <button type="button" class="btn default">{{trans('admin/admins/create.cancel')}}</button>
                     </div>
                     {!! Form::close() !!}
                 </div>

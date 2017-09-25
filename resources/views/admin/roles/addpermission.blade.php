@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Dashboard')
+@section('title', trans('admin/admins/permission.permission'))
 
 {{-- start css --}}
 @section('css')
@@ -10,24 +10,16 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Dashboard')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/admins/permission.permission'))
 
 
 {{-- End Breadcums--}}
 
 
-{{-- Start page title --}}
-
-@section('page_title','Dashboard')
-
-@section('description','Statistics, chart , and all users activities on your website')
-
-{{-- end page title --}}
-
 
 @section('content')
-    <h4 class="page-title">Role Permission</h4>
+    <h4 class="page-title">{{trans('admin/admins/permission.role_permission')}}</h4>
 
     {{Form::open(['route' => ['role_permission.store',$role_id] , 'method' => 'post']) }}
         <div class="form-group">
@@ -45,8 +37,8 @@
                 </div>
                 @endforeach
                 <div class="form-actions col-md-12">
-                    <button type="submit" class="btn blue">Submit</button>
-                    <button type="button" class="btn default">Cancel</button>
+                    <button type="submit" class="btn blue">{{trans('admin/admins/permission.save')}}</button>
+                    <button type="button" class="btn default">{{trans('admin/admins/permission.cancel')}}</button>
                 </div>
             </div>
         </div>

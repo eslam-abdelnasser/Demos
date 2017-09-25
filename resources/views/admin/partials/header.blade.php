@@ -389,32 +389,32 @@ License: You must have a valid license purchased only from themeforest(the above
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
                                 <a href="page_user_profile_1.html">
-                                    <i class="icon-user"></i> My Profile </a>
+                                    <i class="icon-user"></i> {{trans('admin/partials/header.my_profile')}} </a>
                             </li>
                             <li>
                                 <a href="app_calendar.html">
-                                    <i class="icon-calendar"></i> My Calendar </a>
+                                    <i class="icon-calendar"></i> {{trans('admin/partials/header.my_calender')}} </a>
                             </li>
                             <li>
                                 <a href="app_inbox.html">
-                                    <i class="icon-envelope-open"></i> My Inbox
+                                    <i class="icon-envelope-open"></i> {{trans('admin/partials/header.my_inbox')}}
                                     <span class="badge badge-danger"> 3 </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="app_todo.html">
-                                    <i class="icon-rocket"></i> My Tasks
+                                    <i class="icon-rocket"></i> {{trans('admin/partials/header.my_tasks')}}
                                     <span class="badge badge-success"> 7 </span>
                                 </a>
                             </li>
                             <li class="divider"> </li>
                             <li>
                                 <a href="page_user_lock_1.html">
-                                    <i class="icon-lock"></i> Lock Screen </a>
+                                    <i class="icon-lock"></i> {{trans('admin/partials/header.lock_screen')}} </a>
                             </li>
                             <li>
                                 <a href="{{route('admin.logout')}}">
-                                    <i class="icon-key"></i> {{trans('label.logout')}}</a>
+                                    <i class="icon-key"></i> {{trans('admin/partials/header.log_out')}}</a>
                             </li>
                         </ul>
                     </li>

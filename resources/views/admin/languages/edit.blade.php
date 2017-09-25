@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Languages')
+@section('title', trans('admin/languages/index.language'))
 
 {{-- start css --}}
 @section('css')
@@ -10,8 +10,8 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Languages')
+@section('home',trans('admin/languages/index.home'))
+@section('page_title',trans('admin/languages/index.show_language'))
 
 
 {{-- End Breadcums--}}
@@ -19,12 +19,11 @@
 
 {{-- Start page title --}}
 
-@section('page_head','Languages')
+@section('page_head',trans('admin/languages/index.languages'))
 
-@section('page_description','Add Languages that should be in your website')
+@section('page_description',trans('admin/languages/index.show_all_website_language'))
 
 {{-- end page title --}}
-
 
 @section('content')
 
@@ -32,7 +31,7 @@
         <div class="col-md-12 col-sm-8">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title" id="basic-layout-icons">Add new language</h4>
+                    <h4 class="card-title" id="basic-layout-icons">{{trans('admin/languages/create.add_new_language')}}</h4>
                     <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
 
                 </div>
@@ -40,37 +39,37 @@
                     <div class="card-block">
 
                         <div class="card-text">
-                            <p>Here you can add new language <code>language name</code> , <code>Label</code> and  <code>Status</code>. </p>
+                            <p>{{trans('admin/languages/create.here_you_can_add')}} <code>{{trans('admin/languages/index.name')}}</code> , <code>{{trans('admin/languages/index.label')}}</code> {{trans('admin/languages/index.and')}}  <code>{{trans('admin/languages/index.status')}}</code>. </p>
                         </div>
 
                         {!! Form::open(['route'=>['languages.update',$language->id],'method'=>'PUT','class'=>'form-horizontal','role'=>'form']) !!}
                         <div class="form-body">
 
                             <div class="form-group">
-                                <label for="timesheetinput1">Language Name</label>
+                                <label for="timesheetinput1">{{trans('admin/languages/create.the_language')}}</label>
                                 <div class="position-relative">
-                                    <input type="text" id="timesheetinput1" value="{{$language->name}}" class="form-control" placeholder="Language name" name="language_name">
+                                    <input type="text" id="timesheetinput1" value="{{$language->name}}" class="form-control" placeholder="{{trans('admin/languages/create.the_language')}}" name="language_name">
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="timesheetinput2">Language label</label>
+                                <label for="timesheetinput2">{{trans('admin/languages/create.language_label')}}</label>
                                 <div class="position-relative">
-                                    <input type="text" id="timesheetinput2" value="{{$language->label}}"  class="form-control" placeholder="language label" name="language_label">
+                                    <input type="text" id="timesheetinput2" value="{{$language->label}}"  class="form-control" placeholder="{{trans('admin/languages/create.language_label')}}" name="language_label">
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="issueinput5">Status</label>
+                                <label for="issueinput5">{{trans('admin/languages/create.status')}}</label>
                                 <select id="issueinput5" name="status" class="form-control" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-title="Priority">
                                     @if($language->status == '1')
-                                        <option value="1" selected>Active</option>
-                                        <option value="0">Inactive</option>
+                                        <option value="1" selected>{{trans('admin/languages/create.active')}}</option>
+                                        <option value="0">{{trans('admin/languages/create.inactive')}}</option>
                                     @else
-                                        <option value="1">Active</option>
-                                        <option value="0" selected>Inactive</option>
+                                        <option value="1">{{trans('admin/languages/create.active')}}</option>
+                                        <option value="0" selected>{{trans('admin/languages/create.inactive')}}</option>
                                     @endif
                                 </select>
                             </div>
@@ -79,10 +78,10 @@
 
                         <div class="form-actions right">
                             <button type="button" class="btn btn-warning mr-1">
-                                <i class="icon-cross2"></i> Cancel
+                                <i class="icon-cross2"></i> {{trans('admin/languages/create.cancel')}}
                             </button>
                             <button type="submit" class="btn btn-primary">
-                                <i class="icon-check2"></i> Save
+                                <i class="icon-check2"></i> {{trans('admin/languages/create.save')}}
                             </button>
                         </div>
                         {!! Form::close() !!}

@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Dashboard')
+@section('title', trans('admin/admins/index.admins'))
 
 {{-- start css --}}
 @section('css')
@@ -10,34 +10,26 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Dashboard')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/admins/index.admins'))
 
 
 {{-- End Breadcums--}}
 
 
-{{-- Start page title --}}
-
-@section('page_title','Dashboard')
-
-@section('description','Statistics, chart , and all users activities on your website')
-
-{{-- end page title --}}
-
 
 @section('content')
-    <h4 class="page-title">Admins</h4>
+    <h4 class="page-title">{{trans('admin/admins/index.admins')}}</h4>
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN SAMPLE TABLE PORTLET-->
             <div class="portlet">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-bell-o"></i>Admin Table </div>
+                        <i class="fa fa-bell-o"></i>{{trans('admin/admins/index.admin_table')}} </div>
                     <div class="tools">
                         <a href="{{route('admins.create')}}">
-                            <button type="button" class="btn btn-primary">Add Admin</button>
+                            <button type="button" class="btn btn-primary">{{trans('admin/admins/index.add_admin')}}</button>
 
                         </a>
                         <a href="javascript:;" class="collapse"> </a>
@@ -58,20 +50,20 @@
 
                                     </th>
                                     <th class="hidden-xs">
-                                        <i class="fa fa-user"></i> Name
+                                        <i class="fa fa-user"></i> {{trans('admin/admins/index.name')}}
                                     </th>
                                     <th>
-                                        <i class="fa fa-briefcase"></i> Job Title
+                                        <i class="fa fa-briefcase"></i> {{trans('admin/admins/index.job_title')}}
                                     </th>
                                     <th>
-                                        <i class="fa fa-phone"></i> Phone
+                                        <i class="fa fa-phone"></i> {{trans('admin/admins/index.phone')}}
                                     </th>
                                     <th>
-                                        <i class="fa fa-mail"></i> Mail
+                                        <i class="fa fa-mail"></i> {{trans('admin/admins/index.mail')}}
                                     </th>
-                                    <th>Social</th>
-                                    <th>Roles</th>
-                                    <th>Actions</th>
+                                    <th>{{trans('admin/admins/index.social')}}</th>
+                                    <th>{{trans('admin/admins/index.roles')}}</th>
+                                    <th>{{trans('admin/admins/index.actions')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -105,17 +97,17 @@
                                     </td>
 
                                     <td class="text-center">
-                                        <a href="{{route('admin.role',$admin->id)}}" title="Add new Role" class=><i class="fa fa-plus"></i></a>
-                                        <a href="{{route('admin.view.role',$admin->id)}}" title="View Roles" class=><i class="fa fa-list"></i></a>
+                                        <a href="{{route('admin.role',$admin->id)}}" title="{{trans('admin/admins/index.add_new_role')}}" class=><i class="fa fa-plus"></i></a>
+                                        <a href="{{route('admin.view.role',$admin->id)}}" title="{{trans('admin/admins/index.view_role')}}" class=><i class="fa fa-list"></i></a>
                                     </td>
 
                                     <td>
                                         <a href="{{route ('admins.edit',$admin->id)}}" class="btn btn-outline btn-circle btn-sm purple">
-                                            <i class="fa fa-edit"></i> Edit </a>
+                                            <i class="fa fa-edit"></i> {{trans('admin/admins/index.edit')}} </a>
 
                                         {!! Form::open(['route' => ['admins.destroy', $admin->id ], 'method' => 'DELETE', 'style'=>'display: inline;']) !!}
                                         <button class="btn btn-outline btn-circle dark btn-sm black">
-                                            <i class="fa fa-trash-o"></i> Delete </button>
+                                            <i class="fa fa-trash-o"></i> {{trans('admin/admins/index.delete')}} </button>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>
@@ -131,7 +123,7 @@
             {!! $admins->links() !!}
         </div>
         <div class="text-center">
-            <strong>Page : {{ $admins->currentPage() }} of {{ $admins->lastPage() }}</strong>
+            <strong>{{trans('admin/admins/index.page')}} : {{ $admins->currentPage() }} {{trans('admin/admins/index.of')}}{{ $admins->lastPage() }}</strong>
         </div>
 
     </div>

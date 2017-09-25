@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Gallery')
+@section('title','Gallery')
 
 {{-- start css --}}
 @section('css')

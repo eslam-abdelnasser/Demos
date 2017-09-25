@@ -42,6 +42,9 @@ Route::group([
     Route::resource('/galleries','Admin\GalleryController');
     Route::resource('/slider' , 'Admin\SliderController');
     Route::resource('/faqs','Admin\FaqController');
+    Route::resource('/socials','Admin\SocialController');
+
+    Route::delete('/socials','Admin\SocialController@destroyAll')->name('socials.destroy.all');
     Route::delete('/services','Admin\ServiceController@destroyAll')->name('services.destroy.all');
     Route::delete('/clinics','Admin\ClinicController@destroyAll')->name('clinics.destroy.all');
     Route::delete('/doctors','Admin\DoctorController@destroyAll')->name('doctors.destroy.all');
@@ -74,7 +77,11 @@ Route::group([
     Route::get('admins/{admin_id}/roles' , 'Admin\AdminController@display_admin_role')->name('admin.view.role');
     Route::post('admins/{admin_id}/roles/{role_id}','Admin\RoleController@delete_relation')->name('role.destroyRelation');
 
+    Route::get('/about' , 'Admin\AboutUsController@getAboutUs')->name('admin.about.index');
+    Route::put('/about/{id}/update' , 'Admin\AboutUsController@updateAboutUs')->name('admin.about.update');
 
+    Route::get('/general-setting' , 'Admin\GeneralSettingController@index')->name('admin.general.setting');
+    Route::put('/general-setting/{id}/update' , 'Admin\GeneralSettingController@update')->name('admin.general.setting.update');
 });
 
 
