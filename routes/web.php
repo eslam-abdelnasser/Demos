@@ -122,6 +122,7 @@ Route::group([
     Route::get('/medical-equipment', 'ListController@equipment')->name('medical-equipment');
     Route::get('/media', 'AboutUsController@media')->name('media');
     Route::get('/careers', 'ListController@career')->name('careers');
+    Route::get('/services', 'ListController@service')->name('services');
     Route::get('/contact-us', 'ContactUsController@index')->name('contact-us');
 
 

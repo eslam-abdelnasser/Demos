@@ -36,6 +36,13 @@ class ListController extends Controller
 
 
 
+    public function service(){
+
+        return view('front.list.service');
+    }
+
+
+
 
 
 

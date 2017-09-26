@@ -62,6 +62,7 @@
                         </li>
 
                         <li><a href='{{route("about-us")}}'>About us</a></li>
+                        <li><a href='{{route('services')}}'>Services</a></li>
                         <li><a href='{{route('blog')}}'>Blog</a></li>
 
                         <li><a href='{{route('clinics')}}'>Clinics</a></li>

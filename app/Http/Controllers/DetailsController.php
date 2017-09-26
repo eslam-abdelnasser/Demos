@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
-
+use App\Models\BlogDescription ;
 class DetailsController extends Controller
 {
     //
     public function blog($slug){
 
-
-        return view('front.details.blog');
+        $blogDescription = BlogDescription::where('slug','=',$slug)->first();
+        $blog = Blog::find($blogDescription->blog_id);
+        return view('front.details.blog')->withBlog($blog);
     }
 
     public function clinic($slug){
