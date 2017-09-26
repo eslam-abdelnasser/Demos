@@ -8,11 +8,11 @@
 
 return [
 
-  'admin_role' => 'وظائف المشرف',
+  'admin_role' => 'قسم المستخدمين ',
     'save' =>  'حفظ',
     'cancel' => 'إلغاء',
-    'role' => 'الوظائف',
-    'role_table' => 'جدول عرض الوظائف',
+    'role' => 'قسم',
+    'role_table' => 'جدول عرض الاقسام',
     'name' => 'الاسم',
     'display_name' => 'اسم العرض',
     'description' => 'الوصف',
@@ -20,7 +20,7 @@ return [
     'delete' => 'مسح',
     'edit' => 'تعديل',
 
-    'permission' => 'اللإذن',
+    'permission' => 'الصلاحسات',
 
 
 ];

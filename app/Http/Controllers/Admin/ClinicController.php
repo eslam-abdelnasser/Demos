@@ -70,12 +70,12 @@ class ClinicController extends Controller
         $clinic->status = $request->status;
 
         //upload image to server directory to service
-        $dir = public_path().'/uploads/clinics/';
+        $dir = public_path().'/uploads/clinics/540x370/';
         $file = $request->file('image_url') ;
         $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
         $file->move($dir , $fileName);
         // resize image using intervention
-        Image::make($dir . $fileName)->resize(270, 137)->save($dir. $fileName);
+        Image::make($dir . $fileName)->resize(540, 370)->save($dir.$fileName);
         $clinic->image_url = $fileName ;
 
 
@@ -157,13 +157,13 @@ class ClinicController extends Controller
 
         if($request->hasFile('image_url')){
             //upload image to server directory to service
-            $dir = public_path().'/uploads/services/';
+            $dir = public_path().'/uploads/clinics/540x370/';
             File::delete($dir . $clinic->image_url);
             $file = $request->file('image_url') ;
             $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
             $file->move($dir , $fileName);
             // resize image using intervention
-            Image::make($dir . $fileName)->resize(270, 137)->save($dir. $fileName);
+            Image::make($dir . $fileName)->resize(540, 370)->save($dir.$fileName);
             $clinic->image_url = $fileName ;
         }
 

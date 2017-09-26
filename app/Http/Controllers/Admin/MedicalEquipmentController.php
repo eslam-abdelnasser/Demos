@@ -69,12 +69,12 @@ class MedicalEquipmentController extends Controller
         $medical->status = $request->status;
 
         //upload image to server directory to service
-        $dir = public_path().'/uploads/medical_equipments/';
+        $dir = public_path().'/uploads/medical_equipments/540x370/';
         $file = $request->file('image_url') ;
         $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
         $file->move($dir , $fileName);
         // resize image using intervention
-        Image::make($dir . $fileName)->resize(270, 137)->save($dir. $fileName);
+        Image::make($dir . $fileName)->resize(540, 370)->save($dir. $fileName);
         $medical->image_url = $fileName ;
 
 
@@ -159,13 +159,13 @@ class MedicalEquipmentController extends Controller
 
         if($request->hasFile('image_url')){
             //upload image to server directory to service
-            $dir = public_path().'/uploads/medical_equipments/';
+            $dir = public_path().'/uploads/medical_equipments/540x370/';
             File::delete($dir . $medical->image_url);
             $file = $request->file('image_url') ;
             $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
             $file->move($dir , $fileName);
             // resize image using intervention
-            Image::make($dir . $fileName)->resize(270, 137)->save($dir. $fileName);
+            Image::make($dir . $fileName)->resize(540, 370)->save($dir. $fileName);
             $medical->image_url = $fileName ;
         }
 

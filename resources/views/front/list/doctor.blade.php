@@ -45,78 +45,24 @@
             <div class="row mtli-row-clearfix">
                 <div class="col-md-12">
                     <div class="owl-carousel-4col">
-                        <div class="item">
+                        @foreach($doctors as $doctor)
+                            @foreach($doctor->description as $description)
+                                @if(LaravelLocalization::getCurrentLocale() == $description->language->label)
+                                 <div class="item">
                             <div class="team-members border-bottom-theme-color-2px text-center maxwidth400">
                                 <div class="team-thumb">
-                                    <img class="img-fullwidth" alt="" src="http://placehold.it/275x370">
+                                    <img class="img-fullwidth" alt="" src="{{asset('uploads/doctors/275x370/'.$doctor->image_url)}}">
                                     <div class="team-overlay"></div>
                                 </div>
                                 <div class="team-details bg-silver-light pt-10 pb-10">
-                                    <h4 class="text-uppercase font-weight-600 m-5">Dr. Sakib Jhon</h4>
-                                    <h6 class="text-theme-colored font-15 font-weight-400 mt-0">Mbbs Doctor</h6>
-                                    <ul class="styled-icons icon-theme-colored icon-dark icon-circled icon-sm">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    </ul>
+                                    <h4 class="text-uppercase font-weight-600 m-5">Dr. {{$description->name}}</h4>
+                                    <h6 class="text-theme-colored font-15 font-weight-400 mt-0">{{$description->job_title}}</h6>
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="team-members border-bottom-theme-color-2px text-center maxwidth400">
-                                <div class="team-thumb">
-                                    <img class="img-fullwidth" alt="" src="http://placehold.it/275x370">
-                                    <div class="team-overlay"></div>
-                                </div>
-                                <div class="team-details bg-silver-light pt-10 pb-10">
-                                    <h4 class="text-uppercase font-weight-600 m-5">Dr. Smile Jhon</h4>
-                                    <h6 class="text-theme-colored font-15 font-weight-400 mt-0">Mbbs Doctor</h6>
-                                    <ul class="styled-icons icon-theme-colored icon-dark icon-circled icon-sm">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="team-members border-bottom-theme-color-2px text-center maxwidth400">
-                                <div class="team-thumb">
-                                    <img class="img-fullwidth" alt="" src="http://placehold.it/275x370">
-                                    <div class="team-overlay"></div>
-                                </div>
-                                <div class="team-details bg-silver-light pt-10 pb-10">
-                                    <h4 class="text-uppercase font-weight-600 m-5">Dr. Sakib Jhon</h4>
-                                    <h6 class="text-theme-colored font-15 font-weight-400 mt-0">Mbbs Doctor</h6>
-                                    <ul class="styled-icons icon-theme-colored icon-dark icon-circled icon-sm">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="team-members border-bottom-theme-color-2px text-center maxwidth400">
-                                <div class="team-thumb">
-                                    <img class="img-fullwidth" alt="" src="http://placehold.it/275x370">
-                                    <div class="team-overlay"></div>
-                                </div>
-                                <div class="team-details bg-silver-light pt-10 pb-10">
-                                    <h4 class="text-uppercase font-weight-600 m-5">Dr. Smile Jhon</h4>
-                                    <h6 class="text-theme-colored font-15 font-weight-400 mt-0">Mbbs Doctor</h6>
-                                    <ul class="styled-icons icon-theme-colored icon-dark icon-circled icon-sm">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                                @endif
+                            @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>

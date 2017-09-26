@@ -66,12 +66,12 @@ class DoctorController extends Controller
         $doctor->clinic_id = $request->clinic_id ;
 
         //upload image to server directory to service
-        $dir = public_path().'/uploads/doctors/';
+        $dir = public_path().'/uploads/doctors/275x370/';
         $file = $request->file('image_url') ;
         $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
         $file->move($dir , $fileName);
         // resize image using intervention
-        Image::make($dir . $fileName)->resize(270, 137)->save($dir. $fileName);
+        Image::make($dir . $fileName)->resize(275, 370)->save($dir. $fileName);
         $doctor->image_url = $fileName ;
 
 
@@ -149,13 +149,13 @@ class DoctorController extends Controller
 
         if($request->hasFile('image_url')){
             //upload image to server directory to service
-            $dir = public_path().'/uploads/doctors/';
+            $dir = public_path().'/uploads/doctors/275x370/';
             File::delete($dir . $docotr->image_url);
             $file = $request->file('image_url') ;
             $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
             $file->move($dir , $fileName);
             // resize image using intervention
-            Image::make($dir . $fileName)->resize(270, 137)->save($dir. $fileName);
+            Image::make($dir . $fileName)->resize(275, 370)->save($dir. $fileName);
             $docotr->image_url = $fileName ;
         }
 

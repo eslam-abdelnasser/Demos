@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Career;
+use App\Models\Clinic;
+use App\Models\Doctor;
+use App\Models\MedicalEquipment;
 use Illuminate\Http\Request;
 use App\Models\Blog ;
+use PhpParser\Comment\Doc;
 
 class ListController extends Controller
 {
@@ -15,23 +20,23 @@ class ListController extends Controller
     }
 
     public function clinic(){
-
-        return view('front.list.clinic');
+        $clinics = Clinic::where('status','=','1')->paginate(10);
+        return view('front.list.clinic')->with('clinics',$clinics);
     }
 
     public function doctor(){
-
-        return view('front.list.doctor');
+        $doctors = Doctor::where('status','=','1')->paginate(10);
+        return view('front.list.doctor')->with('doctors',$doctors);
     }
 
     public function equipment(){
-
-        return view('front.list.equipment');
+        $equipments = MedicalEquipment::where('status','=','1')->paginate(10);
+        return view('front.list.equipment')->with('equipments',$equipments);
     }
 
     public function  career(){
-
-        return view('front.list.career');
+        $careers = Career::where('status','=','1')->paginate(10);
+        return view('front.list.career')->with('careers',$careers);
     }
 
 

@@ -8,9 +8,9 @@
 
 return [
 
-  'permission' => 'الاذن',
-    'permission_table' => 'جدول الاذونات',
-    'role_permission' => 'اذونات الامر',
+  'permission' => 'الصلاحسات',
+    'permission_table' => 'جدول الصلاحيات',
+    'role_permission' => 'صلاحيات القسم',
     'save' => 'حفظ',
     'cancel' => 'إلغاء',
 ];
