@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blog ;
 
 class ListController extends Controller
 {
     //
 
     public function blog(){
-
-        return view('front.list.blog');
+        $blog = Blog::where('status','=','1')->paginate(10);
+        return view('front.list.blog')->withBlog($blog);
     }
 
     public function clinic(){

@@ -9,6 +9,7 @@ class DetailsController extends Controller
     //
     public function blog($slug){
 
+
         return view('front.details.blog');
     }
 
