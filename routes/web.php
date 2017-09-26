@@ -11,16 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::middleware(['auth:admin'])->group(function(){
 //
@@ -106,3 +102,36 @@ Route::group([
 //    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 //    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.post');
 });
+
+
+Route::group([
+    'prefix' => LaravelLocalization::setLocale().'/',
+    'middleware' => ['localize'],
+], function () {
+
+
+
+    Route::get('/', function () {
+        return view('front.index');
+    });
+
+    Route::get('/about-us', 'AboutUsController@index')->name('about-us');
+    Route::get('/blog', 'ListController@blog')->name('blog');
+    Route::get('/clinics', 'ListController@clinic')->name('clinics');
+    Route::get('/doctors', 'ListController@doctor')->name('doctors');
+    Route::get('/medical-equipment', 'ListController@equipment')->name('medical-equipment');
+    Route::get('/media', 'AboutUsController@media')->name('media');
+    Route::get('/careers', 'ListController@career')->name('careers');
+    Route::get('/contact-us', 'ContactUsController@index')->name('contact-us');
+
+
+
+    // details of list
+    Route::get('/blog/{slug}/details', 'DetailsController@blog')->name('blog.details');
+    Route::get('/clinics/{slug}/details', 'DetailsController@clinic')->name('clinics.details');
+    Route::get('/doctors/{slug}/details', 'DetailsController@doctor')->name('doctors.details');
+    Route::get('/medical-equipment/{slug}/details', 'DetailsController@equipment')->name('medical-equipment.details');
+    Route::get('/careers/{slug}/details', 'DetailsController@career')->name('careers.details');
+
+
+}) ;

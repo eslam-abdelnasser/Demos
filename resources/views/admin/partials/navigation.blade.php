@@ -150,6 +150,17 @@
                 <h3 class="uppercase">{{trans('admin/partials/navigation.pages')}}</h3>
             </li>
 
+
+            <li class="nav-item start">
+                <a href="{{route('admin.general.setting')}}" class="nav-link nav-toggle">
+                    <i class="icon-puzzle"></i>
+                    <span class="title"> Website General setting</span>
+
+
+                </a>
+
+            </li>
+
             <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
@@ -410,15 +421,7 @@
 
 
 
-            <li class="nav-item start">
-                <a href="{{route('admin.general.setting')}}" class="nav-link nav-toggle">
-                    <i class="icon-puzzle"></i>
-                    <span class="title"> Website General setting</span>
 
-
-                </a>
-
-            </li>
 
 
 
