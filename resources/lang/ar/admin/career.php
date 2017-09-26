@@ -6,12 +6,12 @@
  * Time: 10:44 AM
  */
 return [
-  'career' => 'المهن',
-    'add_new' => 'لإضافه مهنه جديده',
-    'edit_career' => 'تعديل بيانات المهنه',
-    'career_table' => 'جدول المهن',
-    'career_title' => 'عنوان المهنه',
-    'career_status' => 'حاله المهنه',
+  'career' => 'الوظائف',
+    'add_new' => 'لإضافه وظيفه جديده',
+    'edit_career' => 'تعديل بيانات الوظيفه',
+    'career_table' => 'جدول الوظائف',
+    'career_title' => 'عنوان الوظيفه',
+    'career_status' => 'حاله الوظيفه',
 
 
 ];

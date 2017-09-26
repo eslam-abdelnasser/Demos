@@ -71,12 +71,12 @@ class BlogController extends Controller
 
 
         //upload image to server directory to service
-        $dir = public_path().'/uploads/blogs/';
+        $dir = public_path().'/uploads/blogs/540x370/';
         $file = $request->file('image_url') ;
         $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
         $file->move($dir , $fileName);
         // resize image using intervention
-        Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370'.$fileName);
+        Image::make($dir . $fileName)->resize(540, 370)->save($dir.$fileName);
         $blog->image_url = $fileName ;
         $blog->save();
 
@@ -160,13 +160,13 @@ class BlogController extends Controller
 
         if($request->hasFile('image_url')){
             //upload image to server directory to service
-            $dir = public_path().'/uploads/blogs/';
+            $dir = public_path().'/uploads/blogs/540x370/';
             File::delete($dir . $blog->image_url);
             $file = $request->file('image_url') ;
             $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
             $file->move($dir , $fileName);
             // resize image using intervention
-            Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370'.$fileName);
+            Image::make($dir . $fileName)->resize(540, 370)->save($dir.$fileName);
             $blog->image_url = $fileName ;
         }
 

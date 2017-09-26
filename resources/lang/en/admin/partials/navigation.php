@@ -42,4 +42,6 @@ return [
     'website_general_settings' => 'Website General Settings',
     'about_us' => 'About us',
     'slider_show' => 'Slider Show',
+    'slider_create' => 'Create Slider'
+
 ];

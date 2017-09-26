@@ -29,36 +29,22 @@
     <section>
         <div class="container pb-0">
             <div class="row text-center">
-                <div class="col-sm-4">
+                @foreach($careers as $career)
+                    @foreach($career->description as $description)
+                        @if(LaravelLocalization::getCurrentLocale() == $description->language->label)
+                         <div class="col-sm-4">
                     <div class="icon-box iconbox-border iconbox-theme-colored p-40">
                         <a href="#" class="icon icon-gray icon-bordered icon-border-effect effect-flat">
                             <i class="pe-7s-users"></i>
                         </a>
-                        <h5 class="icon-box-title">Finance Manager</h5>
-                        <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias non nulla placeat, odio, qui dicta alias.</p>
+                        <h5 class="icon-box-title">{{$description->titel}}</h5>
+                        <p class="text-gray">{!! strip_tags(str_limit(html_entity_decode($description->description,100))) !!}</p>
                         <a class="btn btn-dark btn-sm mt-15" href="#">Apply Now</a>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="icon-box iconbox-border iconbox-theme-colored p-40">
-                        <a href="#" class="icon icon-gray icon-bordered icon-rounded icon-border-effect effect-rounded">
-                            <i class="pe-7s-users"></i>
-                        </a>
-                        <h5 class="icon-box-title">Finance Manager</h5>
-                        <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias non nulla placeat, odio, qui dicta alias.</p>
-                        <a class="btn btn-dark btn-sm mt-15" href="#">Apply Now</a>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="icon-box iconbox-border iconbox-theme-colored p-40">
-                        <a href="#" class="icon icon-gray icon-bordered icon-circled icon-border-effect effect-circled">
-                            <i class="pe-7s-users"></i>
-                        </a>
-                        <h5 class="icon-box-title">Finance Manager</h5>
-                        <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias non nulla placeat, odio, qui dicta alias.</p>
-                        <a class="btn btn-dark btn-sm mt-15" href="#">Apply Now</a>
-                    </div>
-                </div>
+                        @endif
+                    @endforeach
+                @endforeach
             </div>
         </div>
     </section>

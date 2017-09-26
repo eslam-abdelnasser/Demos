@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+
+use App\Models\Career;
+use App\Models\Clinic;
 use Illuminate\Http\Request;
 use App\Models\BlogDescription ;
 class DetailsController extends Controller
@@ -16,7 +19,8 @@ class DetailsController extends Controller
     }
 
     public function clinic($slug){
-
+        $clinic = Clinic::where('slug','=',$slug);
+        dd($clinic);
         return view('front.details.clinic');
     }
 

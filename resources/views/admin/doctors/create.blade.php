@@ -64,7 +64,7 @@
                                                         <input type="text" name="name_{{$language->label}}" value="{{old('name_'.$language->label)}}" id="name_{{$language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/doctor.name')}}"> </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>  {{trans('admin/doctor.title')}} {{trans('admin/services.'.$language->name )}} </label>
+                                                    <label>  {{trans('admin/doctor.job_title')}} {{trans('admin/services.'.$language->name )}} </label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>

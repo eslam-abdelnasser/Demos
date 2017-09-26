@@ -152,16 +152,6 @@
 
 
             <li class="nav-item start">
-                <a href="{{route('admin.general.setting')}}" class="nav-link nav-toggle">
-                    <i class="icon-puzzle"></i>
-                    <span class="title"> Website General setting</span>
-
-
-                </a>
-
-            </li>
-
-            <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">{{trans('admin/partials/navigation.slider_show')}}</span>
@@ -172,7 +162,7 @@
                     <li class="nav-item start">
                         <a href="{{route('slider.index')}}" class="nav-link ">
                             <i class="icon-bar-chart"></i>
-                            <span class="title">Sliders</span>
+                            <span class="title">{{trans('admin/partials/navigation.slider_show')}}</span>
                             <span class="selected"></span>
                         </a>
                     </li>
@@ -180,7 +170,7 @@
                     <li class="nav-item start">
                         <a href="{{route('slider.create')}}" class="nav-link ">
                             <i class="icon-bar-chart"></i>
-                            <span class="title">Create slider</span>
+                            <span class="title">{{trans('admin/partials/navigation.slider_create')}}</span>
                             <span class="selected"></span>
                         </a>
                     </li>
