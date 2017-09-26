@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Gallery')
+@section('title',trans('admin/galleries.galleries'))
 
 {{-- start css --}}
 @section('css')
@@ -29,20 +29,9 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Gallery')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/galleries.galleries'))
 
-
-{{-- End Breadcums--}}
-
-
-{{-- Start page title --}}
-
-@section('page_head','Gallery')
-
-@section('page_description','Add Gallery that should be in your website')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -53,21 +42,21 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="m-heading-1 border-green m-bordered">
-                <h3>Upload Images</h3>
+                <h3>{{trans('admin/galleries.upload_image')}}</h3>
                 </p>
                 <p>
-                    <span class="label label-danger">NOTE:</span> &nbsp; This plugins works only on Latest Chrome, Firefox, Safari, Opera & Internet Explorer 10. </p>
+                    <span class="label label-danger">{{trans('admin/galleries.note')}}</span> &nbsp; {{trans('admin/galleries.message')}} </p>
 
             </div>
             <div class="portlet-body form">
                 {!! Form::open([ 'route'=>['Album.store',$gallery_id] , 'method'=>'POST' , 'id'=>'add_files' , 'class'=>'dropzone dropzone-file-area' , 'files'=>true]) !!}
-                <h3 class="sbold">Drop files here or click to upload</h3>
+                <h3 class="sbold">{{trans('admin/galleries.drop')}}</h3>
                 <input type="hidden" name="gallery_id" value="{{ $gallery_id}}">
 
                 {!! Form::close() !!}
                 <br>
                 <div class="col-md-5  col-md-offset-5">
-                    <button class="btn blue" id="act-on-upload">Upload Images</button>
+                    <button class="btn blue" id="act-on-upload">{{trans('admin/galleries.upload_image')}}</button>
                 </div>
 
             </div>
@@ -78,25 +67,26 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="m-heading-1 border-green m-bordered">
-                <h3>Add video url</h3>
+                <h3>{{trans('admin/galleries.video_link')}}</h3>
                 </p>
                 <p>
-                    <span class="label label-danger">NOTE:</span> &nbsp; This plugins works only on Latest Chrome, Firefox, Safari, Opera & Internet Explorer 10. </p>
+                    <span class="label label-danger">{{trans('admin/galleries.note')}}</span> &nbsp;{{trans('admin/galleries.message')}} </p>
 
             </div>
             <div class="portlet-body form">
                 {!! Form::open([ 'route'=>['Album.store',$gallery_id] , 'method'=>'POST' , 'id'=>'video_form' ]) !!}
                 <div class="form-body">
                     <div class="form-group">
-                        <label>Video Url (Youtube links)</label>
+                        <label>{{trans('admin/galleries.video_link')}}</label>
                         <div class="input-group">
                             <span class="input-group-addon input-circle-left">
                                 <i class="fa fa-align-justify"></i>
                               </span>
-                            <input type="text" name="video_url" value="{{old('video_url')}}" id="video_url" class="form-control input-circle-right" placeholder="Video Url"> </div>
+                            <input type="text" name="video_url" value="{{old('video_url')}}" id="video_url" class="form-control input-circle-right" placeholder="{{trans('admin/galleries.video_url')}}"> </div>
                     </div>
                     <input type="hidden" name="gallery_id" value="{{ $gallery_id }}">
-                    <button class="btn blue"> Submit </button>
+                    <button class="btn blue"> {{trans('admin/services.submit')}} </button>
+
                 </div>
 
                 {!! Form::close() !!}

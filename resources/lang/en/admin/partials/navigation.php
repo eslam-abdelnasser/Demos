@@ -38,5 +38,8 @@ return [
     'create_new_doctor' => 'Add Doctor',
     'create_new_clinic' => 'Create Clinic',
     'medical_equipments' => 'Medical Equipment',
-    'create_new_medical_equipment' => 'Add Medical Equipment'
+    'create_new_medical_equipment' => 'Add Medical Equipment',
+    'website_general_settings' => 'Website General Settings',
+    'about_us' => 'About us',
+    'slider_show' => 'Slider Show',
 ];

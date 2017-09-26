@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Services')
+@section('title', trans('admin/doctor.doctor'))
 
 {{-- start css --}}
 @section('css')
@@ -11,20 +11,11 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Services')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/doctor.doctor'))
 
 
 {{-- End Breadcums--}}
-
-
-{{-- Start page title --}}
-
-@section('page_head','Doctors')
-
-@section('page_description','Add doctors that should be in your website')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -35,7 +26,7 @@
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-gift"></i>Add doctor </div>
+                        <i class="fa fa-gift"></i>{{trans('admin/doctor.add_new')}} </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"> </a>
                         <a href="#portlet-config" data-toggle="modal" class="config"> </a>
@@ -49,7 +40,7 @@
 
                                 @foreach($languages as $language)
                                     <li class="{{$loop->iteration == 1 ? 'active' : ''}}">
-                                        <a href="#{{$language->name}}" data-toggle="tab"> {{$language->name}} </a>
+                                        <a href="#{{$language->name}}" data-toggle="tab">  {{trans('admin/services.'.$language->name )}} </a>
                                     </li>
                                 @endforeach
 
@@ -65,25 +56,21 @@
 
                                             <div class="form-body">
                                                 <div class="form-group">
-                                                    <label>{{$language->name}} Doctor name</label>
+                                                    <label>  {{trans('admin/doctor.name')}} {{trans('admin/services.'.$language->name )}} </label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="name_{{$language->label}}" value="{{old('name_'.$language->label)}}" id="name_{{$language->label}}" class="form-control input-circle-right" placeholder="Name"> </div>
+                                                        <input type="text" name="name_{{$language->label}}" value="{{old('name_'.$language->label)}}" id="name_{{$language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/doctor.name')}}"> </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>{{$language->name}} Job title</label>
+                                                    <label>  {{trans('admin/doctor.title')}} {{trans('admin/services.'.$language->name )}} </label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="job_title_{{$language->label}}" value="{{old('job_title_'.$language->label)}}" id="job_title_{{$language->label}}" class="form-control input-circle-right" placeholder="Job title"> </div>
+                                                        <input type="text" name="job_title_{{$language->label}}" value="{{old('job_title_'.$language->label)}}" id="job_title_{{$language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/doctor.job_title')}}"> </div>
                                                 </div>
-
-
-
-
 
                                             </div>
                                         </div>
@@ -95,10 +82,10 @@
 
 
                                 <div class="form-group">
-                                    <label>Select Clinic</label>
+                                    <label>{{trans('admin/doctor.select_clinic')}}</label>
                                     <div class="input-group margin-top-10">
                                         <select class="form-control input-medium" name="clinic_id">
-                                            <option value=""  selected disabled> Select Clinic</option>
+                                            <option value=""  selected disabled> {{trans('admin/doctor.select_clinic')}}</option>
                                             @foreach($clinics  as $clinic  )
                                                 @foreach($clinic->description as $description )
                                                     @if(LaravelLocalization::getCurrentLocale() == $description->language->label)
@@ -110,18 +97,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Clinic Status</label>
+                                    <label>{{trans('admin/doctor.clinic_status')}}</label>
                                     <div class="input-group margin-top-10">
                                         <select class="form-control input-medium" name="status">
 
-                                            <option value="1" {{old('status') == 1 ? 'selected' : ''}} >Enable</option>
-                                            <option value="0" {{old('status') == 0 ? 'selected' : ''}} >Disable</option>
+                                            <option value="1" {{old('status') == 1 ? 'selected' : ''}} >{{trans('admin/services.enable')}}</option>
+                                            <option value="0" {{old('status') == 0 ? 'selected' : ''}} >{{trans('admin/services.disable')}}</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Upload Image</label>
+                                    <label class="control-label col-md-3">{{trans('admin/services.upload_image')}}</label>
                                     <div class="col-md-9">
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
                                             <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
@@ -129,10 +116,10 @@
                                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
                                             <div>
                                             <span class="btn default btn-file">
-                                            <span class="fileinput-new"> Select image </span>
-                                            <span class="fileinput-exists"> Change </span>
+                                            <span class="fileinput-new"> {{trans('admin/services.select_image')}} </span>
+                                            <span class="fileinput-exists"> {{trans('admin/services.change')}} </span>
                                             <input type="file" name="image_url"> </span>
-                                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                                <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> {{trans('admin/services.remove')}} </a>
                                             </div>
                                         </div>
 
@@ -141,8 +128,8 @@
 
                             </div>
                             <div class="form-actions">
-                                <button type="submit" class="btn blue">Submit</button>
-                                <button type="button" class="btn default">Cancel</button>
+                                <button type="submit" class="btn blue">{{trans('admin/services.submit')}}</button>
+                                <button type="button" class="btn default">{{trans('admin/services.cancel')}}</button>
                             </div>
                             {!! Form::close() !!}
                         </div>

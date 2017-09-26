@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Careers')
+@section('title', trans('admin/blog.blog'))
 
 {{-- start css --}}
 @section('css')
@@ -11,20 +11,11 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Careers')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/blog.blog'))
 
 
 {{-- End Breadcums--}}
-
-
-{{-- Start page title --}}
-
-@section('page_head','Careers')
-
-@section('page_description','Edit Careers that should be in your website')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -35,7 +26,7 @@
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-gift"></i>Edit Career </div>
+                        <i class="fa fa-gift"></i>{{trans('admin/career.edit_career')}} </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"> </a>
                         <a href="#portlet-config" data-toggle="modal" class="config"> </a>
@@ -49,7 +40,7 @@
 
                                 @foreach($languages as $language)
                                     <li class="{{$loop->iteration == 1 ? 'active' : ''}}">
-                                        <a href="#{{$language->name}}" data-toggle="tab"> {{$language->name}} </a>
+                                        <a href="#{{$language->name}}" data-toggle="tab">  {{trans('admin/services.'.$language->name )}} </a>
                                     </li>
                                 @endforeach
 
@@ -65,33 +56,33 @@
 
                                             <div class="form-body">
                                                 <div class="form-group">
-                                                    <label>{{$description->language->name}} Title</label>
+                                                    <label> {{trans('admin/services.title')}} {{trans('admin/services.'.$description->language->name )}} </label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="title_{{$description->language->label}}" value="{{$description->title}}" id="title_{{$description->language->label}}" class="form-control input-circle-right" placeholder="Title"> </div>
+                                                        <input type="text" name="title_{{$description->language->label}}" value="{{$description->title}}" id="title_{{$description->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.title')}}"> </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>{{$description->language->name}} Meta title</label>
+                                                    <label> {{trans('admin/services.meta_title')}} {{trans('admin/services.'.$description->language->name )}} </label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="meta_title_{{$description->language->label}}" value="{{$description->meta_title}}" id="meta_title_{{$description->language->label}}" class="form-control input-circle-right" placeholder="Meta title"> </div>
+                                                        <input type="text" name="meta_title_{{$description->language->label}}" value="{{$description->meta_title}}" id="meta_title_{{$description->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.meta_title')}}"> </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>{{$description->language->name}} slug</label>
+                                                    <label> {{trans('admin/services.slug')}} {{trans('admin/services.'.$description->language->name )}} </label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="slug_{{$description->language->label}}" value="{{$description->slug}}" id="slug_{{$description->language->label}}" class="form-control input-circle-right" placeholder="Slug"> </div>
+                                                        <input type="text" name="slug_{{$description->language->label}}" value="{{$description->slug}}" id="slug_{{$description->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.slug')}}"> </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>{{$description->language->name}} Description</label>
+                                                    <label> {{trans('admin/services.description')}} {{trans('admin/services.'.$description->language->name )}} </label>
                                                     <div class="input-group">
 
                                                 <textarea class="my-editor" name="description_{{$description->language->label}}" id="description_{{$description->language->label}}" placeholder="Description">
@@ -101,13 +92,13 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label>{{$description->language->name}} Meta Description</label>
+                                                    <label> {{trans('admin/services.meta_description')}} {{trans('admin/services.'.$description->language->name )}}</label>
 
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="meta_description_{{$description->language->label}}" value="{{$description->meta_description}}" id="meta_description_{{$description->language->label}}" class="form-control input-circle-right" placeholder="Meta description"> </div>
+                                                        <input type="text" name="meta_description_{{$description->language->label}}" value="{{$description->meta_description}}" id="meta_description_{{$description->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/services.meta_description')}}"> </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -119,20 +110,20 @@
                             <div class="portlet light ">
 
                                 <div class="form-group">
-                                    <label>Career Status</label>
+                                    <label>{{trans('admin/career.career_status')}}</label>
                                     <div class="input-group margin-top-10">
                                         <select class="form-control input-medium" name="status">
 
-                                            <option value="1" {{$career->status == 1 ? 'selected' : ''}} >Enable</option>
-                                            <option value="0" {{$career->status == 0 ? 'selected' : ''}} >Disable</option>
+                                            <option value="1" {{$career->status == 1 ? 'selected' : ''}} >{{trans('admin/services.enable')}}</option>
+                                            <option value="0" {{$career->status == 0 ? 'selected' : ''}} >{{trans('admin/services.disable')}}</option>
                                         </select>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="form-actions">
-                                <button type="submit" class="btn blue">Submit</button>
-                                <button type="button" class="btn default">Cancel</button>
+                                <button type="submit" class="btn blue">{{trans('admin/services.submit')}}</button>
+                                <button type="button" class="btn default">{{trans('admin/services.cancel')}}</button>
                             </div>
                             {!! Form::close() !!}
                         </div>

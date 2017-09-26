@@ -153,7 +153,7 @@
             <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
-                    <span class="title">Slider show </span>
+                    <span class="title">{{trans('admin/partials/navigation.slider_show')}}</span>
                     <span class="selected"></span>
                     <span class="arrow"></span>
                 </a>
@@ -178,7 +178,7 @@
             <li class="nav-item start">
                 <a href="{{route('admin.about.index')}}" class="nav-link nav-toggle">
                     <i class="icon-puzzle"></i>
-                    <span class="title">About us</span>
+                    <span class="title">{{trans('admin/partials/navigation.about_us')}}</span>
 
 
                 </a>
@@ -189,7 +189,6 @@
             <li class="nav-item start">
                 <a href="javascript:;" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
-                    <span class="title">Services</span>
                     <span class="title">{{trans('admin/partials/navigation.services')}}</span>
                     <span class="selected"></span>
                     <span class="arrow"></span>
@@ -413,7 +412,7 @@
             <li class="nav-item start">
                 <a href="{{route('admin.general.setting')}}" class="nav-link nav-toggle">
                     <i class="icon-puzzle"></i>
-                    <span class="title"> Website General setting</span>
+                    <span class="title"> {{trans('admin/partials/navigation.website_general_settings')}}</span>
 
 
                 </a>

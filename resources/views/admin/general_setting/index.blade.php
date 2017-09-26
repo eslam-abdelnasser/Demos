@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'General setting')
+@section('title', trans('admin/general.general_setting'))
 
 {{-- start css --}}
 @section('css')
@@ -12,19 +12,11 @@
 {{-- Start Breadcums --}}
 
 @section('home','Home')
-@section('page_title','General Setting')
+@section('page_title', trans('admin/general.general_setting'))
 
 
 {{-- End Breadcums--}}
 
-
-{{-- Start page title --}}
-
-@section('page_head','General setting')
-
-@section('page_description','Add Services that should be in your website')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -35,7 +27,7 @@
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-gift"></i>Add General setting </div>
+                        <i class="fa fa-gift"></i>{{trans('admin/general.add_new')}} </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"> </a>
                         <a href="#portlet-config" data-toggle="modal" class="config"> </a>
@@ -52,58 +44,58 @@
 
                                     <div class="form-body">
                                         <div class="form-group">
-                                            <label>Website url</label>
+                                            <label>{{trans('admin/general.web_url')}}</label>
                                             <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                <input type="text" name="site_url" value="{{ $general->site_url }}" id="site_url" class="form-control input-circle-right" placeholder="website url"> </div>
+                                                <input type="text" name="site_url" value="{{ $general->site_url }}" id="site_url" class="form-control input-circle-right" placeholder="{{trans('admin/general.web_url')}}"> </div>
                                         </div>
 
 
                                         <div class="form-group">
-                                            <label>email</label>
+                                            <label>{{trans('admin/general.email')}}</label>
                                             <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                <input type="email" name="email" value="{{ $general->email }}" id="email" class="form-control input-circle-right" placeholder="Email"> </div>
+                                                <input type="email" name="email" value="{{ $general->email }}" id="email" class="form-control input-circle-right" placeholder="{{trans('admin/general.email')}}"> </div>
                                         </div>
 
 
                                         <div class="form-group">
-                                            <label>Phone number</label>
+                                            <label>{{trans('admin/general.phone')}}</label>
                                             <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                <input type="text" name="phone" value="{{ $general->phone }}" id="phone" class="form-control input-circle-right" placeholder="Phone"> </div>
+                                                <input type="text" name="phone" value="{{ $general->phone }}" id="phone" class="form-control input-circle-right" placeholder="{{trans('admin/general.phone')}}"> </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Arabic address</label>
+                                            <label>{{trans('admin/general.arabic_address')}}</label>
                                             <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                <input type="text" name="address_ar" value="{{ $general->address_ar }}" id="phone" class="form-control input-circle-right" placeholder="Arabic Address"> </div>
+                                                <input type="text" name="address_ar" value="{{ $general->address_ar }}" id="phone" class="form-control input-circle-right" placeholder="{{trans('admin/general.arabic_address')}}"> </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label>English Address</label>
+                                            <label>{{trans('admin/general.english_address')}}</label>
                                             <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                <input type="text" name="address_en" value="{{ $general->address_en }}" id="phone" class="form-control input-circle-right" placeholder="English Address"> </div>
+                                                <input type="text" name="address_en" value="{{ $general->address_en }}" id="phone" class="form-control input-circle-right" placeholder="{{trans('admin/general.english_address')}}"> </div>
                                         </div>
 
 
                                         <div class="form-group">
-                                            <label>Website Description</label>
+                                            <label>{{trans('admin/general.description')}}</label>
                                             <div class="input-icon right">
                                                 <i class="fa fa-tasks  font-green"></i>
-                                                <textarea name="site_description" id="site_description" cols="30" rows="10" placeholder="وصف الموقع" class="form-control {{ $errors->has('site_description') ? ' has-error' : '' }}"> {{ $general->site_description }} </textarea>
+                                                <textarea name="site_description" id="site_description" cols="30" rows="10" placeholder="{{trans('admin/general.description')}}" class="form-control {{ $errors->has('site_description') ? ' has-error' : '' }}"> {{ $general->site_description }} </textarea>
                                             </div>
                                             @if ($errors->has('site_description'))
                                                 <span class="help-block">
@@ -112,29 +104,29 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <label>Website Keywords</label>
+                                            <label>{{trans('admin/general.keywords')}}</label>
                                             <div class="input-icon right">
                                                 <i class="fa fa-tasks   font-green"></i>
-                                                <textarea name="site_keywords" id="site_keywords" cols="30" rows="10" placeholder="Website Keywords" class="form-control">{{ $general->site_keywords }}</textarea>
+                                                <textarea name="site_keywords" id="site_keywords" cols="30" rows="10" placeholder="{{trans('admin/general.keywords')}}" class="form-control">{{ $general->site_keywords }}</textarea>
                                             </div>
                                         </div>
 
 
 
                                         <div class="form-group">
-                                            <label>Google analytics Id</label>
+                                            <label>{{trans('admin/general.google_id')}}</label>
                                             <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                <input type="text" name="google_analytics_id" value="{{ $general->google_analytics_id }}" id="phone" class="form-control input-circle-right" placeholder="Google analytics id"> </div>
+                                                <input type="text" name="google_analytics_id" value="{{ $general->google_analytics_id }}" id="phone" class="form-control input-circle-right" placeholder="{{trans('admin/general.google_id')}}"> </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Google analytics script</label>
+                                            <label>{{trans('admin/general.google_script')}}</label>
                                             <div class="input-icon right">
                                                 <i class="fa fa-code  font-green"></i>
-                                                <textarea name="google_analytics_script" id="google_analytics_script" cols="30" rows="10" placeholder="Google analytics script" class="form-control"> {{ $general->google_analytics_script }} </textarea>
+                                                <textarea name="google_analytics_script" id="google_analytics_script" cols="30" rows="10" placeholder="{{trans('admin/general.google_script')}}" class="form-control"> {{ $general->google_analytics_script }} </textarea>
                                             </div>
                                         </div>
 

@@ -37,5 +37,8 @@ return [
     'create_new_doctor' => 'إضافة طبيب',
     'create_new_clinic' => 'إضافة عيادة',
     'medical_equipments' => 'المعدات الطبية',
-    'create_new_medical_equipment' => 'إضافة معدات طبية'
+    'create_new_medical_equipment' => 'إضافة معدات طبية',
+    'website_general_settings' => 'الخصائص العامه لللموقع',
+    'about_us' => 'معلومات عنا',
+    'slider_show' => 'شريط التمرير',
 ];

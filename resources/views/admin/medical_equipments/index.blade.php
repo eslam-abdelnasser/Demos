@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Medical Equipments')
+@section('title', trans('admin/medical_equipment.medical_equipment'))
 
 {{-- start css --}}
 @section('css')
@@ -20,19 +20,11 @@
 {{-- Start Breadcums --}}
 
 @section('home','Home')
-@section('page_title','Medical Equipments')
+@section('page_title',trans('admin/medical_equipment.medical_equipment'))
 
 
 {{-- End Breadcums--}}
 
-
-{{-- Start page title --}}
-
-@section('page_head','Medical Equipments')
-
-@section('page_description','All Medical Equipments in your website')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -44,7 +36,7 @@
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="icon-settings font-dark"></i>
-                        <span class="caption-subject bold uppercase"> Medical Equipments Table</span>
+                        <span class="caption-subject bold uppercase"> {{trans('admin/medical_equipment.table')}}</span>
                     </div>
 
                 </div>
@@ -53,14 +45,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('medical_equipments.create')}}'" class="btn sbold green"> Add New
+                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('medical_equipments.create')}}'" class="btn sbold green"> {{trans('admin/medical_equipment.add_new')}}
                                         <i class="fa fa-plus"></i>
                                     </button>
 
 
                                 </div>
 
-                                <button id="sample_editable_1_new" class="btn sbold red delete_all"> Delete
+                                <button id="sample_editable_1_new" class="btn sbold red delete_all"> {{trans('admin/services.delete')}}
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>
@@ -80,11 +72,11 @@
                                 </label>
                             </th>
                             <th>#</th>
-                            <th class="text-center"> Medical Equipment title </th>
-                            <th class="text-center"> Show on home page </th>
-                            <th class="text-center"> Status </th>
+                            <th class="text-center"> {{trans('admin/medical_equipment.title')}} </th>
+                            <th class="text-center"> {{trans('admin/services.show_on_home_page')}} </th>
+                            <th class="text-center"> {{trans('admin/services.status')}} </th>
 
-                            <th class="text-center"> Actions </th>
+                            <th class="text-center"> {{trans('admin/services.action')}} </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -113,9 +105,9 @@
                                     <span class="label label-sm label-{{$medical_equipment->status == 0 ? 'danger' : 'success'}}"> {{$medical_equipment->status == 0 ? 'inactive' : 'active'}} </span>
                                 </td>
                                 <td class="text-center vcenter">
-                                    <a href="{{route('medical_equipments.edit',$medical_equipment->id)}}" title="edit"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('medical_equipments.edit',$medical_equipment->id)}}" title="{{trans('admin/services.edit')}}"><i class="fa fa-edit"></i></a>
                                     {!! Form::open(['route' => ['medical_equipments.destroy',$medical_equipment->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$medical_equipment->id]) !!}
-                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$medical_equipment->id}}" ).submit();' title="delete"><i class="fa fa-trash"></i></a>
+                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$medical_equipment->id}}" ).submit();' title="{{trans('admin/services.delete')}}"><i class="fa fa-trash"></i></a>
                                     {!! Form::close() !!}
                                 </td>
                             </tr>

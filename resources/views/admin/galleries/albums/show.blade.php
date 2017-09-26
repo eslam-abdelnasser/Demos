@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Galleries')
+@section('title',trans('admin/galleries.galleries'))
 
 {{-- start css --}}
 @section('css')
@@ -36,20 +36,10 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Galleries')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/galleries.galleries'))
 
 
-{{-- End Breadcums--}}
-
-
-{{-- Start page title --}}
-
-@section('page_head','Galleries')
-
-@section('page_description','All your website Galleries')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -57,13 +47,13 @@
     <!-- END PAGE HEADER-->
     <div class="portfolio-content portfolio-1">
         <div id="js-filters-juicy-projects" class="cbp-l-filters-button">
-            <div data-filter="*" class="cbp-filter-item-active cbp-filter-item btn dark btn-outline uppercase"> All
+            <div data-filter="*" class="cbp-filter-item-active cbp-filter-item btn dark btn-outline uppercase"> {{trans('admin/galleries.all')}}
                 <div class="cbp-filter-counter"></div>
             </div>
-            <div data-filter=".images" class="cbp-filter-item btn dark btn-outline uppercase"> Images
+            <div data-filter=".images" class="cbp-filter-item btn dark btn-outline uppercase"> {{trans('admin/galleries.image')}}
                 <div class="cbp-filter-counter"></div>
             </div>
-            <div data-filter=".video" class="cbp-filter-item btn dark btn-outline uppercase"> youtube videos
+            <div data-filter=".video" class="cbp-filter-item btn dark btn-outline uppercase"> {{trans('admin/galleries.youtube')}}
                 <div class="cbp-filter-counter"></div>
             </div>
 
@@ -82,11 +72,11 @@
                     <div class="cbp-caption-activeWrap">
                         <div class="cbp-l-caption-alignCenter">
                             <div class="cbp-l-caption-body">
-                                <a href="{{route('Album.delete',encrypt($gallery->id))}}" class="btn red uppercase btn red uppercase" rel="nofollow">Delete</a>
+                                <a href="{{route('Album.delete',encrypt($gallery->id))}}" class="btn red uppercase btn red uppercase" rel="nofollow">{{trans('admin/services.delete')}}</a>
                                 @if($gallery->type == '1')
-                                <a href="https://www.youtube.com/watch?v={{$gallery->video_url}}" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Dashboard<br>by Paul Flavius Nechita">view larger</a>
+                                <a href="https://www.youtube.com/watch?v={{$gallery->video_url}}" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Dashboard<br>by Paul Flavius Nechita">{{trans('admin/galleries.view_larger')}}</a>
                                 @else
-                                 <a href="{{asset('uploads/galleries/admin/1200x900/'.$gallery->image_url)}}" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Dashboard<br>by Paul Flavius Nechita">view larger</a>
+                                 <a href="{{asset('uploads/galleries/admin/1200x900/'.$gallery->image_url)}}" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Dashboard<br>by Paul Flavius Nechita">{{trans('admin/galleries.view_larger')}}</a>
                                 @endif
                             </div>
                         </div>

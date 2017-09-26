@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title','Gallery')
+@section('title',trans('admin/galleries.galleries'))
 
 {{-- start css --}}
 @section('css')
@@ -10,20 +10,12 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Gallery')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/galleries.galleries'))
 
 
 {{-- End Breadcums--}}
 
-
-{{-- Start page title --}}
-
-@section('page_head','Gallery')
-
-@section('page_description','Add Gallery that should be in your website')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -34,7 +26,7 @@
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-gift"></i>Add Gallery </div>
+                        <i class="fa fa-gift"></i>{{trans('admin/galleries.add_new')}} </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"> </a>
                         <a href="#portlet-config" data-toggle="modal" class="config"> </a>
@@ -48,7 +40,7 @@
 
                                 @foreach($languages as $language)
                                     <li class="{{$loop->iteration == 1 ? 'active' : ''}}">
-                                        <a href="#{{$language->name}}" data-toggle="tab"> {{$language->name}} </a>
+                                        <a href="#{{$language->name}}" data-toggle="tab">  {{trans('admin/services.'.$language->name )}} </a>
                                     </li>
                                 @endforeach
 
@@ -64,12 +56,12 @@
 
                                             <div class="form-body">
                                                 <div class="form-group">
-                                                    <label>{{$language->name}} Gallery name</label>
+                                                    <label> {{trans('admin/galleries.gallery_title')}} {{trans('admin/services.'.$language->name )}} </label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                             <i class="fa fa-align-justify"></i>
                                                         </span>
-                                                        <input type="text" name="name_{{$language->label}}" value="{{old('name_'.$language->label)}}" id="name_{{$language->label}}" class="form-control input-circle-right" placeholder="Name"> </div>
+                                                        <input type="text" name="name_{{$language->label}}" value="{{old('name_'.$language->label)}}" id="name_{{$language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin/galleries.gallery_title')}}"> </div>
                                                 </div>
 
 
@@ -87,22 +79,22 @@
 
 
                                 <div class="form-group">
-                                    <label>Clinic Home Page Status</label>
+                                    <label>{{trans('admin/services.service_home_page_status')}}</label>
                                     <div class="input-group margin-top-10">
                                         <select class="form-control input-medium" name="homepage_status">
 
-                                            <option value="1" {{old('homepage_status') == 1 ? 'selected' : ''}} >Display On Home Page</option>
-                                            <option value="0" {{old('homepage_status') == 0 ? 'selected' : ''}}>Not Display On Home Page</option>
+                                            <option value="1" {{old('homepage_status') == 1 ? 'selected' : ''}} >{{trans('admin/services.display')}}</option>
+                                            <option value="0" {{old('homepage_status') == 0 ? 'selected' : ''}}>{{trans('admin/services.not_display')}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>gallery Status</label>
+                                    <label>{{trans('admin/services.service_status')}}</label>
                                     <div class="input-group margin-top-10">
                                         <select class="form-control input-medium" name="status">
 
-                                            <option value="1" {{old('status') == 1 ? 'selected' : ''}} >Enable</option>
-                                            <option value="0" {{old('status') == 0 ? 'selected' : ''}} >Disable</option>
+                                            <option value="1" {{old('status') == 1 ? 'selected' : ''}} >{{trans('admin/services.enable')}}</option>
+                                            <option value="0" {{old('status') == 0 ? 'selected' : ''}} >{{trans('admin/services.disable')}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -111,8 +103,8 @@
 
                             </div>
                             <div class="form-actions">
-                                <button type="submit" class="btn blue">Submit</button>
-                                <button type="button" class="btn default">Cancel</button>
+                                <button type="submit" class="btn blue">{{trans('admin/services.submit')}}</button>
+                                <button type="button" class="btn default">{{trans('admin/services.cancel')}}</button>
                             </div>
                             {!! Form::close() !!}
                         </div>

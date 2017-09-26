@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Galleries')
+@section('title',trans('admin/galleries.galleries'))
 
 {{-- start css --}}
 @section('css')
@@ -19,20 +19,11 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Galleries')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/galleries.galleries'))
 
 
 {{-- End Breadcums--}}
-
-
-{{-- Start page title --}}
-
-@section('page_head','Galleries')
-
-@section('page_description','All your website Galleries')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -44,7 +35,7 @@
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="icon-settings font-dark"></i>
-                        <span class="caption-subject bold uppercase"> Galleries Table</span>
+                        <span class="caption-subject bold uppercase"> {{trans('admin/galleries.galleries_table')}}</span>
                     </div>
 
                 </div>
@@ -53,14 +44,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('galleries.create')}}'" class="btn sbold green"> Add New
+                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('galleries.create')}}'" class="btn sbold green">{{trans('admin/galleries.add_new')}}
                                         <i class="fa fa-plus"></i>
                                     </button>
 
 
                                 </div>
 
-                                <button id="sample_editable_1_new" class="btn sbold red delete_all"> Delete
+                                <button id="sample_editable_1_new" class="btn sbold red delete_all"> {{trans('admin/services.delete')}}
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>
@@ -80,11 +71,11 @@
                                 </label>
                             </th>
                             <th>#</th>
-                            <th class="text-center"> Gallery title </th>
-                            <th class="text-center"> Show on home page </th>
-                            <th class="text-center"> Status </th>
-                            <th class="text-center"> Albums </th>
-                            <th class="text-center"> Actions </th>
+                            <th class="text-center"> {{trans('admin/galleries.gallery_title')}} </th>
+                            <th class="text-center"> {{trans('admin/services.show_on_home_page')}} </th>
+                            <th class="text-center"> {{trans('admin/services.status')}} </th>
+                            <th class="text-center"> {{trans('admin/galleries.album')}} </th>
+                            <th class="text-center"> {{trans('admin/services.action')}} </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -114,14 +105,14 @@
                                 </td>
 
                                 <td class="text-center vcenter">
-                                    <a href="{{route('Album.create',$gallery->id)}}" title="edit"><i class="fa fa-plus"></i></a>
-                                    <a href="{{route('Album.show',$gallery->id)}}" title="list"><i class="fa fa-list"></i></a>
+                                    <a href="{{route('Album.create',$gallery->id)}}" title="{{trans('admin/services.edit')}}"><i class="fa fa-plus"></i></a>
+                                    <a href="{{route('Album.show',$gallery->id)}}" title="{{trans('admin/galleries.list')}}"><i class="fa fa-list"></i></a>
                                 </td>
 
                                 <td class="text-center vcenter">
-                                    <a href="{{route('galleries.edit',$gallery->id)}}" title="edit"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('galleries.edit',$gallery->id)}}" title="{{trans('admin/services.edit')}}"><i class="fa fa-edit"></i></a>
                                     {!! Form::open(['route' => ['galleries.destroy',$gallery->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$gallery->id]) !!}
-                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$gallery->id}}" ).submit();' title="delete"><i class="fa fa-trash"></i></a>
+                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$gallery->id}}" ).submit();' title="{{trans('admin/services.delete')}}"><i class="fa fa-trash"></i></a>
                                     {!! Form::close() !!}
                                 </td>
 

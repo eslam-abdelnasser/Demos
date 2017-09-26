@@ -1,30 +1,20 @@
 @extends('admin.layout')
 
-@section('title', 'Languages')
+@section('title', trans('admin/faq.faq'))
 
 {{-- start css --}}
 @section('css')
-    {{--<link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet" type="text/css" />--}}
 
 @endsection
 {{-- end css --}}
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Languages')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/faq.faq'))
 
 
 {{-- End Breadcums--}}
-
-
-{{-- Start page title --}}
-
-@section('page_head','Languages')
-
-@section('page_description','Add Languages that should be in your website')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -35,7 +25,7 @@
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-gift"></i>Add Service </div>
+                        <i class="fa fa-gift"></i>{{trans('admin\faq.add_new')}} </div>
                     <div class="tools">
                         <a href="javascript:;" class="collapse"> </a>
                         <a href="#portlet-config" data-toggle="modal" class="config"> </a>
@@ -49,7 +39,7 @@
 
                                 @foreach($languages as $language)
                                     <li class="{{$loop->iteration == 1 ? 'active' : ''}}">
-                                        <a href="#{{$language->name}}" data-toggle="tab"> {{$language->name}} </a>
+                                        <a href="#{{$language->name}}" data-toggle="tab">  {{trans('admin/services.'.$language->name )}} </a>
                                     </li>
                                 @endforeach
 
@@ -65,23 +55,23 @@
 
                                             <div class="form-body">
                                                 <div class="form-group">
-                                                    <label>{{$language->name}} Question</label>
+                                                    <label> {{trans('admin\faq.question')}} {{trans('admin/services.'.$language->name )}} </label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
 
                                                         </span>
-                                                        <input type="text" name="question_{{$language->label}}" id="question_{{$language->label}}" class="form-control input-circle-right" placeholder="Your Question..."> </div>
+                                                        <input type="text" name="question_{{$language->label}}" id="question_{{$language->label}}" class="form-control input-circle-right" placeholder=" {{trans('admin\faq.question')}} "> </div>
                                                 </div>
                                             </div>
 
 
                                             <div class="form-body">
                                                 <div class="form-group">
-                                                    <label>{{$language->name}} answer</label>
+                                                    <label> {{trans('admin\faq.answer')}}  {{trans('admin/services.'.$language->name )}} </label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                         </span>
-                                                        <textarea class="my-editor" name="answer_{{$language->label}}" id="answer_{{$language->label}}" placeholder="Description">
+                                                        <textarea class="my-editor" name="answer_{{$language->label}}" id="answer_{{$language->label}}" placeholder="">
 
                                                         </textarea>
                                                     </div>
@@ -94,8 +84,8 @@
                             </div>
 
                             <div class="form-actions">
-                                <button type="submit" class="btn blue">Submit</button>
-                                <button type="button" class="btn default">Cancel</button>
+                                <button type="submit" class="btn blue">{{trans('admin\faq.submit')}} </button>
+                                <button type="button" class="btn default">{{trans('admin\faq.cancel')}} </button>
                             </div>
                             {!! Form::close() !!}
                         </div>

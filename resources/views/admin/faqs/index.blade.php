@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Dashboard')
+@section('title', trans('admin/faq.faq'))
 
 {{-- start css --}}
 @section('css')
@@ -10,31 +10,23 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Dashboard')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/faq.faq'))
 
 
 {{-- End Breadcums--}}
 
 
-{{-- Start page title --}}
-
-@section('page_title','Dashboard')
-
-@section('description','Statistics, chart , and all users activities on your website')
-
-{{-- end page title --}}
-
 
 @section('content')
-    <h4 class="page-title">Frequent Questions and Answers</h4>
+    <h4 class="page-title">{{trans('admin\faq.faqs')}}</h4>
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN SAMPLE TABLE PORTLET-->
             <div class="portlet">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-bell-o"></i>Q&A Table </div>
+                        <i class="fa fa-bell-o"></i>{{trans('admin\faq.faq_table')}} </div>
 
                 </div>
                 <div class="portlet-body">
@@ -42,13 +34,13 @@
                         <table class="table table-striped table-bordered table-advance table-hover">
                             <thead>
                             <tr>
-                                <th>Question</th>
+                                <th>{{trans('admin\faq.question')}}</th>
 
-                                <th>Answer</th>
+                                <th>{{trans('admin\faq.answer')}}</th>
 
-                                <th>Language</th>
+                                <th>{{trans('admin\faq.language')}}</th>
 
-                                <th>Actions</th>
+                                <th>{{trans('admin\faq.action')}}</th>
 
                             </tr>
                             </thead>
@@ -67,11 +59,11 @@
                                     </td>
                                     <td>
                                         <a href="{{route ('faqs.edit',$faq->id)}}" class="btn btn-outline btn-circle btn-sm purple">
-                                            <i class="fa fa-edit"></i> Edit </a>
+                                            <i class="fa fa-edit"></i> {{trans('admin\faq.edit')}} </a>
 
                                         {!! Form::open(['route' => ['faqs.destroy', $faq->id ], 'method' => 'DELETE','style'=>'display: inline;']) !!}
                                         <button class="btn btn-outline btn-circle dark btn-sm black">
-                                            <i class="fa fa-trash-o"></i> Delete </button>
+                                            <i class="fa fa-trash-o"></i> {{trans('admin\faq.delete')}} </button>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>

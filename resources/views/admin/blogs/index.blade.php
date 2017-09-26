@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Blogs')
+@section('title', trans('admin/blog.blog'))
 
 {{-- start css --}}
 @section('css')
@@ -19,20 +19,12 @@
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Blogs')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/blog.blog'))
 
 
 {{-- End Breadcums--}}
 
-
-{{-- Start page title --}}
-
-@section('page_head','Blogs')
-
-@section('page_description','All Blogs in your website')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -44,7 +36,7 @@
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="icon-settings font-dark"></i>
-                        <span class="caption-subject bold uppercase"> Blog Table</span>
+                        <span class="caption-subject bold uppercase"> {{trans('admin/blog.blog_table')}}</span>
                     </div>
 
                 </div>
@@ -53,14 +45,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="btn-group">
-                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('blogs.create')}}'" class="btn sbold green"> Add New
+                                    <button id="sample_editable_1_new" onclick="location.href ='{{route('blogs.create')}}'" class="btn sbold green"> {{trans('admin/blog.add_new')}}
                                         <i class="fa fa-plus"></i>
                                     </button>
 
 
                                 </div>
 
-                                <button id="sample_editable_1_new" class="btn sbold red delete_all"> Delete
+                                <button id="sample_editable_1_new" class="btn sbold red delete_all"> {{trans('admin/services.delete')}}
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>
@@ -80,12 +72,12 @@
                                 </label>
                             </th>
                             <th>#</th>
-                            <th class="text-center"> Blog title </th>
-                            <th class="text-center"> Auther Name </th>
-                            <th class="text-center"> Show on home page </th>
-                            <th class="text-center"> Status </th>
+                            <th class="text-center"> {{trans('admin/blog.blog_title')}} </th>
+                            <th class="text-center"> {{trans('admin/blog.auther_name')}} </th>
+                            <th class="text-center"> {{trans('admin/services.show_on_home_page')}} </th>
+                            <th class="text-center"> {{trans('admin/services.status')}} </th>
 
-                            <th class="text-center"> Actions </th>
+                                <th class="text-center"> {{trans('admin/services.action')}} </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -121,9 +113,9 @@
                                     <span class="label label-sm label-{{$blog->status == 0 ? 'danger' : 'success'}}"> {{$blog->status == 0 ? 'inactive' : 'active'}} </span>
                                 </td>
                                 <td class="text-center vcenter">
-                                    <a href="{{route('blogs.edit',$blog->id)}}" title="edit"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('blogs.edit',$blog->id)}}" title="{{trans('admin/services.edit')}}"><i class="fa fa-edit"></i></a>
                                     {!! Form::open(['route' => ['blogs.destroy',$blog->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$blog->id]) !!}
-                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$blog->id}}" ).submit();' title="delete"><i class="fa fa-trash"></i></a>
+                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$blog->id}}" ).submit();' title="{{trans('admin/services.delete')}}"><i class="fa fa-trash"></i></a>
                                     {!! Form::close() !!}
                                 </td>
 

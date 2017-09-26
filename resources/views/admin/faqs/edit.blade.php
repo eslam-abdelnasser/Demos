@@ -1,30 +1,21 @@
 @extends('admin.layout')
 
-@section('title', 'Languages')
+@section('title', trans('admin/faq.faq'))
 
 {{-- start css --}}
 @section('css')
-    {{--<link href="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css')}}" rel="stylesheet" type="text/css" />--}}
 
 @endsection
 {{-- end css --}}
 
 {{-- Start Breadcums --}}
 
-@section('home','Home')
-@section('page_title','Languages')
+@section('home',trans('admin/admins/index.home'))
+@section('page_title',trans('admin/faq.faq'))
 
 
 {{-- End Breadcums--}}
 
-
-{{-- Start page title --}}
-
-@section('page_head','Languages')
-
-@section('page_description','Add Languages that should be in your website')
-
-{{-- end page title --}}
 
 
 @section('content')
@@ -47,7 +38,7 @@
                             <ul class="nav nav-tabs tabs-left">
 
                                     <li class="active">
-                                        <a href="#{{$faq->language->name}}" data-toggle="tab"> {{$faq->language->name}} </a>
+                                        <a href="#{{$faq->language->name}}" data-toggle="tab"> {{trans('admin/services.'.$faq->language->name )}} </a>
                                     </li>
 
                             </ul>
@@ -61,23 +52,23 @@
 
                                             <div class="form-body">
                                                 <div class="form-group">
-                                                    <label>{{$faq->language->name}} Question</label>
+                                                    <label> {{trans('admin\faq.question')}} {{trans('admin/services.'.$faq->language->name )}}</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
 
                                                         </span>
-                                                        <input type="text" value="{{$faq->question}}" name="question_{{$faq->language->label}}" id="question_{{$faq->language->label}}" class="form-control input-circle-right" placeholder="Your Question..."> </div>
+                                                        <input type="text" value="{{$faq->question}}" name="question_{{$faq->language->label}}" id="question_{{$faq->language->label}}" class="form-control input-circle-right" placeholder="{{trans('admin\faq.question')}}"> </div>
                                                 </div>
                                             </div>
 
 
                                             <div class="form-body">
                                                 <div class="form-group">
-                                                    <label>{{$faq->language->name}} answer</label>
+                                                    <label> {{trans('admin\faq.answer')}} {{trans('admin/services.'.$faq->language->name )}}</label>
                                                     <div class="input-group">
                                                         <span class="input-group-addon input-circle-left">
                                                         </span>
-                                                        <textarea class="my-editor" value="{{$faq->answer}}" name="answer_{{$faq->language->label}}" id="answer_{{$faq->language->label}}" placeholder="Description">
+                                                        <textarea class="my-editor" value="{{$faq->answer}}" name="answer_{{$faq->language->label}}" id="answer_{{$faq->language->label}}" placeholder="">
 
                                                         </textarea>
                                                     </div>
@@ -89,8 +80,8 @@
                             </div>
 
                             <div class="form-actions">
-                                <button type="submit" class="btn blue">Submit</button>
-                                <button type="button" class="btn default">Cancel</button>
+                                <button type="submit" class="btn blue">{{trans('admin\faq.submit')}}</button>
+                                <button type="button" class="btn default">{{trans('admin\faq.cancel')}}</button>
                             </div>
                             {!! Form::close() !!}
                         </div>
