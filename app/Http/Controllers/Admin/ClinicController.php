@@ -70,12 +70,13 @@ class ClinicController extends Controller
         $clinic->status = $request->status;
 
         //upload image to server directory to service
-        $dir = public_path().'/uploads/clinics/540x370/';
+        $dir = public_path().'/uploads/clinics/';
         $file = $request->file('image_url') ;
         $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
         $file->move($dir , $fileName);
         // resize image using intervention
-        Image::make($dir . $fileName)->resize(540, 370)->save($dir.$fileName);
+        Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'.$fileName);
+        Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'.$fileName);
         $clinic->image_url = $fileName ;
 
 
@@ -157,13 +158,14 @@ class ClinicController extends Controller
 
         if($request->hasFile('image_url')){
             //upload image to server directory to service
-            $dir = public_path().'/uploads/clinics/540x370/';
+            $dir = public_path().'/uploads/clinics/';
             File::delete($dir . $clinic->image_url);
             $file = $request->file('image_url') ;
             $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
             $file->move($dir , $fileName);
             // resize image using intervention
-            Image::make($dir . $fileName)->resize(540, 370)->save($dir.$fileName);
+            Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'.$fileName);
+            Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'.$fileName);
             $clinic->image_url = $fileName ;
         }
 
@@ -175,7 +177,7 @@ class ClinicController extends Controller
 
                 if($description->lang_id == $language->id){
                     $description->lang_id = $language->id;
-                    $description->service_id = $clinic->id;
+                    $description->clinic_id = $clinic->id;
 
                     $description->title = $request->get('title_'.$language->label);
                     $description->slug = $request->get('slug_'.$language->label);
