@@ -117,8 +117,8 @@
                                     <div class="input-group margin-top-10">
                                         <select class="form-control input-medium" name="homepage_status">
 
-                                            <option value="1" {{old('homepage_status') == 1 ? 'selected' : ''}} >{{trans('admin/services.display')}}</option>
-                                            <option value="0" {{old('homepage_status') == 0 ? 'selected' : ''}}>{{trans('admin/services.not_display')}}</option>
+                                            <option value="1" {{$clinic->home_page_status == 1 ? 'selected' : ''}} >{{trans('admin/services.display')}}</option>
+                                            <option value="0" {{$clinic->home_page_status  == 0 ? 'selected' : ''}}>{{trans('admin/services.not_display')}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -127,8 +127,8 @@
                                     <div class="input-group margin-top-10">
                                         <select class="form-control input-medium" name="status">
 
-                                            <option value="1" {{old('status') == 1 ? 'selected' : ''}} >{{trans('admin/services.enable')}}</option>
-                                            <option value="0" {{old('status') == 0 ? 'selected' : ''}} >{{trans('admin/services.disable')}}</option>
+                                            <option value="1" {{$clinic->status == 1 ? 'selected' : ''}} >{{trans('admin/services.enable')}}</option>
+                                            <option value="0" {{$clinic->status == 0 ? 'selected' : ''}} >{{trans('admin/services.disable')}}</option>
                                         </select>
                                     </div>
                                 </div>

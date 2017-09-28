@@ -76,7 +76,9 @@ class ClinicController extends Controller
         $file->move($dir , $fileName);
         // resize image using intervention
         Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'.$fileName);
-        Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'.$fileName);
+        Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1290x1280 /'.$fileName);
+        Image::make($dir . $fileName)->resize(360, 205)->save($dir.'360x205/'.$fileName);
+
         $clinic->image_url = $fileName ;
 
 
@@ -165,7 +167,8 @@ class ClinicController extends Controller
             $file->move($dir , $fileName);
             // resize image using intervention
             Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'.$fileName);
-            Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'.$fileName);
+            Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1290x1280/'.$fileName);
+            Image::make($dir . $fileName)->resize(360, 205)->save($dir.'360x205/'.$fileName);
             $clinic->image_url = $fileName ;
         }
 
@@ -181,8 +184,8 @@ class ClinicController extends Controller
 
                     $description->title = $request->get('title_'.$language->label);
                     $description->slug = $request->get('slug_'.$language->label);
-                    $description->description = $request->get('meta_title_'.$language->label);
-                    $description->meta_title = $request->get('description_'.$language->label);
+                    $description->description = $request->get('description_'.$language->label);
+                    $description->meta_title = $request->get('meta_title_'.$language->label);
                     $description->meta_description = $request->get('meta_description_'.$language->label);
                     $description->save();
                 }

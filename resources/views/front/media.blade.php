@@ -58,34 +58,48 @@
                         <div data-filter="*" class="cbp-filter-item-active cbp-filter-item btn dark btn-outline uppercase"> All
                             <div class="cbp-filter-counter"></div>
                         </div>
-                        <div data-filter=".images" class="cbp-filter-item btn dark btn-outline uppercase"> Images
-                            <div class="cbp-filter-counter"></div>
-                        </div>
-                        <div data-filter=".video" class="cbp-filter-item btn dark btn-outline uppercase"> youtube videos
-                            <div class="cbp-filter-counter"></div>
-                        </div>
+                        @foreach($galleries as $gallery)
+                            @foreach($gallery->description as $description)
+                                @if($description->language->label == LaravelLocalization::getCurrentLocale())
+                                    <div data-filter=".gallery{{$gallery->id}}" class="cbp-filter-item btn dark btn-outline uppercase"> {{$description->title}}
+                                        <div class="cbp-filter-counter"></div>
+                                    </div>
+
+                                @endif
+                            @endforeach
+                        @endforeach
 
                     </div>
                     <div id="js-grid-juicy-projects" class="cbp">
+                        @foreach($galleries as $gallery)
+                            @foreach($gallery->media->take(8) as $media)
+                                <div class="cbp-item gallery{{$gallery->id}}">
+                                    <div class="cbp-caption">
+                                        <div class="cbp-caption-defaultWrap">
 
-                        <div class="cbp-item images">
-                            <div class="cbp-caption">
-                                <div class="cbp-caption-defaultWrap">
-
-                                    <img src="{{asset('uploads/galleries/admin/1.png')}}" alt="">
-
-                                </div>
-                                <div class="cbp-caption-activeWrap">
-                                    <div class="cbp-l-caption-alignCenter">
-                                        <div class="cbp-l-caption-body">
-                                            <a href="https://www.youtube.com/watch?v=55BnfXKgbN4" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Dashboard<br>by Paul Flavius Nechita">view larger</a>
+                                            @if($media->type == '1')
+                                                <img src="{{asset('uploads/galleries/admin/1.png')}}" alt="">
+                                            @else
+                                                <img src="{{asset('uploads/galleries/admin/600x600/'.$media->image_url)}}" alt="">
+                                            @endif
 
                                         </div>
+                                        <div class="cbp-caption-activeWrap">
+                                            <div class="cbp-l-caption-alignCenter">
+                                                <div class="cbp-l-caption-body">
+                                                    @if($media->type == '1')
+                                                        <a href="https://www.youtube.com/watch?v={{$media->video_url}}" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Dashboard<br>by Paul Flavius Nechita">{{trans('admin/galleries.view_larger')}}</a>
+                                                    @else
+                                                        <a href="{{asset('uploads/galleries/admin/1200x900/'.$media->image_url)}}" class="cbp-lightbox cbp-l-caption-buttonRight btn red uppercase btn red uppercase" data-title="Dashboard<br>by Paul Flavius Nechita">{{trans('admin/galleries.view_larger')}}</a>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
 
-                        </div>
+                                </div>
+                            @endforeach
+                        @endforeach
                     </div>
 
                 </div>

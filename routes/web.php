@@ -111,9 +111,7 @@ Route::group([
 
 
 
-    Route::get('/', function () {
-        return view('front.index');
-    });
+    Route::get('/','HomeController@index');
 
     Route::get('/about-us', 'AboutUsController@index')->name('about-us');
     Route::get('/blog', 'ListController@blog')->name('blog');
@@ -133,6 +131,7 @@ Route::group([
     Route::get('/doctors/{slug}/details', 'DetailsController@doctor')->name('doctors.details');
     Route::get('/medical-equipment/{slug}/details', 'DetailsController@equipment')->name('medical-equipment.details');
     Route::get('/careers/{slug}/details', 'DetailsController@career')->name('careers.details');
+    Route::get('/services/{slug}/details', 'DetailsController@service')->name('services.details');
 
 
 }) ;

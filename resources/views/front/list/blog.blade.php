@@ -44,8 +44,8 @@
                                 <div class="entry-meta media mt-0 no-bg no-border">
                                     <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
                                         <ul>
-                                            <li class="font-16 text-white font-weight-600">28</li>
-                                            <li class="font-12 text-white text-uppercase">Feb</li>
+                                            <li class="font-16 text-white font-weight-600">{{ date('d' , strtotime($singleBlog->created_at)) }}</li>
+                                            <li class="font-12 text-white text-uppercase">{{ date('F' , strtotime($singleBlog->created_at)) }}</li>
                                         </ul>
                                     </div>
                                     <div class="media-body pl-15">
@@ -66,18 +66,12 @@
                             @endforeach
                     @endforeach
                     <div class="col-md-12">
-                        <nav>
-                            <ul class="pagination theme-colored">
-                                <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">«</span> </a> </li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">...</a></li>
-                                <li> <a href="#" aria-label="Next"> <span aria-hidden="true">»</span> </a> </li>
-                            </ul>
-                        </nav>
+                        <div class="text-center">
+                            {!! $blog->links() !!}
+                        </div>
+                        <div class="text-center">
+                            <strong>Page : {{ $blog->currentPage() }} of {{ $blog->lastPage() }}</strong>
+                        </div>
                     </div>
                 </div>
             </div>

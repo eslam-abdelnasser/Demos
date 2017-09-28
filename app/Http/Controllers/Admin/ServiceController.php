@@ -76,7 +76,8 @@ class ServiceController extends Controller
         $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
         $file->move($dir , $fileName);
         // resize image using intervention
-        Image::make($dir . $fileName)->resize(270, 137)->save($dir. $fileName);
+        Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'. $fileName);
+        Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'. $fileName);
         $service->image_url = $fileName ;
 
 
@@ -91,8 +92,8 @@ class ServiceController extends Controller
 
             $serviceDescription->title = $request->get('title_'.$language->label);
             $serviceDescription->slug = $request->get('slug_'.$language->label);
-            $serviceDescription->description = $request->get('meta_title_'.$language->label);
-            $serviceDescription->meta_title = $request->get('description_'.$language->label);
+            $serviceDescription->description = $request->get('description_'.$language->label);
+            $serviceDescription->meta_title = $request->get('meta_title_'.$language->label);
             $serviceDescription->meta_description = $request->get('meta_description_'.$language->label);
           $serviceDescription->save();
         }
@@ -169,7 +170,8 @@ class ServiceController extends Controller
             $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
             $file->move($dir , $fileName);
             // resize image using intervention
-            Image::make($dir . $fileName)->resize(270, 137)->save($dir. $fileName);
+            Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'. $fileName);
+            Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'. $fileName);
             $service->image_url = $fileName ;
         }
 
@@ -185,8 +187,8 @@ class ServiceController extends Controller
 
                     $description->title = $request->get('title_'.$language->label);
                     $description->slug = $request->get('slug_'.$language->label);
-                    $description->description = $request->get('meta_title_'.$language->label);
-                    $description->meta_title = $request->get('description_'.$language->label);
+                    $description->description = $request->get('description_'.$language->label);
+                    $description->meta_title = $request->get('meta_title_'.$language->label);
                     $description->meta_description = $request->get('meta_description_'.$language->label);
                     $description->save();
                 }

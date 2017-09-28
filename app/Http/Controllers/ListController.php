@@ -6,6 +6,7 @@ use App\Models\Career;
 use App\Models\Clinic;
 use App\Models\Doctor;
 use App\Models\MedicalEquipment;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\Blog ;
 use PhpParser\Comment\Doc;
@@ -43,7 +44,8 @@ class ListController extends Controller
 
     public function service(){
 
-        return view('front.list.service');
+        $services = Service::where('status','=','1')->paginate(10);
+        return view('front.list.service')->withServices($services);
     }
 
 

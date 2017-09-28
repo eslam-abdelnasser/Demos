@@ -155,8 +155,8 @@ class DoctorController extends Controller
             $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
             $file->move($dir , $fileName);
             // resize image using intervention
-            Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'.$fileName);
-            Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'.$fileName);
+            Image::make($dir . $fileName)->resize(275, 370)->save($dir.'275x370/'.$fileName);
+//            Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'.$fileName);
             $docotr->image_url = $fileName ;
         }
 

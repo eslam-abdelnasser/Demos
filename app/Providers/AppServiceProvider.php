@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
         $about_us = AboutUs::find(1);
         $general_setting= GeneralSetting::find(1);
 
-        return view()->share(['setting'=>$general_setting , 'about'=>$about_us,'social'=>$social]);
+        return view()->share(['setting'=>$general_setting , 'about_us'=>$about_us,'social'=>$social]);
     }
 
     /**

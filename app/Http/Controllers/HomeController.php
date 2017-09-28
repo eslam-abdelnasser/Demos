@@ -9,6 +9,7 @@ use App\Models\Clinic ;
 use App\Models\Gallery ;
 use App\Models\Service ;
 use App\Models\Doctor ;
+use App\Models\AboutUs;
 class HomeController extends Controller
 {
     /**
@@ -35,15 +36,12 @@ class HomeController extends Controller
             $data[] = $slider ;
         }
 
-        $blog = Blog::where('status','=','1')->get() ;
-
-        $clinic = Clinic::where('status','=','1')->get();
-
+         $blog    = Blog::where(['status'=>'1','home_page_status'=>'1'])->get();
+         $clinic  = Clinic::where(['status'=>'1','home_page_status'=>'1'])->get();
          $gallery = Gallery::where('status','=','1')->get();
-         $sevices = Service::where('status','=','1')->get();
+         $sevices = Service::where(['status'=>'1','home_page_status'=>'1'])->get()->take(6);
          $docotrs = Doctor::where('status','=','1')->get() ;
 
-
-        return view('front.index')->withBlog($blog)->withClinincs($clinic)->withGalleries($gallery)->withServices($sevices)->withDoctor($docotrs);
+        return view('front.index')->withBlog($blog)->withClinics($clinic)->withGalleries($gallery)->withServices($sevices)->withDoctors($docotrs)->withSlider($data);
     }
 }
