@@ -149,26 +149,62 @@
             <div class="modal-body">
 
                 <!-- content goes here -->
-                <form>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                <!-- Booking Form Starts -->
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur elit.</p>
+                <!-- Appointment Form -->
+                <form id="popup_appointment_form" name="popup_appointment_form" class="" method="post" action="{{route('admin.login')}}">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group mb-10">
+                                <input name="form_name" class="form-control" type="text" required="" placeholder="Enter Name" aria-required="true">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group mb-10">
+                                <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email" aria-required="true">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group mb-10">
+                                <input name="form_appontment_date" class="form-control required datetime-picker" type="text" placeholder="Appoinment Date & Time" aria-required="true">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><strong>Clinic:</strong></label>
+                                <select name="booking_title" class="form-control" required>
+                                    <option value="">-- select one --</option>
+                                    <option value="Mr">Mr.</option>
+                                    <option value="Mrs">Mrs.</option>
+                                    <option value="Ms">Ms.</option>
+                                    <option value="Mr & Mrs">Mr & Mrs.</option>
+                                    <option value="Dr">Dr.</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label><strong>Doctor:</strong></label>
+                                <select name="booking_title" class="form-control" required>
+                                    <option value="">-- select one --</option>
+                                    <option value="Mr">Mr.</option>
+                                    <option value="Mrs">Mrs.</option>
+                                    <option value="Ms">Ms.</option>
+                                    <option value="Mr & Mrs">Mr & Mrs.</option>
+                                    <option value="Dr">Dr.</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+                    <div class="form-group mb-10">
+                        <textarea id="form_message" name="form_message" class="form-control required"  placeholder="Enter Message" rows="5" aria-required="true"></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputFile">File input</label>
-                        <input type="file" id="exampleInputFile">
-                        <p class="help-block">Example block-level help text here.</p>
+                    <div class="form-group mb-0 mt-20">
+                        <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                        <button type="submit" class="btn btn-dark btn-theme-colored" data-loading-text="Please wait...">Send Message</button>
                     </div>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Check me out
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
                 </form>
 
             </div>
