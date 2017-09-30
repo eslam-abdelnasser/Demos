@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', 'Appointment')
+@section('title', trans('admin/appointment.appointments'))
 
 {{-- start css --}}
 @section('css')
@@ -20,7 +20,7 @@
 {{-- Start Breadcums --}}
 
 @section('home','dashboard')
-@section('page_title','Appointment')
+@section('page_title',trans('admin/appointment.appointments'))
 
 
 {{-- End Breadcums--}}
@@ -36,7 +36,7 @@
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="icon-settings font-dark"></i>
-                        <span class="caption-subject bold uppercase"> Appointment</span>
+                        <span class="caption-subject bold uppercase"> {{trans('admin/appointment.appointment_table')}}</span>
                     </div>
 
                 </div>
@@ -53,53 +53,45 @@
                                 </label>
                             </th>
                             <th>#</th>
-                            <th class="text-center"> name </th>
-                            <th class="text-center"> email </th>
-                            <th class="text-center">mobile number </th>
-                            <th class="text-center"> Seen </th>
-
-                            <th class="text-center"> Seen by </th>
+                            <th class="text-center"> {{trans('admin/appointment.name')}} </th>
+                            <th class="text-center"> {{trans('admin/appointment.email')}} </th>
+                            <th class="text-center">{{trans('admin/appointment.phone')}} </th>
+                            <th class="text-center"> {{trans('admin/appointment.seen')}} </th>
+                            <th class="text-center"> {{trans('admin/appointment.seen_by')}}</th>
+                            <th class="text-center">{{trans('admin/admins/index.actions')}}</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        @foreach($blogs as $blog)
+                        @foreach($appointments as $appointment)
                             <tr class="odd gradeX">
                                 <td>
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" name="checkbox[]" class="checkboxes sub_chk" value="{{$blog->id}}" data-id="{{$blog->id}}" />
+                                        <input type="checkbox" name="checkbox[]" class="checkboxes sub_chk" value="{{$appointment->id}}" data-id="{{$appointment->id}}" />
                                         <span></span>
                                     </label>
                                 </td>
                                 <td>{{$loop->iteration}}</td>
                                 <td class="text-center">
-                                    @foreach($blog->description as $description)
-
-                                        <div><a href="#"> {{$description->title}} </a></div>
-
-                                    @endforeach
+                                    <a href="{{route('appointments.show',$appointment->id)}}" title="{{trans('admin/services.edit')}}">{{$appointment->name}}</a>
                                 </td>
                                 <td class="text-center">
-                                    @foreach($blog->description as $description)
-
-                                        <div><a href="#"> {{$description->auther_name}} </a></div>
-
-                                    @endforeach
+                                    {{$appointment->email}}
                                 </td>
                                 <td class="text-center vcenter">
-                                    <span class="label label-sm label-{{$blog->home_page_status == 0 ? 'danger' : 'success'}}"> {{$blog->home_page_status == 0 ? 'inactive' : 'active'}} </span>
-
+                                    {{$appointment->phone}}
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-sm label-{{$blog->status == 0 ? 'danger' : 'success'}}"> {{$blog->status == 0 ? 'inactive' : 'active'}} </span>
+                                    <span class="label label-sm label-{{$appointment->seen == 0 ? 'danger' : 'success'}}"> {{$appointment->seen == 0 ? 'not seen yet' : 'seen'}} </span>
+                                </td>
+                                <td class="text-center">
+                                    appointment->admin->name
                                 </td>
                                 <td class="text-center vcenter">
-                                    <a href="{{route('blogs.edit',$blog->id)}}" title="{{trans('admin/services.edit')}}"><i class="fa fa-edit"></i></a>
-                                    {!! Form::open(['route' => ['blogs.destroy',$blog->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$blog->id]) !!}
-                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$blog->id}}" ).submit();' title="{{trans('admin/services.delete')}}"><i class="fa fa-trash"></i></a>
+                                    {!! Form::open(['route' => ['appointments.destroy',$appointment->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$appointment->id]) !!}
+                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$appointment->id}}" ).submit();' title="{{trans('admin/services.delete')}}"><i class="fa fa-trash"></i></a>
                                     {!! Form::close() !!}
                                 </td>
-
                             </tr>
                         @endforeach
                         </tbody>

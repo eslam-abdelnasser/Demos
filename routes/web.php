@@ -58,6 +58,9 @@ Route::group([
     Route::resource('/careers','Admin\CareerController');
     Route::delete('/careers','Admin\CareerController@destroyAll')->name('careers.destroy.all');
 
+    Route::resource('/appointments','Admin\AppointmentController');
+
+
 
     Route::get('/permissions', 'Admin\PermissionController@index')->name('permission.index');
     Route::get('/permissions/{permission_id}', 'Admin\PermissionController@edit')->name('permission.edit');
