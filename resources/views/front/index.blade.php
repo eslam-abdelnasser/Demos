@@ -728,84 +728,66 @@
         <div class="container pb-0">
             <div class="section-content">
                 <div class="row">
-                    <div class="col-md-4" data-wow-duration="1.4s">
-                        <img src="http://placehold.it/340x464" alt="">
-                    </div>
-                    <div class="col-md-8 wow fadeInRight mt-10" data-wow-duration="1.4s">
+
+                    <div class="col-md-12 wow fadeInRight mt-10" data-wow-duration="1.4s">
                         <h3 class="title line-bottom line-height-1 mt-0 mb-30">Make An <span class="text-theme-colored">Appointment!</span></h3>
-                        <!-- Contact Form -->
-                        <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group mb-20">
-                                        <input name="form_name" class="form-control" type="text" placeholder="Enter Name" required="">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group mb-20">
-                                        <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
-                                    </div>
+                        {!! Form::open(['route'=>'appointment.post' , 'method'=>'post','id'=>'make_appointment_home']) !!}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group mb-10">
+                                    <input name="name" class="form-control" type="text" required="" placeholder="Enter Name" aria-required="true">
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group mb-30">
-                                        <div class="styled-select">
-                                            <select id="car_select" name="car_select" class="form-control" required="">
-                                                <option value="">- Select Your Services -</option>
-                                                <option value="Orthopaedics">Orthopaedics</option>
-                                                <option value="Cardiology">Cardiology</option>
-                                                <option value="Neurology">Neurology</option>
-                                                <option value="Dental">Dental</option>
-                                                <option value="Haematology">Haematology</option>
-                                                <option value="Blood Test">Blood Test</option>
-                                                <option value="Emergency Care">Emergency Care</option>
-                                                <option value="Outdoor Checkup">Outdoor Checkup</option>
-                                                <option value="Cancer Service">Cancer Service</option>
-                                                <option value="Pharmacy">Pharmacy</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group mb-30">
-                                        <input name="reservation_date" class="form-control required date-picker" type="text" placeholder="Reservation Date" aria-required="true">
-                                    </div>
+                            <div class="col-sm-12">
+                                <div class="form-group mb-10">
+                                    <input name="email" class="form-control required email" type="email" placeholder="Enter Email" aria-required="true">
                                 </div>
                             </div>
-                            <div class="form-group mb-20">
-                                <textarea name="form_message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
+                            <div class="col-sm-12">
+                                <div class="form-group mb-10">
+                                    <input name="phone" class="form-control" type="text" placeholder="Enter Mobile number" aria-required="true">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input name="form_botcheck" class="form-control" type="hidden" value=""/>
-                                <button type="submit" class="btn btn-flat btn-theme-colored text-uppercase mt-0 mb-sm-30" data-loading-text="Please wait...">Send your message</button>
-                                <button type="reset" class="btn btn-flat btn-theme-colored text-uppercase mt-0 mb-sm-30">Reset</button>
+                            {{--<div class="col-sm-12">--}}
+                            {{--<div class="form-group mb-10">--}}
+                            {{--<input name="form_appontment_date" class="form-control required datetime-picker" type="text" placeholder="Appoinment Date & Time" aria-required="true">--}}
+                            {{--</div>--}}
+                            {{--</div>--}}
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label><strong>Clinic:</strong></label>
+                                    <select name="clinic" class="form-control" id="clinic_home" required>
+                                        <option value="">-- select one --</option>
+                                        @foreach($clinics as $clinic)
+                                            @foreach($clinic->description as $description)
+                                                @if(LaravelLocalization::getCurrentLocale() == $description->language->label )
+                                                    <option value="{{$clinic->id}}">{{$description->title}}</option>
+                                                @endif
+                                            @endforeach
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </form>
-                        <!-- Contact Form Validation-->
-                        <script type="text/javascript">
-                            $("#contact_form").validate({
-                                submitHandler: function(form) {
-                                    var form_btn = $(form).find('button[type="submit"]');
-                                    var form_result_div = '#form-result';
-                                    $(form_result_div).remove();
-                                    form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                                    var form_btn_old_msg = form_btn.html();
-                                    form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                                    $(form).ajaxSubmit({
-                                        dataType:  'json',
-                                        success: function(data) {
-                                            if( data.status == 'true' ) {
-                                                $(form).find('.form-control').val('');
-                                            }
-                                            form_btn.prop('disabled', false).html(form_btn_old_msg);
-                                            $(form_result_div).html(data.message).fadeIn('slow');
-                                            setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
-                                        }
-                                    });
-                                }
-                            });
-                        </script>
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label><strong>Doctor:</strong></label>
+                                    <select name="doctor" class="form-control" id="doctor_selection_home" required>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-10">
+                            <textarea id="form_message" name="message" class="form-control required"  placeholder="Enter Message" rows="5" aria-required="true"></textarea>
+                        </div>
+                        <div class="form-group mb-0 mt-20">
+                            <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                            <button type="submit" class="btn btn-dark btn-theme-colored" data-loading-text="Please wait...">Send Message</button>
+                        </div>
+                        {!! Form::close() !!}
+
                     </div>
                 </div>
             </div>
@@ -889,5 +871,51 @@
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
     {{--<script src="../assets/pages/scripts/portfolio-1.min.js" type="text/javascript"></script>--}}
     <script src="{{asset('admin-panel/'.LaravelLocalization::getCurrentLocale().'/assets/pages/scripts/portfolio-1.min.js')}}" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+
+        $(function () {
+
+            $("#clinic_home").change(function() {
+                $("#doctor_selection_home").html('');
+                var  data = "{{json_encode($clinics_doctors)}}";
+
+                var doctor_clinic = JSON.parse(data.replace(/&quot;/g,'"')) ;
+                var  clinic = $(this).val();
+                $.each(doctor_clinic, function (key, data) {
+                    $.each(data, function (index, data) {
+                        if(key == clinic){
+                            $("#doctor_selection_home").append('<option value="'+data.doctor_id+'">'+data.name +"</option>");
+                        }
+                    })
+                })
+
+
+            });
+
+
+
+
+            $('#make_appointment_home').submit(function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    type: $(this).attr('method'),
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function (data) {
+
+                        swal("Good job!", "You clicked the button!", "success");
+                    },
+                    error: function (data) {
+                        console.log('An error occurred.');
+                        console.log(data);
+                    },
+                });
+            });
+
+        });
+    </script>
 @endsection
 

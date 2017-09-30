@@ -144,41 +144,49 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                <h3 class="modal-title" id="lineModalLabel">My Modal</h3>
+                <h3 class="modal-title" id="lineModalLabel">Make appointment</h3>
             </div>
             <div class="modal-body">
 
                 <!-- content goes here -->
                 <!-- Booking Form Starts -->
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur elit.</p>
+                <p class="lead">Fill fields.</p>
                 <!-- Appointment Form -->
-                <form id="popup_appointment_form" name="popup_appointment_form" class="" method="post" action="{{route('admin.login')}}">
+                {{--<form id="popup_appointment_form" name="popup_appointment_form" class="" method="post" action="{{route('admin.login')}}">--}}
+                    {!! Form::open(['route'=>'appointment.post' , 'method'=>'post','id'=>'make_appointment']) !!}
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group mb-10">
-                                <input name="form_name" class="form-control" type="text" required="" placeholder="Enter Name" aria-required="true">
+                                <input name="name" class="form-control" type="text" required="" placeholder="Enter Name" aria-required="true">
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group mb-10">
-                                <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email" aria-required="true">
+                                <input name="email" class="form-control required email" type="email" placeholder="Enter Email" aria-required="true">
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group mb-10">
-                                <input name="form_appontment_date" class="form-control required datetime-picker" type="text" placeholder="Appoinment Date & Time" aria-required="true">
+                                <input name="phone" class="form-control" type="text" placeholder="Enter Mobile number" aria-required="true">
                             </div>
                         </div>
+                        {{--<div class="col-sm-12">--}}
+                            {{--<div class="form-group mb-10">--}}
+                                {{--<input name="form_appontment_date" class="form-control required datetime-picker" type="text" placeholder="Appoinment Date & Time" aria-required="true">--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label><strong>Clinic:</strong></label>
-                                <select name="booking_title" class="form-control" required>
+                                <select name="clinic" class="form-control" id="clinic" required>
                                     <option value="">-- select one --</option>
-                                    <option value="Mr">Mr.</option>
-                                    <option value="Mrs">Mrs.</option>
-                                    <option value="Ms">Ms.</option>
-                                    <option value="Mr & Mrs">Mr & Mrs.</option>
-                                    <option value="Dr">Dr.</option>
+                                    @foreach($clinics as $clinic)
+                                        @foreach($clinic->description as $description)
+                                        @if(LaravelLocalization::getCurrentLocale() == $description->language->label )
+                                    <option value="{{$clinic->id}}">{{$description->title}}</option>
+                                    @endif
+                                    @endforeach
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -186,27 +194,21 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label><strong>Doctor:</strong></label>
-                                <select name="booking_title" class="form-control" required>
-                                    <option value="">-- select one --</option>
-                                    <option value="Mr">Mr.</option>
-                                    <option value="Mrs">Mrs.</option>
-                                    <option value="Ms">Ms.</option>
-                                    <option value="Mr & Mrs">Mr & Mrs.</option>
-                                    <option value="Dr">Dr.</option>
+                                <select name="doctor" class="form-control" id="doctor_selection" required>
+
                                 </select>
                             </div>
                         </div>
                     </div>
 
                     <div class="form-group mb-10">
-                        <textarea id="form_message" name="form_message" class="form-control required"  placeholder="Enter Message" rows="5" aria-required="true"></textarea>
+                        <textarea id="form_message" name="message" class="form-control required"  placeholder="Enter Message" rows="5" aria-required="true"></textarea>
                     </div>
                     <div class="form-group mb-0 mt-20">
                         <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
                         <button type="submit" class="btn btn-dark btn-theme-colored" data-loading-text="Please wait...">Send Message</button>
                     </div>
-                </form>
-
+                {!! Form::close() !!}
             </div>
             <div class="modal-footer">
                 <div class="btn-group btn-group-justified" role="group" aria-label="group button">
@@ -251,7 +253,53 @@
 {{ Html::script('front/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js')}}
 {{--<script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>--}}
 {{ Html::script('front/js/revolution-slider/js/extensions/revolution.extension.video.min.js')}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+<script type="text/javascript">
+
+
+$(function () {
+
+    $("#clinic").change(function() {
+        $("#doctor_selection").html('');
+        var  data = "{{json_encode($clinics_doctors)}}";
+
+        var doctor_clinic = JSON.parse(data.replace(/&quot;/g,'"')) ;
+        var  clinic = $(this).val();
+        $.each(doctor_clinic, function (key, data) {
+            $.each(data, function (index, data) {
+                if(key == clinic){
+                $("#doctor_selection").append('<option value="'+data.doctor_id+'">'+data.name +"</option>");
+                }
+            })
+        })
+
+
+    });
+
+
+
+
+    $('#make_appointment').submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            type: $(this).attr('method'),
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            success: function (data) {
+
+                swal("Good job!", "You clicked the button!", "success");
+            },
+            error: function (data) {
+                console.log('An error occurred.');
+                console.log(data);
+            },
+        });
+    });
+
+});
+</script>
 @yield('js')
 </body>
 </html>

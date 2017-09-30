@@ -106,7 +106,7 @@ Route::group([
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale().'/',
-    'middleware' => ['localize'],
+    'middleware' => ['localize','clinics_doctors'],
 ], function () {
 
 
@@ -134,5 +134,9 @@ Route::group([
     Route::get('/careers/{slug}/details', 'DetailsController@career')->name('careers.details');
     Route::get('/services/{slug}/details', 'DetailsController@service')->name('services.details');
 
+
+    // make aapointment
+
+    Route::post('/appointment','AppointmentController@patient')->name('appointment.post');
 
 }) ;
