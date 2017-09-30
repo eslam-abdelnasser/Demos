@@ -410,6 +410,21 @@
             </li>
 
 
+            <li class="nav-item start">
+                <a href="{{route('appointments.index')}}" class="nav-link nav-toggle">
+                    <i class="icon-puzzle"></i>
+                    <span class="title"> {{trans('admin/appointment.appointments')}}</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item start">
+                <a href="{{route('contact-us.index')}}" class="nav-link nav-toggle">
+                    <i class="icon-puzzle"></i>
+                    <span class="title"> {{trans('admin/appointment.contact_us')}}</span>
+                </a>
+            </li>
+
 
             <li class="nav-item start">
                 <a href="{{route('admin.general.setting')}}" class="nav-link nav-toggle">
@@ -417,7 +432,7 @@
                     <span class="title"> {{trans('admin/partials/navigation.website_general_settings')}}</span>
 
                 </a>
-
+            </li>
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- END SIDEBAR MENU -->
