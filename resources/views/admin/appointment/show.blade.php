@@ -30,13 +30,14 @@
                     <br> {{trans('admin/appointment.doctor')}} :
                     @foreach($doctors as $doctor)
                         @if($doctor->language->label == LaravelLocalization::getCurrentLocale())
-                        {{$doctor->name}}
+                            <a href="{{route('doctors.show',$doctor->id)}}" title="{{trans('admin/services.edit')}}">{{$doctor->name}}</a>
+
                         @endif
                     @endforeach
                     <br> {{trans('admin/appointment.clinic')}} :
                     @foreach($clinics as $clinic)
                         @if($clinic->language->label == LaravelLocalization::getCurrentLocale())
-                            {{$clinic->title}}
+                            <a href="{{route('clinics.show',$clinic->id)}}" title="{{trans('admin/services.edit')}}">{{$clinic->title}}</a>
                         @endif
                     @endforeach
                     <br> </div>

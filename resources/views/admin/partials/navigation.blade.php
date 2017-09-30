@@ -420,7 +420,7 @@
             <li class="nav-item start">
                 <a href="{{route('contact-us.index')}}" class="nav-link nav-toggle">
                     <i class="icon-puzzle"></i>
-                    <span class="title"> Contact Us</span>
+                    <span class="title"> {{trans('admin/appointment.contact_us')}}</span>
                 </a>
             </li>
 
