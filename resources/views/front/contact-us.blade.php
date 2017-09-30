@@ -80,77 +80,78 @@
                 <div class="col-md-7">
                     <h4 class="mt-0 mt-sm-30 mb-30 line-bottom">Interested in discussing?</h4>
                     <!-- Contact Form -->
-                    <form id="contact_form" name="contact_form" class="" action="includes/sendmail.php" method="post">
+                    <form class="" action="{{route('contact.post')}}" method="post">
+    {!! csrf_field() !!}
 
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Name <small>*</small></label>
-                                    <input name="form_name" class="form-control" type="text" placeholder="Enter Name" required="">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Email <small>*</small></label>
-                                    <input name="form_email" class="form-control required email" type="email" placeholder="Enter Email">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Subject <small>*</small></label>
-                                    <input name="form_subject" class="form-control required" type="text" placeholder="Enter Subject">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Phone</label>
-                                    <input name="form_phone" class="form-control" type="text" placeholder="Enter Phone">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Message</label>
-                            <textarea name="form_message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input name="form_botcheck" class="form-control" type="hidden" value="" />
-                            <button type="submit" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px" data-loading-text="Please wait...">Send your message</button>
-                            <button type="reset" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px">Reset</button>
-                        </div>
-                    </form>
-
-                    <!-- Contact Form Validation-->
-                    <script type="text/javascript">
-                        $("#contact_form").validate({
-                            submitHandler: function(form) {
-                                var form_btn = $(form).find('button[type="submit"]');
-                                var form_result_div = '#form-result';
-                                $(form_result_div).remove();
-                                form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                                var form_btn_old_msg = form_btn.html();
-                                form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                                $(form).ajaxSubmit({
-                                    dataType:  'json',
-                                    success: function(data) {
-                                        if( data.status == 'true' ) {
-                                            $(form).find('.form-control').val('');
-                                        }
-                                        form_btn.prop('disabled', false).html(form_btn_old_msg);
-                                        $(form_result_div).html(data.message).fadeIn('slow');
-                                        setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
-                                    }
-                                });
-                            }
-                        });
-                    </script>
-                </div>
-            </div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Name <small>*</small></label>
+            <input name="name" class="form-control" type="text" placeholder="Enter Name" required="">
         </div>
-    </section>  </div>
-    <!-- end main-content -->
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Email <small>*</small></label>
+            <input name="email" class="form-control required email" type="email" placeholder="Enter Email">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Subject <small>*</small></label>
+            <input name="subject" class="form-control required" type="text" placeholder="Enter Subject">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>Phone</label>
+            <input name="phone" class="form-control" type="text" placeholder="Enter Phone">
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <label>Message</label>
+    <textarea name="message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
+</div>
+<div class="form-group">
+    <input name="form_botcheck" class="form-control" type="hidden" value="" />
+    <button type="submit" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px" data-loading-text="Please wait...">Send your message</button>
+    <button type="reset" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px">Reset</button>
+</div>
+</form>
+
+<!-- Contact Form Validation-->
+<script type="text/javascript">
+$("#contact_form").validate({
+    submitHandler: function(form) {
+        var form_btn = $(form).find('button[type="submit"]');
+        var form_result_div = '#form-result';
+        $(form_result_div).remove();
+        form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
+        var form_btn_old_msg = form_btn.html();
+        form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
+        $(form).ajaxSubmit({
+            dataType:  'json',
+            success: function(data) {
+                if( data.status == 'true' ) {
+                    $(form).find('.form-control').val('');
+                }
+                form_btn.prop('disabled', false).html(form_btn_old_msg);
+                $(form_result_div).html(data.message).fadeIn('slow');
+                setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
+            }
+        });
+    }
+});
+</script>
+</div>
+</div>
+</div>
+</section>  </div>
+<!-- end main-content -->
 
 
 @endsection
@@ -158,8 +159,8 @@
 
 @section('js')
 
-    <!-- JS | Custom script for all pages -->
-    <script src="{{asset('front/js/custom.js')}}"></script>
+<!-- JS | Custom script for all pages -->
+<script src="{{asset('front/js/custom.js')}}"></script>
 @endsection
 
 

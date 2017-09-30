@@ -6,19 +6,18 @@
                 <div class="col-md-3">
                     <div class="widget no-border m-0">
                         <ul class="styled-icons icon-dark icon-theme-colored icon-sm sm-text-center">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            @foreach($socials as $social)
+                                <li><a href="{{$social->url}}"><i class="fa fa-{{$social->icon}}"></i></a> </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="widget no-border m-0">
                         <ul class="list-inline pull-right flip sm-pull-none sm-text-center mt-5">
-                            <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-white"></i> <a class="text-white" href="#">123-456-789</a> </li>
+                            <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-white"></i> <a class="text-white" href="#">{{$setting->phone}}</a> </li>
                             <li class="text-white m-0 pl-10 pr-10"> <i class="fa fa-clock-o text-white"></i> Mon-Fri 8:00 to 2:00 </li>
-                            <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-white"></i> <a class="text-white" href="#">contact@yourdomain.com</a> </li>
+                            <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-white"></i> <a class="text-white" href="#">{{$setting->email}}</a> </li>
                             {{--  <li class="sm-display-block mt-sm-10 mb-sm-10">
                                  <!-- Modal: Appointment Starts -->
                                  <a class="bg-light p-5 text-theme-colored font-11 ajaxload-popup" href="{{asset('front/ajax-load/form-appointment.html')}}">Make an Appointment</a>

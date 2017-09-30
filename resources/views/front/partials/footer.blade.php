@@ -4,42 +4,36 @@
         <div class="row">
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark"> <img alt="" src="{{asset('front/images/logo-wide-white.png')}}">
-                    <p class="font-12 mt-10 mb-10">{{trans('footer.text')}}</p>
-                    <a class="btn btn-default btn-transparent btn-xs btn-flat mt-5" href="#">{{trans('labels.read-more')}}</a>
+                    @foreach($about_us->description as $description )
+                        @if(LaravelLocalization::getCurrentLocale() == $description->language->label )
+                    <p class="font-12 mt-10 mb-10">{!!  str_limit(strip_tags(html_entity_decode($description->description)),100) !!}</p>
+                        @endif
+                    @endforeach
+                    <a class="btn btn-default btn-transparent btn-xs btn-flat mt-5" href="{{route('about-us')}}">Read more</a>
                     <ul class="styled-icons icon-dark icon-theme-colored icon-circled icon-sm mt-20">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        @foreach($socials as $social)
+                            <li><a href="{{$social->url}}"><i class="fa fa-{{$social->icon}}"></i></a> </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <h5 class="widget-title line-bottom-theme-colored-2">{{trans('footer.latest-news')}}</h5>
+                    <h5 class="widget-title line-bottom-theme-colored-2">Latest blog</h5>
                     <div class="latest-posts">
+                        @foreach($blog as $singleBlog)
+                            @foreach($singleBlog->description  as $description)
+                                @if(LaravelLocalization::getCurrentLocale() == $description->language->label )
                         <article class="post media-post clearfix pb-0 mb-10">
-                            <a class="post-thumb" href="#"><img src="{{asset('front/images/footer/7.png')}}" alt=""></a>
+                            <a class="post-thumb" href="{{route('blog.details',$singleBlog->id)}}"><img src="{{asset('front/images/footer/7.png')}}" alt=""></a>
                             <div class="post-right">
-                                <h5 class="post-title mt-0 mb-5"><a href="#">{{trans('labels.title1')}}</a></h5>
+                                <h5 class="post-title mt-0 mb-5"><a href="{{route('blog.details',$singleBlog->id)}}">{{trans('labels.title1')}}</a></h5>
                                 <p class="post-date mb-0 font-12">Mar 08, 2015</p>
                             </div>
                         </article>
-                        <article class="post media-post clearfix pb-0 mb-10">
-                            <a class="post-thumb" href="#"><img src="{{asset('front/images/footer/8.png')}}" alt=""></a>
-                            <div class="post-right">
-                                <h5 class="post-title mt-0 mb-5"><a href="#">{{trans('labels.title2')}}s</a></h5>
-                                <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                            </div>
-                        </article>
-                        <article class="post media-post clearfix pb-0 mb-10">
-                            <a class="post-thumb" href="#"><img src="{{asset('front/images/footer/9.png')}}" alt=""></a>
-                            <div class="post-right">
-                                <h5 class="post-title mt-0 mb-5"><a href="#">{{trans('labels.title3')}}</a></h5>
-                                <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                            </div>
-                        </article>
+                                @endif
+                        @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -93,7 +87,7 @@
                     <div class="col-sm-12 col-sm-4">
                         <div class="each-widget"> <i class="pe-7s-phone font-36 mb-10"></i>
                             <h5 class="text-white">{{trans('footer.call-us')}}</h5>
-                            <p>Phone: <a href="#">+262 695 2601</a></p>
+                            <p>Phone: <a href="#">{{$setting->phone}}</a></p>
                         </div>
                     </div>
                     <div class="col-sm-12 col-sm-4 mt-sm-50">
@@ -105,7 +99,7 @@
                     <div class="col-sm-12 col-sm-4 mt-sm-50">
                         <div class="each-widget"> <i class="pe-7s-mail font-36 mb-10"></i>
                             <h5 class="text-white">{{trans('footer.email')}}</h5>
-                            <p><a href="#">you@yourdomain.com</a></p>
+                            <p><a href="#">{{$setting->email}}</a></p>
                         </div>
                     </div>
                 </div>
@@ -114,11 +108,10 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="list-inline styled-icons icon-hover-theme-colored icon-gray icon-circled text-center mt-30 mb-10">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
-                    <li><a href="#"><i class="fa fa-pinterest"></i></a> </li>
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a> </li>
-                    <li><a href="#"><i class="fa fa-youtube"></i></a> </li>
+
+                    @foreach($socials as $social)
+                    <li><a href="{{$social->url}}"><i class="fa fa-{{$social->icon}}"></i></a> </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

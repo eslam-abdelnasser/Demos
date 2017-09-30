@@ -125,7 +125,8 @@ Route::group([
     Route::get('/careers', 'ListController@career')->name('careers');
     Route::get('/services', 'ListController@service')->name('services');
     Route::get('/contact-us', 'ContactUsController@index')->name('contact-us');
-
+    Route::post('/contact-us-footer','ContactUsController@contactFooter')->name('contact-us-footer');
+    Route::post('/contact-us','ContactUsController@postMessage')->name('contact.post');
     Route::post('/contact-us-footer','ContactUsController@contactFooter')->name('contact-us-footer');
     Route::post('/contact-us','ContactUsController@postMessage')->name('contact.post');
 

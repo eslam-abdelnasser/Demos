@@ -5,8 +5,8 @@
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="Medikal - Health & Medical HTML Template" />
-    <meta name="keywords" content=" clinic, dental, doctor, health, hospital, medical, medical theme, medicine, therapy" />
+    <meta name="description" content="{{$setting->site_description}}" />
+    <meta name="keywords" content="{{$setting->site_keywords}}" />
     <meta name="author" content="ThemeMascot" />
 
     <!-- Page Title -->
@@ -125,19 +125,18 @@
         <div class="side-panel-widget mt-30">
             <div class="widget no-border">
                 <ul>
-                    <li class="font-14 mb-5"> <i class="fa fa-phone text-theme-colored"></i> <a href="#" class="text-gray">123-456-789</a> </li>
+                    <li class="font-14 mb-5"> <i class="fa fa-phone text-theme-colored"></i> <a href="#" class="text-gray">{{$setting->phone}}</a> </li>
                     <li class="font-14 mb-5"> <i class="fa fa-clock-o text-theme-colored"></i> Mon-Fri 8:00 to 2:00 </li>
-                    <li class="font-14 mb-5"> <i class="fa fa-envelope-o text-theme-colored"></i> <a href="#" class="text-gray">contact@yourdomain.com</a> </li>
+                    <li class="font-14 mb-5"> <i class="fa fa-envelope-o text-theme-colored"></i> <a href="#" class="text-gray">{{$setting->email}}</a> </li>
                 </ul>
             </div>
             <div class="widget">
                 <ul class="styled-icons icon-dark icon-theme-colored icon-sm">
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    @foreach($socials as $social)
+                        <li><a href="{{$social->url}}"><i class="fa fa-{{$social->icon}}"></i></a> </li>
+                    @endforeach
                 </ul>
             </div>
-            <p>Copyright &copy;2016 ThemeMascot</p>
         </div>
     </div>
 </div>

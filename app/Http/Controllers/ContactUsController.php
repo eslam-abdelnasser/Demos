@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\ContactEmails ;
 class ContactUsController extends Controller
 {
     //
@@ -22,7 +22,7 @@ class ContactUsController extends Controller
         $contact->message = $request->message ;
         $contact->phone_number = $request->phone ;
         $contact->email = $request->email;
-        $contact->seen = 0;
+        $contact->seen ='0';
         $contact->save();
         return redirect()->route('contact-us');
 
@@ -33,7 +33,7 @@ class ContactUsController extends Controller
         $contact = new ContactEmails();
         $contact->email = $request->email ;
         $contact->message = $request->message ;
-        $contact->seen = 0 ;
+        $contact->seen = '0' ;
         $contact->save() ;
         return redirect()->back();
 
