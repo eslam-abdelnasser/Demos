@@ -116,6 +116,7 @@
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
+                    @if(Auth::guard('admin')->user()->can('admins.index'))
                     <li class="nav-item start">
                         <a href="{{route('admins.index')}}" class="nav-link ">
                             <i class="icon-bar-chart"></i>
@@ -123,7 +124,7 @@
                             <span class="selected"></span>
                         </a>
                     </li>
-
+                    @endif
                     <li class="nav-item start">
                         <a href="{{route('roles.index')}}" class="nav-link ">
                             <i class="icon-bar-chart"></i>
