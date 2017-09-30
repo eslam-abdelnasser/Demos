@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Schema;
 use App\Models\AboutUs ;
 use App\Models\Social ;
 use App\Models\Blog ;
-use App\Models\Clinic ;
-use App\Models\Doctor ;
+
 use LaravelLocalization ;
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,10 +25,9 @@ class AppServiceProvider extends ServiceProvider
         $about_us = AboutUs::find(1);
         $general_setting= GeneralSetting::find(1);
 
+        $blog = Blog::where('status',1)->latest()->get()->take(3);
 
-//        dd($data);
-
-        return view()->share(['setting'=>$general_setting , 'about_us'=>$about_us,'social'=>$social]);
+        return view()->share(['setting'=>$general_setting , 'about_us'=>$about_us,'socials'=>$social,'blog'=>$blog]);
     }
 
     /**

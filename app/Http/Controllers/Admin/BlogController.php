@@ -78,6 +78,7 @@ class BlogController extends Controller
         // resize image using intervention
         Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'.$fileName);
         Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'.$fileName);
+        Image::make($dir . $fileName)->resize(80, 55)->save($dir.'80x55/'.$fileName);
         $blog->image_url = $fileName ;
         $blog->save();
 
@@ -168,7 +169,8 @@ class BlogController extends Controller
             $file->move($dir , $fileName);
             // resize image using intervention
             Image::make($dir . $fileName)->resize(540, 370)->save($dir.'540x370/'.$fileName);
-            Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280'.$fileName);
+            Image::make($dir . $fileName)->resize(1920, 1280)->save($dir.'1920x1280/'.$fileName);
+            Image::make($dir . $fileName)->resize(80, 55)->save($dir.'80x55/'.$fileName);
 
             $blog->image_url = $fileName ;
         }
