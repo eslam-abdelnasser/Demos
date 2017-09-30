@@ -64,7 +64,7 @@ class SliderController extends Controller
             $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
             $file->move($dir , $fileName);
 
-
+            Image::make($dir . $fileName)->resize(1920, 743)->save($dir.'1920x743/'.$fileName);
             $slider->slider_image = $fileName ;
         }
 
@@ -141,7 +141,7 @@ class SliderController extends Controller
             $file = $request->file('slider_image');
             $fileName =  str_random(6).'.'.$file->getClientOriginalExtension();
             $file->move($dir , $fileName);
-            Image::make($dir . $fileName)->resize(1920, 743)->save($dir .'image/'. $fileName);
+            Image::make($dir . $fileName)->resize(1920, 743)->save($dir.'1920x743/'.$fileName);
             $slider->slider_image = $fileName ;
 
 

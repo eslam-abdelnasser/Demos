@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'permission' => \Zizaco\Entrust\Middleware\EntrustPermission::class,
         'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
         'clinics_doctors' => \App\Http\Middleware\FetchClinicsDoctors::class ,
+        'appointments_notification' => \App\Http\Middleware\notificationPatient::class,
     ];
 }

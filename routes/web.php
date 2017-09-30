@@ -25,7 +25,7 @@ Auth::routes();
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale().'/dashboard',
-    'middleware' => ['localize','auth:admin'],
+    'middleware' => ['localize','auth:admin','appointments_notification'],
 ], function () {
 
     Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
