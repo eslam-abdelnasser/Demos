@@ -18,5 +18,11 @@ return [
     'message' => 'الرساله',
     'doctor'=>'اسم الطبيب',
     'clinic' => 'اسم العياده',
-    'appointment_details' => 'تفاصيل الموعد'
+    'appointment_details' => 'تفاصيل الموعد',
+
+
+    'contact-us' => 'تواصل معنا',
+    'contact-us-table' => 'جدول رسايل الموقع',
+    'contact-us-details' => 'تفاصيل الرساله',
+
 ];

@@ -19,4 +19,9 @@ return [
     'doctor'=>'Doctor',
     'clinic' => 'Clinic',
     'appointment_details' => 'Appointment Details',
+
+
+    'contact-us' => 'Contact US',
+    'contact-us-table' => 'Contact Us Table',
+    'contact-us-details' => 'Message Details',
 ];

@@ -1,6 +1,6 @@
 @extends('admin.layout')
 
-@section('title', trans('admin/appointment.appointments'))
+@section('title', trans('admin/appointment.contact-us'))
 
 {{-- start css --}}
 @section('css')
@@ -20,8 +20,7 @@
 {{-- Start Breadcums --}}
 
 @section('home','dashboard')
-@section('page_title',trans('admin/appointment.appointments'))
-
+@section('page_title',trans('admin/appointment.contact-us'))
 
 {{-- End Breadcums--}}
 
@@ -36,13 +35,19 @@
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="icon-settings font-dark"></i>
-                        <span class="caption-subject bold uppercase"> {{trans('admin/appointment.appointment_table')}}</span>
+                        <span class="caption-subject bold uppercase"> {{trans('admin/appointment.contact-us-table')}}</span>
                     </div>
 
                 </div>
                 <div class="portlet-body">
+                    <div class="table-toolbar">
+                        <div class="row">
 
-
+                        </div>
+                    </div>
+                    {!! Form::open(['route' => ['contact-us.destroy.all'] , 'method' => 'delete', 'id'=>'form-delete']) !!}
+                    <input type="hidden"  value="" name="items" id="items"/>
+                    {!! Form::close() !!}
                     <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
                         <thead>
                         <tr>
@@ -62,30 +67,32 @@
                         </thead>
                         <tbody>
 
-                        @foreach($appointments as $appointment)
+                        @foreach($messages as $message)
                             <tr class="odd gradeX">
                                 <td>
                                     <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                        <input type="checkbox" name="checkbox[]" class="checkboxes sub_chk" value="{{$appointment->id}}" data-id="{{$appointment->id}}" />
+                                        <input type="checkbox" name="checkbox[]" class="checkboxes sub_chk" value="{{$message->id}}" data-id="{{$message->id}}" />
                                         <span></span>
                                     </label>
                                 </td>
                                 <td>{{$loop->iteration}}</td>
+
                                 <td class="text-center">
-                                    <a href="{{route('appointments.show',$appointment->id)}}" title="{{trans('admin/services.edit')}}">{{$appointment->name}}</a>
+                                    <a href="{{route('contact-us.show',$message->id)}}" title="{{trans('admin/services.edit')}}">{{$message->name}}</a>
                                 </td>
                                 <td class="text-center">
-                                    {{$appointment->email}}
+                                    {{$message->email}}
                                 </td>
                                 <td class="text-center vcenter">
-                                    {{$appointment->phone}}
+                                    {{$message->phone_number}}
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-sm label-{{$appointment->seen == 0 ? 'danger' : 'success'}}"> {{$appointment->seen == 0 ? 'not seen yet' : 'seen'}} </span>
+                                    <span class="label label-sm label-{{$message->seen == 0 ? 'danger' : 'success'}}"> {{$message->seen == 0 ? 'not seen yet' : 'seen'}} </span>
                                 </td>
+
                                 <td class="text-center vcenter">
-                                    {!! Form::open(['route' => ['appointments.destroy',$appointment->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$appointment->id]) !!}
-                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$appointment->id}}" ).submit();' title="{{trans('admin/services.delete')}}"><i class="fa fa-trash"></i></a>
+                                    {!! Form::open(['route' => ['contact-us.destroy',$message->id] , 'method' => 'delete','style'=>'display: inline','id'=>'Form'.$message->id]) !!}
+                                    <a href="javascript:{}" onclick='document.getElementById("Form{{$message->id}}" ).submit();' title="{{trans('admin/services.delete')}}"><i class="fa fa-trash"></i></a>
                                     {!! Form::close() !!}
                                 </td>
                             </tr>

@@ -412,8 +412,15 @@
             <li class="nav-item start">
                 <a href="{{route('appointments.index')}}" class="nav-link nav-toggle">
                     <i class="icon-puzzle"></i>
-                    <span class="title"> Appointments</span>
+                    <span class="title"> {{trans('admin/appointment.appointments')}}</span>
+                </a>
+            </li>
 
+
+            <li class="nav-item start">
+                <a href="{{route('contact-us.index')}}" class="nav-link nav-toggle">
+                    <i class="icon-puzzle"></i>
+                    <span class="title"> Contact Us</span>
                 </a>
             </li>
 
