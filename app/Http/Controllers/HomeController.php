@@ -30,12 +30,12 @@ class HomeController extends Controller
     public function index()
     {
 
-        $sliders = Slider::where('status',1)->latest()->get()->take(3);
+        $sliders = Slider::where('status','1')->latest()->get()->take(3);
         $data = [];
         foreach ($sliders as $slider){
             $data[] = $slider ;
         }
-
+//        dd($data);
          $blog    = Blog::where(['status'=>'1','home_page_status'=>'1'])->get();
          $clinic  = Clinic::where(['status'=>'1','home_page_status'=>'1'])->get();
          $gallery = Gallery::where('status','=','1')->get();
