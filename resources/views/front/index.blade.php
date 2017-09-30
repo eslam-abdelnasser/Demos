@@ -1,6 +1,6 @@
 @extends('front.layout')
 
-@section('title','الرئيسية')
+@section('title',trans('front.home'))
 
 
 @if(LaravelLocalization::getCurrentLocale() == 'ar')
@@ -505,7 +505,7 @@
                             @if($description->language->label == LaravelLocalization::getCurrentLocale())
                         <h2 class="title font-42 text-theme-colored mt-30 mb-20">{{$description->title}}</h2>
                         {!! str_limit(html_entity_decode($description->description),200) !!}
-                        <a class="btn btn-colored btn-theme-colored btn-lg text-uppercase font-13 mt-30" href="{{route('about-us')}}">Read more</a>
+                        <a class="btn btn-colored btn-theme-colored btn-lg text-uppercase font-13 mt-30" href="{{route('about-us')}}">{{trans('front.read_more')}}</a>
                             @endif
                          @endforeach
                     </div>
@@ -525,7 +525,7 @@
             <div class="section-title text-center">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-uppercase mt-0 line-height-1">Services</h2>
+                        <h2 class="text-uppercase mt-0 line-height-1">{{trans('front.services')}}</h2>
                         <div class="title-icon">
                             <img class="mb-10" src="images/title-icon.png" alt="">
                         </div>
@@ -564,7 +564,7 @@
             <div class="section-title text-center">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-uppercase mt-0 line-height-1">Our Doctors</h2>
+                        <h2 class="text-uppercase mt-0 line-height-1">{{trans('front.our_doctors')}}</h2>
                         <div class="title-icon">
                             <img class="mb-10" src="images/title-icon.png" alt="">
                         </div>
@@ -613,7 +613,7 @@
             <div class="section-title text-center">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-uppercase mt-0 line-height-1">Clinics</h2>
+                        <h2 class="text-uppercase mt-0 line-height-1">{{trans('front.clinics')}}</h2>
                         <div class="title-icon">
                             <img class="mb-10" src="images/title-icon.png" alt="">
                         </div>
@@ -632,7 +632,7 @@
                             <div class="bg-white p-20">
                                 <h4 class="line-bottom text-uppercase font-weight-600 mt-0 mb-15">{{$description->title}}</h4>
                                 <p>{!! str_limit(html_entity_decode($description->description),100) !!}.</p>
-                                <a class="btn btn-theme-colored btn-sm btn-flat" href="{{route('clinics.details',$description->slug)}}">View Details</a>
+                                <a class="btn btn-theme-colored btn-sm btn-flat" href="{{route('clinics.details',$description->slug)}}">{{trans('front.view_larger')}}</a>
                             </div>
                         </div>
                     </div>
@@ -654,7 +654,7 @@
             <div class="section-title text-center">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-uppercase mt-0 line-height-1">Gallery</h2>
+                        <h2 class="text-uppercase mt-0 line-height-1">{{trans('front.gallery')}}</h2>
                         <div class="title-icon">
                             <img class="mb-10" src="images/title-icon.png" alt="">
                         </div>
@@ -735,17 +735,17 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group mb-10">
-                                    <input name="name" class="form-control" type="text" required="" placeholder="Enter Name" aria-required="true">
+                                    <input name="name" class="form-control" type="text" required="" placeholder="{{trans('front.name')}}" aria-required="true">
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group mb-10">
-                                    <input name="email" class="form-control required email" type="email" placeholder="Enter Email" aria-required="true">
+                                    <input name="email" class="form-control required email" type="email" placeholder="{{trans('front.mail')}}" aria-required="true">
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group mb-10">
-                                    <input name="phone" class="form-control" type="text" placeholder="Enter Mobile number" aria-required="true">
+                                    <input name="phone" class="form-control" type="text" placeholder="{{trans('front.phone')}}" aria-required="true">
                                 </div>
                             </div>
                             {{--<div class="col-sm-12">--}}
@@ -755,9 +755,9 @@
                             {{--</div>--}}
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label><strong>Clinic:</strong></label>
+                                    <label><strong>{{trans('front.clinics')}}:</strong></label>
                                     <select name="clinic" class="form-control" id="clinic_home" required>
-                                        <option value="">-- select one --</option>
+                                        <option value="">{{trans('front.select_one')}}</option>
                                         @foreach($clinics as $clinic)
                                             @foreach($clinic->description as $description)
                                                 @if(LaravelLocalization::getCurrentLocale() == $description->language->label )
@@ -771,7 +771,7 @@
 
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label><strong>Doctor:</strong></label>
+                                    <label><strong>{{trans('front.doctor')}}:</strong></label>
                                     <select name="doctor" class="form-control" id="doctor_selection_home" required>
 
                                     </select>
@@ -780,11 +780,11 @@
                         </div>
 
                         <div class="form-group mb-10">
-                            <textarea id="form_message" name="message" class="form-control required"  placeholder="Enter Message" rows="5" aria-required="true"></textarea>
+                            <textarea id="form_message" name="message" class="form-control required"  placeholder="{{trans('front.message')}}" rows="5" aria-required="true"></textarea>
                         </div>
                         <div class="form-group mb-0 mt-20">
                             <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
-                            <button type="submit" class="btn btn-dark btn-theme-colored" data-loading-text="Please wait...">Send Message</button>
+                            <button type="submit" class="btn btn-dark btn-theme-colored" data-loading-text="Please wait...">{{trans('front.send_message')}}</button>
                         </div>
                         {!! Form::close() !!}
 
@@ -806,7 +806,7 @@
             <div class="section-title text-center">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-uppercase mt-0 line-height-1">Blog</h2>
+                        <h2 class="text-uppercase mt-0 line-height-1">{{trans('front.blog')}}</h2>
                         <div class="title-icon">
                             <img class="mb-10" src="images/title-icon.png" alt="">
                         </div>

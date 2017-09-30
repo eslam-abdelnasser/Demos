@@ -14,11 +14,11 @@
             <div class="section-content">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h3 class="font-28">About us</h3></h2>
+                        <h3 class="font-28">{{trans('front.contact_us')}}</h3></h2>
                         <ol class="breadcrumb text-center text-black mt-10">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About us</a></li>
-                            <li class="active text-theme-colored">Page Title</li>
+                            <li><a href="#">{{trans('front.home')}}</a></li>
+                            <li><a href="{{route('contact-us.index')}}">{{trans('front.contact_us')}}</a></li>
+                            <li class="active text-theme-colored">{{trans('front.contact_us')}}</li>
                         </ol>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                     <script src="{{asset('front/js/google-map-init.js')}}"></script>
                 </div>
                 <div class="col-md-7">
-                    <h4 class="mt-0 mt-sm-30 mb-30 line-bottom">Interested in discussing?</h4>
+                    <h4 class="mt-0 mt-sm-30 mb-30 line-bottom">{{trans('front.contact_us')}}</h4>
                     <!-- Contact Form -->
                     <form class="" action="{{route('contact.post')}}" method="post">
     {!! csrf_field() !!}
@@ -86,40 +86,40 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">
-            <label>Name <small>*</small></label>
-            <input name="name" class="form-control" type="text" placeholder="Enter Name" required="">
+            <label>{{trans('front.name')}} <small>*</small></label>
+            <input name="name" class="form-control" type="text" placeholder="{{trans('front.name')}}" required="">
         </div>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
-            <label>Email <small>*</small></label>
-            <input name="email" class="form-control required email" type="email" placeholder="Enter Email">
+            <label>{{trans('front.mail')}} <small>*</small></label>
+            <input name="email" class="form-control required email" type="email" placeholder="{{trans('front.mail')}}">
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-6">
         <div class="form-group">
-            <label>Subject <small>*</small></label>
-            <input name="subject" class="form-control required" type="text" placeholder="Enter Subject">
+            <label>{{trans('front.subject')}}<small>*</small></label>
+            <input name="subject" class="form-control required" type="text" placeholder="{{trans('front.subject')}}">
         </div>
     </div>
     <div class="col-sm-6">
         <div class="form-group">
-            <label>Phone</label>
-            <input name="phone" class="form-control" type="text" placeholder="Enter Phone">
+            <label>{{trans('front.phone')}}</label>
+            <input name="phone" class="form-control" type="text" placeholder="{{trans('front.phone')}}">
         </div>
     </div>
 </div>
 
 <div class="form-group">
-    <label>Message</label>
-    <textarea name="message" class="form-control required" rows="5" placeholder="Enter Message"></textarea>
+    <label>{{trans('front.message')}}</label>
+    <textarea name="message" class="form-control required" rows="5" placeholder="{{trans('front.message')}}"></textarea>
 </div>
 <div class="form-group">
     <input name="form_botcheck" class="form-control" type="hidden" value="" />
-    <button type="submit" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px" data-loading-text="Please wait...">Send your message</button>
-    <button type="reset" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px">Reset</button>
+    <button type="submit" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px" data-loading-text="Please wait...">{{trans('front.send_message')}}</button>
+    <button type="reset" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px">{{trans('front.reset')}}</button>
 </div>
 </form>
 

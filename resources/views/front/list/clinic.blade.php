@@ -14,11 +14,11 @@
             <div class="section-content">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h3 class="font-28">Clinic</h3></h2>
+                        <h3 class="font-28">{{trans('front.clinics')}}</h3></h2>
                         <ol class="breadcrumb text-center text-black mt-10">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Clinic</a></li>
-                            <li class="active text-theme-colored">Page Title</li>
+                            <li><a href="#">{{trans('front.home')}}</a></li>
+                            <li><a href="{{route('clinics.index')}}">{{trans('front.clinics')}}</a></li>
+                            <li class="active text-theme-colored">{{trans('front.clinics')}}</li>
                         </ol>
                     </div>
                 </div>

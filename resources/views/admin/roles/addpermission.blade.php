@@ -24,7 +24,8 @@
     {{Form::open(['route' => ['role_permission.store',$role_id] , 'method' => 'post']) }}
         <div class="form-group">
             <div class="col-md-12">
-                @foreach($permissions as $permission)
+
+            @foreach($permissions as $permission)
                 <div class="mt-checkbox-inline col-md-3" >
 
 
@@ -48,6 +49,8 @@
 
 {{-- Start javascript --}}
 @section('js')
+
+
 
 @endsection
 

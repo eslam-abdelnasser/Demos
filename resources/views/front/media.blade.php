@@ -25,11 +25,11 @@
             <div class="section-content">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h3 class="font-28">Gallery</h3></h2>
+                        <h3 class="font-28">{{trans('front.gallery')}}</h3></h2>
                         <ol class="breadcrumb text-center text-black mt-10">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Gallery</a></li>
-                            <li class="active text-theme-colored">Page Title</li>
+                            <li><a href="#">{{trans('front.home')}}</a></li>
+                            <li><a href="{{route('galleries.index')}}">{{trans('front.gallery')}}</a></li>
+                            <li class="active text-theme-colored">{{trans('front.gallery')}}</li>
                         </ol>
                     </div>
                 </div>
@@ -44,11 +44,10 @@
             <div class="section-title text-center">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-uppercase mt-0 line-height-1">Gallery</h2>
+                        <h2 class="text-uppercase mt-0 line-height-1">{{trans('front.gallery')}}</h2>
                         <div class="title-icon">
                             <img class="mb-10" src="images/title-icon.png" alt="">
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem<br> voluptatem obcaecati!</p>
                     </div>
                 </div>
             </div>
