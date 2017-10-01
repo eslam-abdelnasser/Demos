@@ -27,7 +27,7 @@
                             <li class="sm-display-block mt-sm-10 mb-sm-10">
                                 <!-- Modal: Appointment Starts -->
 {{--                                <a class="bg-light p-5 text-theme-colored font-11 ajaxload-popup" href="{{asset('front/ajax-load/form-appointment.html')}}">Appointment</a>--}}
-                                <div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">Make Appointment</button></div>
+                                <div class="center"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-primary center-block">{{trans('front.make_appointment')}}</button></div>
                                 <!-- Modal: Appointment End -->
                             </li>
 
