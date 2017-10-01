@@ -1,6 +1,6 @@
 @extends('front.layout')
 
-@section('title','الرئيسية')
+@section('title',trans('front.blog'))
 
 
 
@@ -17,7 +17,7 @@
                         <h3 class="font-28">{{trans('front.blog')}}</h3></h2>
                         <ol class="breadcrumb text-center text-black mt-10">
                             <li><a href="#">{{trans('front.home')}}</a></li>
-                            <li><a href="{{route('blogs.index')}}">{{trans('front.blog')}}</a></li>
+                            <li><a href="{{route('blogs')}}">{{trans('front.blog')}}</a></li>
                             <li class="active text-theme-colored">{{trans('front.blog')}}</li>
                         </ol>
                     </div>

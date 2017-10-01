@@ -1,6 +1,6 @@
 @extends('front.layout')
 
-@section('title','الرئيسية')
+@section('title',trans('front.media'))
 
 
 @if(LaravelLocalization::getCurrentLocale() == 'ar')

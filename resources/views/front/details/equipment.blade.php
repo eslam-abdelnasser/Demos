@@ -1,6 +1,6 @@
 @extends('front.layout')
 
-@section('title','الرئيسية')
+@section('title',trans('front.medical_equipments'))
 
 
 
@@ -14,11 +14,11 @@
             <div class="section-content">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h3 class="font-28">Medical Equipment</h3></h2>
+                        <h3 class="font-28">{{trans('front.medical_equipments')}}</h3></h2>
                         <ol class="breadcrumb text-center text-black mt-10">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About us</a></li>
-                            <li class="active text-theme-colored">Page Title</li>
+                            <li><a href="#">{{trans('front.home')}}</a></li>
+                            <li><a href="{{route('medical-equipment')}}">{{trans('front.medical_equipments')}}</a></li>
+                            <li class="active text-theme-colored">{{trans('front.medical_equipments')}}</li>
                         </ol>
                     </div>
                 </div>
