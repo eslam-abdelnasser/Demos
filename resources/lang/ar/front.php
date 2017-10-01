@@ -34,5 +34,30 @@ return [
     'read_more' => 'قراءة المزيد',
     'subject' => 'الموضوع',
     'reset' => 'إعاده تعين',
+    'contact-us' => 'اتصل بنا',
+    'address' => 'العنوان',
+    'text' => ' <div class="col-sm-6 col-md-3">
+                <div class="widget dark">
+                    <h5 class="widget-title line-bottom-theme-colored-2">ساعات العمل</h5>
+                    <div class="opening-hours">
+                        <ul class="list list-border">
+                            <li class="clearfix"> <span><i class="fa fa-clock-o mr-5"></i> الاثنين - الثلاثاء :</span>
+                                <div class="value pull-right"> 9.00 صباحا - 10.00 مساءا </div>
+                            </li>
+                            <li class="clearfix"> <span class="text-theme-color-2"><i class="fa fa-clock-o mr-5"></i> الاريعاء - الخميس </span>
+                                <div class="value pull-right text-white"> 10.00 صباحا - 8.00 مساءا </div>
+                            </li>
+                            <li class="clearfix"> <span><i class="fa fa-clock-o mr-5"></i> السبت - الاثنين :</span>
+                                <div class="value pull-right"> 9.00 صباحا - 10.00 مساءا </div>
+                            </li>
+                            <li class="clearfix"> <span><i class="fa fa-clock-o mr-5"></i> الاحد :</span>
+                                <div class="value pull-right"> <span class="text-highlight bg-theme-colored text-white">مغلق</span>  </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>',
+
+    'make_appointment' => 'حجز موعد'
 
 ];

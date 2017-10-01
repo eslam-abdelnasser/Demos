@@ -25,10 +25,10 @@
                             @foreach($singleBlog->description  as $description)
                                 @if(LaravelLocalization::getCurrentLocale() == $description->language->label )
                         <article class="post media-post clearfix pb-0 mb-10">
-                            <a class="post-thumb" href="{{route('blog.details',$singleBlog->id)}}"><img src="{{asset('front/images/footer/7.png')}}" alt=""></a>
+                            <a class="post-thumb" href="{{route('blog.details',$singleBlog->id)}}"><img src="{{asset('uploads/blogs/80x55/'.$singleBlog->image_url)}}" alt=""></a>
                             <div class="post-right">
-                                <h5 class="post-title mt-0 mb-5"><a href="{{route('blog.details',$singleBlog->id)}}">{{trans('labels.title1')}}</a></h5>
-                                <p class="post-date mb-0 font-12">Mar 08, 2015</p>
+                                <h5 class="post-title mt-0 mb-5"><a href="{{route('blog.details',$singleBlog->id)}}">{{$description->title}}</a></h5>
+                                <p class="post-date mb-0 font-12">{{date("F j, Y",strtotime($singleBlog->created_at))}}</p>
                             </div>
                         </article>
                                 @endif
@@ -39,17 +39,18 @@
             </div>
             <div class="col-sm-6 col-md-3">
                 <div class="widget dark">
-                    <h5 class="widget-title line-bottom-theme-colored-2">{{trans('footer.contact-us')}}</h5>
-                    <form id="footer_quick_contact_form" name="footer_quick_contact_form" class="quick-contact-form" action="includes/quickcontact.php" method="post">
+                    <h5 class="widget-title line-bottom-theme-colored-2">{{trans('front.contact-us')}}</h5>
+                    <form  class="quick-contact-form" action="{{route('contact-us-footer')}}" method="post">
+                        {!! csrf_field() !!}
                         <div class="form-group">
-                            <input name="form_email" class="form-control" type="text" required="" placeholder="{{trans('labels.email')}}">
+                            <input name="email" class="form-control" type="text" required="" placeholder="{{trans('front.mail')}}">
                         </div>
                         <div class="form-group">
-                            <textarea name="form_message" class="form-control" required="" placeholder="{{trans('labels.Enter-Message')}}" rows="3"></textarea>
+                            <textarea name="message" class="form-control" required="" placeholder="{{trans('front.message')}}" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <input name="form_botcheck" class="form-control" type="hidden" value="" />
-                            <button type="submit" class="btn btn-default btn-transparent btn-xs btn-flat mt-0" data-loading-text="Please wait...">{{trans('labels.send')}}</button>
+                            <button type="submit" class="btn btn-default btn-transparent btn-xs btn-flat mt-0" data-loading-text="Please wait...">{{trans('front.send_message')}}</button>
                         </div>
                     </form>
 
@@ -79,26 +80,30 @@
                     </script>
                 </div>
             </div>
-            {!! trans('footer.opening-hours') !!}
+            {!! trans('front.text') !!}
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="horizontal-contact-widget mt-30 pt-30 text-center">
                     <div class="col-sm-12 col-sm-4">
                         <div class="each-widget"> <i class="pe-7s-phone font-36 mb-10"></i>
-                            <h5 class="text-white">{{trans('footer.call-us')}}</h5>
+                            <h5 class="text-white">{{trans('front.contact-us')}}</h5>
                             <p>Phone: <a href="#">{{$setting->phone}}</a></p>
                         </div>
                     </div>
                     <div class="col-sm-12 col-sm-4 mt-sm-50">
                         <div class="each-widget"> <i class="pe-7s-map font-36 mb-10"></i>
-                            <h5 class="text-white">{{trans('footer.address')}}</h5>
-                            <p>121 King Street, Australia</p>
+                            <h5 class="text-white">{{trans('front.address')}}</h5>
+                            @if(LaravelLocalization::getCurrentLocale() == 'ar' )
+                            <p>{{$setting->address_ar}}</p>
+                            @else
+                                <p>{{$setting->address_en}}</p>
+                            @endif
                         </div>
                     </div>
                     <div class="col-sm-12 col-sm-4 mt-sm-50">
                         <div class="each-widget"> <i class="pe-7s-mail font-36 mb-10"></i>
-                            <h5 class="text-white">{{trans('footer.email')}}</h5>
+                            <h5 class="text-white">{{trans('front.mail')}}</h5>
                             <p><a href="#">{{$setting->email}}</a></p>
                         </div>
                     </div>
