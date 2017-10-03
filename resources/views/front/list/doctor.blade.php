@@ -18,7 +18,6 @@
                         <ol class="breadcrumb text-center text-black mt-10">
                             <li><a href="#">{{trans('front.home')}}</a></li>
                             <li><a href="{{route('doctors')}}">{{trans('front.our_doctors')}}</a></li>
-                            <li class="active text-theme-colored">Page Title</li>
                         </ol>
                     </div>
                 </div>
@@ -34,11 +33,10 @@
             <div class="section-title text-center">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h2 class="text-uppercase mt-0 line-height-1">Our Doctors</h2>
+                        <h2 class="text-uppercase mt-0 line-height-1">{{trans('front.our_doctors')}}</h2>
                         <div class="title-icon">
                             <img class="mb-10" src="images/title-icon.png" alt="">
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem autem<br> voluptatem obcaecati!</p>
                     </div>
                 </div>
             </div>

@@ -15,5 +15,8 @@ return [
 
     'logout' => 'تسجيل الخروج.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'email' =>'البريد الإلكترونى',
+    'message' => 'الرساله',
+    'send' => 'أرسال',
+    'read' => 'اقرأ المزيد',
 ];

@@ -57,7 +57,11 @@ return [
                     </div>
                 </div>
             </div>',
-    'make_appointment' => 'Make Appointment'
+    'make_appointment' => 'Make Appointment',
+    'email' => 'Email',
+    'call-us' => 'Call Us',
+    'latest-news' => 'Latest News',
+    'opening-hours' => 'Opening Hours',
 
 
 

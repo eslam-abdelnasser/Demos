@@ -58,6 +58,10 @@ return [
                 </div>
             </div>',
 
-    'make_appointment' => 'حجز موعد'
+    'make_appointment' => 'حجز موعد',
+    'email' => 'البريد الإلكترونى',
+    'call_us' => 'اتصلوا بنا',
+    'latest_news' => 'اخر الأخبار',
+    'opening_hours' => 'مواعيد العمل',
 
 ];

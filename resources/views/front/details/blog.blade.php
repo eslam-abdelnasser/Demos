@@ -40,8 +40,8 @@
                                 <div class="entry-meta media no-bg no-border mt-15 pb-20">
                                     <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
                                         <ul>
-                                            <li class="font-16 text-white font-weight-600">28</li>
-                                            <li class="font-12 text-white text-uppercase">Feb</li>
+                                            <li class="font-16 text-white font-weight-600">{{ date('d' , strtotime($singleBlog->created_at)) }}</li>
+                                            <li class="font-12 text-white text-uppercase">{{ date('F' , strtotime($singleBlog->created_at)) }}</li>
                                         </ul>
                                     </div>
                                     <div class="media-body pl-15">

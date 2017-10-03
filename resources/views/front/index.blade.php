@@ -747,11 +747,7 @@
                                     <input name="phone" class="form-control" type="text" placeholder="{{trans('front.phone')}}" aria-required="true">
                                 </div>
                             </div>
-                            {{--<div class="col-sm-12">--}}
-                            {{--<div class="form-group mb-10">--}}
-                            {{--<input name="form_appontment_date" class="form-control required datetime-picker" type="text" placeholder="Appoinment Date & Time" aria-required="true">--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
+
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label><strong>{{trans('front.clinics')}}:</strong></label>

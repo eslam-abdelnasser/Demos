@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                                 <p class="mt-10">{!! strip_tags(str_limit(html_entity_decode($description->description,100))) !!}</p>
-                                <a href="{{route('blog.details',$description->slug)}}" class="btn-read-more">Read more</a>
+                                <a href="{{route('blog.details',$description->slug)}}" class="btn-read-more">{{trans('front.read_more')}}</a>
                                 <div class="clearfix"></div>
                             </div>
                         </article>
