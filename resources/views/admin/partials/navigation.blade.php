@@ -405,24 +405,24 @@
             </li>
 
 
-            @if(Auth::guard('admin')->user()->can('appointments.index'))
+            {{--@if(Auth::guard('admin')->user()->can('appointments.index'))--}}
             <li class="nav-item start">
                 <a href="{{route('appointments.index')}}" class="nav-link nav-toggle">
                     <i class="icon-puzzle"></i>
                     <span class="title"> {{trans('admin/appointment.appointments')}}</span>
                 </a>
             </li>
-            @endif
+            {{--@endif--}}
 
 
-            @if(Auth::guard('admin')->user()->can('contact-us.index'))
+            {{--@if(Auth::guard('admin')->user()->can('contact-us.index'))--}}
             <li class="nav-item start">
                 <a href="{{route('contact-us.index')}}" class="nav-link nav-toggle">
                     <i class="icon-puzzle"></i>
-                    <span class="title"> {{trans('admin/appointment.contact_us')}}</span>
+                    <span class="title"> {{trans('admin/appointment.contact-us')}}</span>
                 </a>
             </li>
-            @endif
+            {{--@endif--}}
 
 
             @if(Auth::guard('admin')->user()->can('admin.general.setting'))
